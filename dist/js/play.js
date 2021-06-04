@@ -59,7 +59,8 @@ function playBall(e) {
     console.log(keep);
 
     if (keep == true) {
-        bork.innerHTML = '<p>Doggo would like to keep the ball. Thank you! :) </p>'
+        bork.innerHTML = '<p>Doggo would like to keep the ball. Thank you! :) </p>';
+        //bork.style.bjork;
     } else {
         ball.style.left = movex + 'px ';
         ball.style.top = movey + 'px';

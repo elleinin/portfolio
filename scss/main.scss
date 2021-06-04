@@ -47,6 +47,9 @@ p {
 
 a {
     text-decoration: none;
+    &.spec-direc {
+        color: white;
+    }
     //color: white;
     // .card-icons {
     //     color: $pink-color;
@@ -92,17 +95,19 @@ header {
 
 main {
     //padding: 3rem;
-    min-height: calc(100vh - 30px);
+    min-height: 100vh;
     overflow: hidden; //no scrollbars
     //display: flex;
     //align-items: center;
     .card-line {
-        width: 50vw;
+        @include line;
         height: 3px;
-        margin: auto;
-        z-index: 3;
         background: $pink-color;
-        align-content: center;
+    }
+    .abt-line {
+        @include line;
+        height: 2px;
+        background: $teal;
     }
     .card-icons {
         margin-top: 1rem;
@@ -148,6 +153,7 @@ main {
 // A B O U T // 
 //------------------------------------------------------------
 #about {
+    //height: 100%;
     .wrapper {
         @include dualCard;
         display: grid;
@@ -165,8 +171,8 @@ main {
             align-items: center;
             padding: 3vh 3vw 3vh 3vw;
             border-radius: 30px;
-            &.bio-image {
-                margin-top: 20px;
+            .bio-image {
+                margin: 15px 0px 10px 0px;
             }
             & p {
                 //line-height: 16px;
@@ -187,6 +193,21 @@ main {
             gap: 2vh;
             text-align: center;
             // border-radius: 8%;
+            // & h2,
+            // .im-card-text {
+            //     height: 100%;
+            //     width: 100%;
+            //     //padding-top: 8.5vh; IF CENTERED
+            //     //padding-bottom: 0; IF CENTERED
+            //     padding-top: 20px;
+            //     background-color: rgba(darken($dark-blue, 5), $background-opacity);
+            //     border-radius: 30px;
+            //     opacity: 0;
+            //     &:hover {
+            //         opacity: 1;
+            //         @include easeOut;
+            //     }
+            // }
             .im-card {
                 grid-area: im;
                 background: url('../img/asset_3.png');
@@ -194,7 +215,6 @@ main {
                 background-repeat: no-repeat;
                 background-position-x: 4.5vw;
                 background-position-y: calc(50% + .8vh);
-                @include specCard;
             }
             .gd-card {
                 grid-area: gd;
@@ -203,7 +223,6 @@ main {
                 background-repeat: no-repeat;
                 background-position-x: 50%;
                 background-position-y: calc(50% - .5vh);
-                @include specCard;
             }
             .sa-card {
                 grid-area: il;
@@ -212,7 +231,14 @@ main {
                 background-repeat: no-repeat;
                 background-position-x: 50%;
                 background-position-y: calc(50% + 1vh);
+            }
+            .im-card,
+            .gd-card,
+            .sa-card {
                 @include specCard;
+                &-text {
+                    @include specText;
+                }
             }
         }
         .bio-image {
@@ -260,6 +286,9 @@ main {
             top: calc(100% - 25vh - 100px);
             z-index: 2;
         }
+        .bork {
+            transition: 1s;
+        }
     }
 }
 
@@ -297,12 +326,11 @@ main {
 //         border-bottom: $blue 5px solid;
 //     }
 // }
-#main-footer {
-    text-align: center;
-    padding: 1rem;
-    background: darken($dark-blue, 10);
-    color: set-text-color($dark-blue);
-    height: 3vh;
-}
-
+// #main-footer {
+//     text-align: center;
+//     padding: 1rem;
+//     background: darken($dark-blue, 10);
+//     color: set-text-color($dark-blue);
+//     height: 3vh;
+// }
 @import 'mobile'; //media query at the bottom because it should be run last

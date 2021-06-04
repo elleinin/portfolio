@@ -9,13 +9,18 @@ $show-home-image: true;
 $home-image: url(../img/bg_tiles.png);
 $background-opacity: 0.8;
 @mixin easeOut {
-    transition: all 1s;
+    transition: all 1s ease-out;
 }
 
-#d-blue {
-    background-color: $dark-blue;
+#abt-bg {
+    //background-color: $blue;
+    //height: 100%;
+    background-image: linear-gradient(to bottom right, $dark-blue, $blue, $pink-color);
 }
 
+// #d-blue {
+//     background-color: $dark-blue;
+// }
 @mixin background {
     @if $show-home-image {
         &#bg-img {
@@ -44,6 +49,7 @@ $background-opacity: 0.8;
     width: 80vw;
     height: 80vh;
     min-height: 250px;
+    //max-height: 550px;
     margin: 0 auto;
     position: fixed;
     left: 10vw;
@@ -58,8 +64,46 @@ $background-opacity: 0.8;
     display: flex;
     align-items: center;
     //text-align: center;
-    padding: 3vh 3vw 3vh 3vw;
+    //padding: 3vh 3vw 3vh 3vw;
     border-radius: 30px;
+}
+
+//LINE SETTINGS---------------------------------------------------------
+@mixin line {
+    width: 80%;
+    margin: auto;
+    z-index: 3;
+    align-content: center;
+}
+
+//TEXT SETTINGS---------------------------------------------------------
+@mixin specText {
+    height: 100%;
+    width: 100%;
+    //padding-top: 8.5vh; IF CENTERED
+    //padding-bottom: 0; IF CENTERED
+    padding: 20px 15px 0px 15px;
+    background-color: rgba(darken($dark-blue, 5), $background-opacity);
+    border-radius: 30px;
+    opacity: 0;
+    &:hover {
+        opacity: 1;
+        border: 3px solid $teal;
+        @include easeOut;
+    }
+}
+
+@keyframes bjork {
+    0% {
+        transform: rotate(10deg);
+        // visibility: visible;
+    }
+    50% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
 }
 
 //set text color
