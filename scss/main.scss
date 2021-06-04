@@ -23,27 +23,61 @@ h3 {
     margin: 0;
     &.card-title {
         font-size: 3rem;
-        text-align: center;
+        //text-align: center;
         //font-weight: 400;
     }
     &.card-subtitle {
         font-size: 1.5rem;
         font-weight: 400;
+        //max-width: 200px;
         margin-top: 7vh;
-        margin-left: 4px;
+        //text-align: center;
+        //margin-left: 4px;
     }
 }
 
 p {
     font-size: 11px;
-    &.card-text {
-        margin-left: 5px;
+    &.pinklight {
+        padding-top: 10px;
+        //padding-bottom: 10px;
+        color: $pink-color;
     }
 }
 
 a {
-    color: $pink-color;
     text-decoration: none;
+    //color: white;
+    // .card-icons {
+    //     color: $pink-color;
+    // }
+    // .abt-icons {
+    //     .fab {
+    //         color: white;
+    //     }
+    // }
+}
+
+//////////////////////////////////////////////FIX THIS
+.abt-icons {
+    .fab {
+        padding-right: 5px;
+        &:hover {
+            color: $teal;
+            @include easeOut;
+        }
+        color: white;
+    }
+}
+
+.card-icons {
+    .fab {
+        &:hover {
+            color: $blue;
+            @include easeOut;
+        }
+        color: $pink-color;
+    }
 }
 
 header {
@@ -119,9 +153,10 @@ main {
         display: grid;
         grid-template-areas: 'about spec';
         grid-template-columns: repeat(2, 1fr);
-        gap: 2vw;
+        gap: 3vw;
         .about-card {
             background-color: rgba(darken($dark-blue, 5), $background-opacity);
+            //background-color: $dark-blue;
             grid-area: about;
             width: 100%;
             height: 100%;
@@ -129,7 +164,18 @@ main {
             flex-direction: column;
             align-items: center;
             padding: 3vh 3vw 3vh 3vw;
-            border-radius: 8%;
+            border-radius: 30px;
+            &.bio-image {
+                margin-top: 20px;
+            }
+            & p {
+                //line-height: 16px;
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+            &.desc {
+                margin-bottom: 10px;
+            }
         }
         .specializations {
             grid-area: spec;
@@ -139,18 +185,33 @@ main {
             width: 100%;
             height: 100%;
             gap: 2vh;
-            align-content: stretch;
+            text-align: center;
             // border-radius: 8%;
             .im-card {
                 grid-area: im;
+                background: url('../img/asset_3.png');
+                background-size: 80%;
+                background-repeat: no-repeat;
+                background-position-x: 4.5vw;
+                background-position-y: calc(50% + .8vh);
                 @include specCard;
             }
             .gd-card {
                 grid-area: gd;
+                background: url('../img/asset_1.png');
+                background-size: 200%;
+                background-repeat: no-repeat;
+                background-position-x: 50%;
+                background-position-y: calc(50% - .5vh);
                 @include specCard;
             }
-            .il-card {
+            .sa-card {
                 grid-area: il;
+                background: url('../img/asset_2.png');
+                background-size: 58%;
+                background-repeat: no-repeat;
+                background-position-x: 50%;
+                background-position-y: calc(50% + 1vh);
                 @include specCard;
             }
         }

@@ -1,7 +1,8 @@
 //business card and flip
 .card {
     @include centerCard;
-    border-radius: 10px;
+    text-align: center;
+    border-radius: 30px;
     //border: 3px solid $blue;
     transition: 2s ease-out;
     &:hover {
@@ -20,6 +21,7 @@
         transition-delay: 1s;
         &.hidden {
             opacity: 0;
+            //transform: translateX(800px);
             @include easeOut;
             transition-delay: 0s;
             visibility: hidden;
@@ -29,21 +31,30 @@
 
 .card-nav {
     .nav-item {
-        //visibility: hidden;
+        visibility: hidden;
+        //animation-name: card-in;
         opacity: 0;
         &.show {
-            @include easeOut;
+            visibility: visible;
+            //opacity: 0;
+            //animation-name: cardIn;
+            transition-duration: 2s;
+            //@include easeOut;
             transition-delay: 1.5s;
             opacity: 1;
         }
     }
 }
 
-@keyframes card-in {
+@keyframes cardIn {
     0% {
-        opacity: 0
+        opacity: 0;
+        // visibility: visible;
+    }
+    50% {
+        opacity: 0.5;
     }
     100% {
-        opacity: 1
+        opacity: 1;
     }
 }
