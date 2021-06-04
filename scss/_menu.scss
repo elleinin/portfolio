@@ -18,7 +18,7 @@
             width: 28px;
             height: 3px;
             margin: 0 0 5px 0;
-            background: $blue;
+            background: $teal;
             @include easeOut();
         }
     }
@@ -68,7 +68,7 @@
     &-nav {
         margin: 0;
         padding: 0;
-        background: darken($primary-color, 5);
+        background: darken($dark-blue, 5);
         list-style: none;
         transform: translate3d(0, -100%, 0);
         @include easeOut;
@@ -78,7 +78,7 @@
         }
     }
     &-branding {
-        background: $primary-color;
+        background: $dark-blue;
         transform: translate3d(0, 100%, 0);
         @include easeOut;
         &.show {
@@ -108,10 +108,10 @@
         display: inline-block;
         position: relative;
         font-size: 20px;
-        text-transform: lowercase;
-        padding: 1re, 0;
+        text-transform: uppercase;
+        //padding: 1rem, 2rem;
         font-weight: 300;
-        color: set-text-color($primary-color);
+        color: set-text-color($dark-blue);
         text-decoration: none;
         @include easeOut;
         &:hover {

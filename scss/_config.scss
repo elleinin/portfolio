@@ -18,6 +18,17 @@ $background-opacity: 0.8;
     background-image: linear-gradient(to bottom right, $dark-blue, $blue, $pink-color);
 }
 
+#im-bg {
+    // background: url(../img/asset_3.png);
+    // position: fixed;
+    // background-size: 90vh;
+    // background-repeat: no-repeat;
+    // background-position-x: 53%;
+    // background-position-y: -5%;
+    background-color: $dark-blue;
+    //height: 100%;
+}
+
 // #d-blue {
 //     background-color: $dark-blue;
 // }
@@ -42,7 +53,7 @@ $background-opacity: 0.8;
     padding: 4vh 2vw 4vh 2vw;
     //background-color: rgba(darken($dark-blue, 5), $background-opacity);
     border-radius: 30px;
-    background-color: $dark-blue;
+    //background-color: $dark-blue;
 }
 
 @mixin dualCard {

@@ -1,0 +1,4 @@
+.oh-my {
+    @include centerCard;
+    background-image: linear-gradient(to right, rgba($blue, 0.8), rgba($pink-color, 0.8));
+}
