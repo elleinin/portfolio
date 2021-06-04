@@ -1,0 +1,247 @@
+@import 'config';
+@import 'card';
+// @import 'menu';
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include background;
+    background: $dark-blue;
+    color: set-text-color($dark-blue);
+    height: 100%;
+    margin: 0;
+    //font-family: 'Quando', serif;
+    font-family: 'Sen', sans-serif;
+    line-height: 1.5;
+}
+
+//headings
+h1,
+h2,
+h3 {
+    margin: 0;
+    &.card-title {
+        font-size: 3rem;
+        text-align: center;
+        //font-weight: 400;
+    }
+    &.card-subtitle {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-top: 7vh;
+        margin-left: 4px;
+    }
+}
+
+p {
+    font-size: 11px;
+    &.card-text {
+        margin-left: 5px;
+    }
+}
+
+a {
+    color: $pink-color;
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    z-index: 2; //bigger number = more front
+    width: 100%;
+}
+
+.text-secondary {
+    color: $blue; //everything not in header
+}
+
+main {
+    //padding: 3rem;
+    min-height: calc(100vh - 30px);
+    overflow: hidden; //no scrollbars
+    //display: flex;
+    //align-items: center;
+    .card-line {
+        width: 50vw;
+        height: 3px;
+        margin: auto;
+        z-index: 3;
+        background: $pink-color;
+        align-content: center;
+    }
+    .card-icons {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        a {
+            padding: 0rem 0.5rem 0.5rem 0.5rem;
+            &:hover {
+                color: $blue;
+                @include easeOut();
+            }
+        }
+    }
+    .card-nav {
+        width: 100%;
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-align: center;
+        list-style: none;
+        //margin: 0 auto;
+        position: fixed;
+        margin-top: 38vh;
+        //margin: 10vh 33vw 10vh 33vw;
+        .nav-link {
+            display: inline-block;
+            font-size: 20px;
+            padding: 1re, 0;
+            font-weight: 300;
+            color: white;
+            text-decoration: none;
+            @include easeOut;
+            &:hover {
+                color: $pink-color;
+            }
+        }
+    }
+    &#home,
+    &#about {
+        overflow: hidden;
+    }
+}
+
+//------------------------------------------------------------
+// A B O U T // 
+//------------------------------------------------------------
+#about {
+    .wrapper {
+        @include dualCard;
+        display: grid;
+        grid-template-areas: 'about spec';
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2vw;
+        .about-card {
+            background-color: rgba(darken($dark-blue, 5), $background-opacity);
+            grid-area: about;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3vh 3vw 3vh 3vw;
+            border-radius: 8%;
+        }
+        .specializations {
+            grid-area: spec;
+            display: grid;
+            grid-template-areas: 'im' 'gd' 'il';
+            grid-template-rows: repeat(3, 1fr);
+            width: 100%;
+            height: 100%;
+            gap: 2vh;
+            align-content: stretch;
+            // border-radius: 8%;
+            .im-card {
+                grid-area: im;
+                @include specCard;
+            }
+            .gd-card {
+                grid-area: gd;
+                @include specCard;
+            }
+            .il-card {
+                grid-area: il;
+                @include specCard;
+            }
+        }
+        .bio-image {
+            height: 88px;
+            width: 88px;
+            border-radius: 50%;
+            border: $teal 1px solid;
+        }
+    }
+}
+
+//------------------------------------------------------------
+// PLAYGROUND // 
+//------------------------------------------------------------
+#redirect {
+    .playground {
+        @include centerCard;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        h3 {
+            margin-bottom: 30px;
+        }
+        .beachball {
+            background-color: #fff;
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            border-radius: 50%;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+            z-index: 3;
+            transition: 1s;
+        }
+        .doggo {
+            // background: url('../img/asset_doggo.png');
+            width: 100px;
+            height: 100px;
+            // background-size: cover;
+            //background-color: darken($dark-blue, 5);
+            position: fixed;
+            left: calc(100% - 10vw - 100px);
+            top: calc(100% - 25vh - 100px);
+            z-index: 2;
+        }
+    }
+}
+
+// .about-info {
+//     display: grid;
+//     grid-gap: 3vw;
+//     grid-template-areas: 'bioimage bio bio' 'job1 job2 job3';
+//     grid-template-columns: repeat(3, 1fr);
+//     .bio-image {
+//         height: 100%;
+//         width: 100%;
+//         // background: url('../img/profile_pic.png');
+//         // background-size: contain;
+//         // background-repeat: no-repeat;
+//         grid-area: bioimage;
+//         margin: auto;
+//         border-radius: 50%;
+//         border: $blue 3px solid;
+//     }
+//     .bio {
+//         grid-area: bio;
+//     }
+//     .job-1 {
+//         grid-area: job1;
+//     }
+//     .job-2 {
+//         grid-area: job2;
+//     }
+//     .job-3 {
+//         grid-area: job3;
+//     }
+//     .job {
+//         background: lighten($dark-blue, 5);
+//         padding: 0.5;
+//         border-bottom: $blue 5px solid;
+//     }
+// }
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    background: darken($dark-blue, 10);
+    color: set-text-color($dark-blue);
+    height: 3vh;
+}
+
+@import 'mobile'; //media query at the bottom because it should be run last

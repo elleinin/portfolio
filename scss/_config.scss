@@ -1,0 +1,88 @@
+// _ should be placed before "partial" files
+//google font
+//variables
+$dark-blue: #152032; //#fff; //#152032; //a3bcdd
+$blue: #305fbe; //#152032 //ec7787 //
+$teal: #42ddf5;
+$pink-color: #ec7787;
+$show-home-image: true;
+$home-image: url(../img/bg_tiles.png);
+$background-opacity: 0.8;
+@mixin easeOut {
+    transition: all 1s;
+}
+
+@mixin background {
+    @if $show-home-image {
+        &#bg-img {
+            background: $home-image;
+            background-size: 33%;
+        }
+    }
+}
+
+//CARD SETTINGS
+@mixin centerCard {
+    width: 80vw;
+    height: 50vh;
+    min-height: 250px;
+    margin: 0 auto;
+    position: fixed;
+    left: 10vw;
+    top: 25vh;
+    padding: 4vh 2vw 4vh 2vw;
+    background-color: rgba(darken($dark-blue, 5), $background-opacity);
+}
+
+@mixin dualCard {
+    width: 80vw;
+    height: 80vh;
+    min-height: 250px;
+    margin: 0 auto;
+    position: fixed;
+    left: 10vw;
+    top: 10vh;
+    padding: 4vh 2vw 4vh 2vw;
+    //background-color: rgba(darken($dark-blue, 5), $background-opacity);
+}
+
+@mixin specCard {
+    background-color: rgba(darken($dark-blue, 5), $background-opacity);
+    padding: 3vh 3vw 3vh 3vw;
+    border-radius: 8%;
+}
+
+//set text color
+@function set-text-color($color) {
+    @if (lightness($color) > 40) {
+        @return #000;
+    }
+    @else {
+        @return #fff;
+    }
+}
+
+//media query mixins
+@mixin mediaSm {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin mediaMd {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mediaLg {
+    @media screen and (min-width: 769px) and (max-width: 1170px) {
+        @content;
+    }
+}
+
+@mixin mediaXL {
+    @media screen and (min-width: 1171px) {
+        @content;
+    }
+}
