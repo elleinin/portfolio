@@ -1,3 +1,6 @@
+#d-blue {
+  background-color: #152032; }
+
 .card {
   width: 80vw;
   height: 50vh;
@@ -7,8 +10,10 @@
   left: 10vw;
   top: 25vh;
   padding: 4vh 2vw 4vh 2vw;
-  background-color: rgba(13, 21, 32, 0.8);
-  border-radius: 10px;
+  border-radius: 30px;
+  background-color: #152032;
+  text-align: center;
+  border-radius: 30px;
   transition: 2s ease-out; }
   .card:hover {
     border: 3px solid #305fbe; }
@@ -25,15 +30,19 @@
       visibility: hidden; }
 
 .card-nav .nav-item {
+  visibility: hidden;
   opacity: 0; }
   .card-nav .nav-item.show {
-    transition: all 1s;
+    visibility: visible;
+    transition-duration: 2s;
     transition-delay: 1.5s;
     opacity: 1; }
 
-@keyframes card-in {
+@keyframes cardIn {
   0% {
     opacity: 0; }
+  50% {
+    opacity: 0.5; }
   100% {
     opacity: 1; } }
 
@@ -58,24 +67,35 @@ h3 {
   h1.card-title,
   h2.card-title,
   h3.card-title {
-    font-size: 3rem;
-    text-align: center; }
+    font-size: 3rem; }
   h1.card-subtitle,
   h2.card-subtitle,
   h3.card-subtitle {
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 7vh;
-    margin-left: 4px; }
+    margin-top: 7vh; }
 
 p {
   font-size: 11px; }
-  p.card-text {
-    margin-left: 5px; }
+  p.pinklight {
+    padding-top: 10px;
+    color: #ec7787; }
 
 a {
-  color: #ec7787;
   text-decoration: none; }
+
+.abt-icons .fab {
+  padding-right: 5px;
+  color: white; }
+  .abt-icons .fab:hover {
+    color: #42ddf5;
+    transition: all 1s; }
+
+.card-icons .fab {
+  color: #ec7787; }
+  .card-icons .fab:hover {
+    color: #305fbe;
+    transition: all 1s; }
 
 header {
   position: fixed;
@@ -136,7 +156,7 @@ main {
   display: grid;
   grid-template-areas: 'about spec';
   grid-template-columns: repeat(2, 1fr);
-  gap: 2vw; }
+  gap: 3vw; }
   #about .wrapper .about-card {
     background-color: rgba(13, 21, 32, 0.8);
     grid-area: about;
@@ -146,7 +166,14 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 3vh 3vw 3vh 3vw;
-    border-radius: 8%; }
+    border-radius: 30px; }
+    #about .wrapper .about-card.bio-image {
+      margin-top: 20px; }
+    #about .wrapper .about-card p {
+      margin-bottom: 5px;
+      margin-top: 5px; }
+    #about .wrapper .about-card.desc {
+      margin-bottom: 10px; }
   #about .wrapper .specializations {
     grid-area: spec;
     display: grid;
@@ -155,22 +182,43 @@ main {
     width: 100%;
     height: 100%;
     gap: 2vh;
-    align-content: stretch; }
+    text-align: center; }
     #about .wrapper .specializations .im-card {
       grid-area: im;
+      background: url("../img/asset_3.png");
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position-x: 4.5vw;
+      background-position-y: calc(50% + .8vh);
       background-color: rgba(13, 21, 32, 0.8);
+      display: flex;
+      align-items: center;
       padding: 3vh 3vw 3vh 3vw;
-      border-radius: 8%; }
+      border-radius: 30px; }
     #about .wrapper .specializations .gd-card {
       grid-area: gd;
+      background: url("../img/asset_1.png");
+      background-size: 200%;
+      background-repeat: no-repeat;
+      background-position-x: 50%;
+      background-position-y: calc(50% - .5vh);
       background-color: rgba(13, 21, 32, 0.8);
+      display: flex;
+      align-items: center;
       padding: 3vh 3vw 3vh 3vw;
-      border-radius: 8%; }
-    #about .wrapper .specializations .il-card {
+      border-radius: 30px; }
+    #about .wrapper .specializations .sa-card {
       grid-area: il;
+      background: url("../img/asset_2.png");
+      background-size: 58%;
+      background-repeat: no-repeat;
+      background-position-x: 50%;
+      background-position-y: calc(50% + 1vh);
       background-color: rgba(13, 21, 32, 0.8);
+      display: flex;
+      align-items: center;
       padding: 3vh 3vw 3vh 3vw;
-      border-radius: 8%; }
+      border-radius: 30px; }
   #about .wrapper .bio-image {
     height: 88px;
     width: 88px;
@@ -186,7 +234,8 @@ main {
   left: 10vw;
   top: 25vh;
   padding: 4vh 2vw 4vh 2vw;
-  background-color: rgba(13, 21, 32, 0.8);
+  border-radius: 30px;
+  background-color: #152032;
   display: flex;
   flex-direction: column;
   align-items: center;
