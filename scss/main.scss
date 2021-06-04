@@ -171,7 +171,7 @@ main {
             flex-direction: column;
             align-items: center;
             padding: 3vh 3vw 3vh 3vw;
-            border-radius: 30px;
+            border-radius: 10px;
             .bio-image {
                 margin: 15px 0px 10px 0px;
             }
@@ -257,6 +257,7 @@ main {
 #redirect {
     .playground {
         @include centerCard;
+        background-color: rgba(darken($dark-blue, 5), $background-opacity);
         display: flex;
         flex-direction: column;
         align-items: center;

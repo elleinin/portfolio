@@ -52,7 +52,7 @@ $background-opacity: 0.8;
     top: 25vh;
     padding: 4vh 2vw 4vh 2vw;
     //background-color: rgba(darken($dark-blue, 5), $background-opacity);
-    border-radius: 30px;
+    border-radius: 10px;
     //background-color: $dark-blue;
 }
 
@@ -76,7 +76,7 @@ $background-opacity: 0.8;
     align-items: center;
     //text-align: center;
     //padding: 3vh 3vw 3vh 3vw;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 //LINE SETTINGS---------------------------------------------------------
@@ -95,7 +95,7 @@ $background-opacity: 0.8;
     //padding-bottom: 0; IF CENTERED
     padding: 20px 15px 0px 15px;
     background-color: rgba(darken($dark-blue, 5), $background-opacity);
-    border-radius: 30px;
+    border-radius: 10px;
     opacity: 0;
     &:hover {
         opacity: 1;
