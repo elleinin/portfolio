@@ -1,3 +1,17 @@
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 3px; }
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ec7787; }
+
+*::-webkit-scrollbar-track {
+  background: #305fbe; }
+
+* {
+  scrollbar-width: 3px;
+  scrollbar-color: white #305fbe; }
+
 #abt-bg {
   background-image: linear-gradient(to bottom right, #152032, #305fbe, #ec7787); }
 
@@ -278,93 +292,217 @@ main {
   main#home, main#about {
     overflow: hidden; }
 
-#about .wrapper {
-  width: 80vw;
-  height: 80vh;
-  min-height: 250px;
-  margin: 0 auto;
-  position: fixed;
-  left: 10vw;
-  top: 10vh;
-  padding: 4vh 2vw 4vh 2vw;
-  display: grid;
-  grid-template-areas: 'about spec';
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3vw; }
-  #about .wrapper .about-card {
-    background-color: rgba(13, 21, 32, 0.8);
-    grid-area: about;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3vh 3vw 3vh 3vw;
-    border-radius: 10px; }
-    #about .wrapper .about-card .bio-image {
-      margin: 15px 0px 10px 0px; }
-    #about .wrapper .about-card p {
-      margin-bottom: 5px;
-      margin-top: 5px; }
-    #about .wrapper .about-card.desc {
-      margin-bottom: 10px; }
-  #about .wrapper .specializations {
-    grid-area: spec;
+#about {
+  width: 100%; }
+  #about .wrapper-main, #about .wrapper-im {
+    width: 70vw;
+    height: 70vh;
+    min-height: 380px;
+    margin: 0 auto;
+    position: fixed;
+    left: 15vw;
+    top: 15vh;
     display: grid;
-    grid-template-areas: 'im' 'gd' 'il';
-    grid-template-rows: repeat(3, 1fr);
-    width: 100%;
-    height: 100%;
-    gap: 2vh;
-    text-align: center; }
-    #about .wrapper .specializations .im-card {
-      grid-area: im;
-      background: url("../img/asset_3.png");
-      background-size: 80%;
-      background-repeat: no-repeat;
-      background-position-x: 4.5vw;
-      background-position-y: calc(50% + .8vh); }
-    #about .wrapper .specializations .gd-card {
-      grid-area: gd;
-      background: url("../img/asset_1.png");
-      background-size: 200%;
-      background-repeat: no-repeat;
-      background-position-x: 50%;
-      background-position-y: calc(50% - .5vh); }
-    #about .wrapper .specializations .sa-card {
-      grid-area: il;
-      background: url("../img/asset_2.png");
-      background-size: 58%;
-      background-repeat: no-repeat;
-      background-position-x: 50%;
-      background-position-y: calc(50% + 1vh); }
-    #about .wrapper .specializations .im-card,
-    #about .wrapper .specializations .gd-card,
-    #about .wrapper .specializations .sa-card {
-      background-color: rgba(13, 21, 32, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    transition: 1.5s ease-in-out;
+    min-height: 430px; }
+    #about .wrapper-main.show, #about .wrapper-im.show {
+      visibility: visible;
+      opacity: 1; }
+      #about .wrapper-main.show .specializations, #about .wrapper-im.show .specializations {
+        gap: 3vh; }
+    #about .wrapper-main h1, #about .wrapper-im h1 {
+      line-height: 38px; }
+  #about .wrapper-im {
+    background-color: rgba(13, 21, 32, 0.8);
+    border-radius: 10px;
+    grid-template-areas: 'desc info';
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vw;
+    padding: 6vh 3vw 4vh 3vw; }
+    #about .wrapper-im .im-icons {
+      size: 30px;
+      margin-left: 30px; }
+    #about .wrapper-im .eks {
+      position: fixed;
+      top: 5vh;
+      z-index: 3; }
+    #about .wrapper-im .gamepad {
       display: flex;
+      flex-direction: row; }
+      #about .wrapper-im .gamepad-direc {
+        font-weight: 700;
+        color: #305fbe;
+        font-size: 30vh;
+        margin-top: 7vh; }
+      #about .wrapper-im .gamepad-btn {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: #305fbe; }
+        #about .wrapper-im .gamepad-btn.a:hover, #about .wrapper-im .gamepad-btn.b:hover {
+          border: #42ddf5 1px solid;
+          transition: all 1s ease-out; }
+        #about .wrapper-im .gamepad-btn.a {
+          margin-left: 9vw;
+          margin-top: 14vh; }
+        #about .wrapper-im .gamepad-btn.b {
+          margin-left: 1vw;
+          margin-top: 7vh; }
+    #about .wrapper-im .im-desc {
+      grid-area: desc;
+      display: flex;
+      flex-direction: column; }
+      #about .wrapper-im .im-desc-icons {
+        background-color: #ec7787;
+        padding-left: 12%;
+        height: 66%;
+        width: 100%;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly; }
+        #about .wrapper-im .im-desc-icons i {
+          flex: 33%; }
+    #about .wrapper-im .im-info {
+      grid-area: info;
+      width: 100%; }
+      #about .wrapper-im .im-info-head, #about .wrapper-im .im-info-subhead {
+        text-align: right; }
+      #about .wrapper-im .im-info-subhead {
+        font-weight: 400; }
+      #about .wrapper-im .im-info p {
+        text-align: justify; }
+  #about .wrapper-main {
+    grid-template-areas: 'about spec';
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0vw; }
+    #about .wrapper-main h3 {
+      font-size: 1.2rem; }
+    #about .wrapper-main.show {
+      gap: 3vw; }
+    #about .wrapper-main .about-card {
+      background-color: rgba(13, 21, 32, 0.8);
+      padding: 3vh 3vw 3vh 3vw;
+      grid-area: about;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       border-radius: 10px; }
-      #about .wrapper .specializations .im-card-text,
-      #about .wrapper .specializations .gd-card-text,
-      #about .wrapper .specializations .sa-card-text {
-        height: 100%;
-        width: 100%;
-        padding: 20px 15px 0px 15px;
+      #about .wrapper-main .about-card .bio-image {
+        margin: 15px 0px 10px 0px; }
+      #about .wrapper-main .about-card p {
+        margin-bottom: 5px;
+        margin-top: 5px; }
+      #about .wrapper-main .about-card.desc {
+        margin-bottom: 10px; }
+    #about .wrapper-main .specializations {
+      grid-area: spec;
+      display: grid;
+      grid-template-areas: 'im' 'gd' 'il';
+      grid-template-rows: repeat(3, 1fr);
+      width: 100%;
+      height: 100%;
+      gap: 0vh;
+      text-align: center;
+      transition: 1.5s ease-in-out; }
+      #about .wrapper-main .specializations .im-card {
+        grid-area: im;
+        background: url("../img/asset_3.png");
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position-x: 4.5vw;
+        background-position-y: calc(50% + .8vh); }
+      #about .wrapper-main .specializations .gd-card {
+        grid-area: gd;
+        background: url("../img/asset_1.png");
+        background-size: 200%;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: calc(50% - .5vh); }
+      #about .wrapper-main .specializations .sa-card {
+        grid-area: il;
+        background: url("../img/asset_2.png");
+        background-size: 58%;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: calc(50% + 1vh); }
+      #about .wrapper-main .specializations .im-card,
+      #about .wrapper-main .specializations .gd-card,
+      #about .wrapper-main .specializations .sa-card {
         background-color: rgba(13, 21, 32, 0.8);
-        border-radius: 10px;
-        opacity: 0; }
-        #about .wrapper .specializations .im-card-text:hover,
-        #about .wrapper .specializations .gd-card-text:hover,
-        #about .wrapper .specializations .sa-card-text:hover {
-          opacity: 1;
-          border: 3px solid #42ddf5;
-          transition: all 1s ease-out; }
-  #about .wrapper .bio-image {
-    height: 88px;
-    width: 88px;
-    border-radius: 50%;
-    border: #42ddf5 1px solid; }
+        text-align: center;
+        border-radius: 10px; }
+        #about .wrapper-main .specializations .im-card-text,
+        #about .wrapper-main .specializations .gd-card-text,
+        #about .wrapper-main .specializations .sa-card-text {
+          width: 100%;
+          padding: 0px 10px 0px 10px;
+          border-radius: 10px;
+          opacity: 0; }
+          #about .wrapper-main .specializations .im-card-text h3,
+          #about .wrapper-main .specializations .gd-card-text h3,
+          #about .wrapper-main .specializations .sa-card-text h3 {
+            font-weight: 700;
+            font-size: 1rem; }
+        #about .wrapper-main .specializations .im-card .spec-card,
+        #about .wrapper-main .specializations .gd-card .spec-card,
+        #about .wrapper-main .specializations .sa-card .spec-card {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(13, 21, 32, 0.8);
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          justify-content: center;
+          border-radius: 10px;
+          opacity: 0; }
+          #about .wrapper-main .specializations .im-card .spec-card:hover,
+          #about .wrapper-main .specializations .gd-card .spec-card:hover,
+          #about .wrapper-main .specializations .sa-card .spec-card:hover {
+            opacity: 1;
+            border: 3px solid #42ddf5;
+            transition: all 1s ease-out; }
+            #about .wrapper-main .specializations .im-card .spec-card:hover .im-card-text,
+            #about .wrapper-main .specializations .im-card .spec-card:hover .gd-card-text,
+            #about .wrapper-main .specializations .im-card .spec-card:hover .sa-card-text,
+            #about .wrapper-main .specializations .gd-card .spec-card:hover .im-card-text,
+            #about .wrapper-main .specializations .gd-card .spec-card:hover .gd-card-text,
+            #about .wrapper-main .specializations .gd-card .spec-card:hover .sa-card-text,
+            #about .wrapper-main .specializations .sa-card .spec-card:hover .im-card-text,
+            #about .wrapper-main .specializations .sa-card .spec-card:hover .gd-card-text,
+            #about .wrapper-main .specializations .sa-card .spec-card:hover .sa-card-text {
+              opacity: 1; }
+    #about .wrapper-main .bio-image {
+      height: 88px;
+      width: 88px;
+      border-radius: 50%;
+      border: #42ddf5 1px solid; }
+  #about .im-tv {
+    position: sticky;
+    height: 33vh;
+    width: 30vw;
+    background-color: #152032;
+    border-radius: 10px;
+    z-index: 4;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease-out;
+    left: 66vw;
+    top: 60vh;
+    background-image: url(../img/asset_3.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center; }
+    #about .im-tv.show {
+      visibility: visible;
+      opacity: 1;
+      transition: all 1s ease-out; }
 
 #redirect .playground {
   width: 80vw;

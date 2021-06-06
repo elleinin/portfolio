@@ -154,100 +154,237 @@ main {
 // A B O U T // 
 //------------------------------------------------------------
 #about {
-    //height: 100%;
+    width: 100%;
     .wrapper {
-        @include dualCard;
-        display: grid;
-        grid-template-areas: 'about spec';
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3vw;
-        .about-card {
-            background-color: rgba(darken($dark-blue, 5), $background-opacity);
-            //background-color: $dark-blue;
-            grid-area: about;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 3vh 3vw 3vh 3vw;
-            border-radius: 10px;
-            .bio-image {
-                margin: 15px 0px 10px 0px;
+        &-main,
+        &-im {
+            @include dualCard;
+            //overflow: hidden;
+            display: grid;
+            visibility: hidden;
+            opacity: 0;
+            transition: 1.5s ease-in-out;
+            min-height: 430px;
+            &.show {
+                visibility: visible;
+                opacity: 1;
+                //gap: 3vw;
+                .specializations {
+                    gap: 3vh;
+                }
             }
-            & p {
-                //line-height: 16px;
-                margin-bottom: 5px;
-                margin-top: 5px;
-            }
-            &.desc {
-                margin-bottom: 10px;
+            h1 {
+                line-height: 38px;
             }
         }
-        .specializations {
-            grid-area: spec;
-            display: grid;
-            grid-template-areas: 'im' 'gd' 'il';
-            grid-template-rows: repeat(3, 1fr);
-            width: 100%;
-            height: 100%;
-            gap: 2vh;
-            text-align: center;
-            // border-radius: 8%;
-            // & h2,
-            // .im-card-text {
-            //     height: 100%;
-            //     width: 100%;
-            //     //padding-top: 8.5vh; IF CENTERED
-            //     //padding-bottom: 0; IF CENTERED
-            //     padding-top: 20px;
-            //     background-color: rgba(darken($dark-blue, 5), $background-opacity);
-            //     border-radius: 30px;
-            //     opacity: 0;
-            //     &:hover {
-            //         opacity: 1;
-            //         @include easeOut;
-            //     }
-            // }
-            .im-card {
-                grid-area: im;
-                background: url('../img/asset_3.png');
-                background-size: 80%;
-                background-repeat: no-repeat;
-                background-position-x: 4.5vw;
-                background-position-y: calc(50% + .8vh);
+        &-im {
+            background-color: rgba(darken($dark-blue, 5), $background-opacity);
+            border-radius: 10px;
+            grid-template-areas: 'desc info';
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5vw;
+            padding: 6vh 3vw 4vh 3vw;
+            //padding: 30px;
+            .im-icons {
+                size: 30px;
+                margin-left: 30px;
             }
-            .gd-card {
-                grid-area: gd;
-                background: url('../img/asset_1.png');
-                background-size: 200%;
-                background-repeat: no-repeat;
-                background-position-x: 50%;
-                background-position-y: calc(50% - .5vh);
+            .eks {
+                position: fixed;
+                //left: -10px;
+                top: 5vh;
+                z-index: 3;
             }
-            .sa-card {
-                grid-area: il;
-                background: url('../img/asset_2.png');
-                background-size: 58%;
-                background-repeat: no-repeat;
-                background-position-x: 50%;
-                background-position-y: calc(50% + 1vh);
+            .gamepad {
+                display: flex;
+                flex-direction: row;
+                &-direc {
+                    font-weight: 700;
+                    color: $blue;
+                    font-size: 30vh;
+                    margin-top: 7vh;
+                }
+                &-btn {
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    background-color: $blue;
+                    &.a,
+                    &.b {
+                        &:hover {
+                            border: $teal 1px solid;
+                            @include easeOut;
+                        }
+                    }
+                    &.a {
+                        margin-left: 9vw;
+                        margin-top: 14vh;
+                    }
+                    &.b {
+                        margin-left: 1vw;
+                        margin-top: 7vh;
+                    }
+                }
             }
-            .im-card,
-            .gd-card,
-            .sa-card {
-                @include specCard;
-                &-text {
-                    @include specText;
+            .im {
+                &-desc {
+                    grid-area: desc;
+                    display: flex;
+                    flex-direction: column;
+                    // contain: strict;
+                    &-icons {
+                        //display: inline;
+                        background-color: $pink-color;
+                        padding-left: 12%; // FIX CENTER ALLIGNMENT--------------------------
+                        height: 66%;
+                        width: 100%; //width: 100%; // overflow-wrap: ;
+                        border-radius: 20px;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        //align-content: stretch;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        //margin-bottom: 10px;
+                        // overflow-x: scroll;
+                        // overflow-y: hidden;
+                        // //flex-wrap: nowrap;
+                        // white-space: nowrap;
+                        & i {
+                            //display: inline-block;
+                            //padding: 10px 0px 10px 10px;
+                            flex: 33%;
+                        }
+                    }
+                }
+                &-info {
+                    grid-area: info;
+                    width: 100%;
+                    &-head,
+                    &-subhead {
+                        text-align: right;
+                    }
+                    &-subhead {
+                        font-weight: 400;
+                    }
+                    p {
+                        text-align: justify;
+                    }
                 }
             }
         }
-        .bio-image {
-            height: 88px;
-            width: 88px;
-            border-radius: 50%;
-            border: $teal 1px solid;
+        &-main {
+            grid-template-areas: 'about spec';
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0vw;
+            h3 {
+                font-size: 1.2rem;
+            }
+            //overflow: hidden;
+            &.show {
+                gap: 3vw;
+            }
+            .about-card {
+                background-color: rgba(darken($dark-blue, 5), $background-opacity);
+                padding: 3vh 3vw 3vh 3vw;
+                //background-color: $dark-blue;
+                grid-area: about;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 10px;
+                .bio-image {
+                    margin: 15px 0px 10px 0px;
+                }
+                & p {
+                    //line-height: 16px;
+                    margin-bottom: 5px;
+                    margin-top: 5px;
+                }
+                &.desc {
+                    margin-bottom: 10px;
+                }
+            }
+            .specializations {
+                grid-area: spec;
+                display: grid;
+                grid-template-areas: 'im' 'gd' 'il';
+                grid-template-rows: repeat(3, 1fr);
+                width: 100%;
+                height: 100%;
+                gap: 0vh;
+                text-align: center;
+                transition: 1.5s ease-in-out;
+                // border-radius: 8%;
+                // & h2,
+                // .im-card-text {
+                //     height: 100%;
+                //     width: 100%;
+                //     //padding-top: 8.5vh; IF CENTERED
+                //     //padding-bottom: 0; IF CENTERED
+                //     padding-top: 20px;
+                //     background-color: rgba(darken($dark-blue, 5), $background-opacity);
+                //     border-radius: 30px;
+                //     opacity: 0;
+                //     &:hover {
+                //         opacity: 1;
+                //         @include easeOut;
+                //     }
+                // }
+                .im-card {
+                    grid-area: im;
+                    background: url('../img/asset_3.png');
+                    background-size: 80%;
+                    background-repeat: no-repeat;
+                    background-position-x: 4.5vw;
+                    background-position-y: calc(50% + .8vh);
+                }
+                .gd-card {
+                    grid-area: gd;
+                    background: url('../img/asset_1.png');
+                    background-size: 200%;
+                    background-repeat: no-repeat;
+                    background-position-x: 50%;
+                    background-position-y: calc(50% - .5vh);
+                }
+                .sa-card {
+                    grid-area: il;
+                    background: url('../img/asset_2.png');
+                    background-size: 58%;
+                    background-repeat: no-repeat;
+                    background-position-x: 50%;
+                    background-position-y: calc(50% + 1vh);
+                }
+                .im-card,
+                .gd-card,
+                .sa-card {
+                    @include specCard;
+                    &-text {
+                        @include specText;
+                    }
+                    .spec-card {
+                        @include specOverlay;
+                    }
+                }
+            }
+            .bio-image {
+                height: 88px;
+                width: 88px;
+                border-radius: 50%;
+                border: $teal 1px solid;
+            }
         }
+    }
+    .im-tv {
+        @include tv;
+        left: 66vw;
+        top: 60vh;
+        background-image: url(../img/asset_3.png); //fix asset and then rotate on hover
+        background-repeat: no-repeat;
+        background-size: 70%;
+        background-position: center;
     }
 }
 
