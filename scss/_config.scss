@@ -139,12 +139,45 @@ $background-opacity: 0.8;
     }
 }
 
+@mixin led {
+    position: sticky;
+    height: 90%;
+    width: 90%;
+    margin: 15px 15px;
+    padding: 5px;
+    bottom: 40vh;
+    visibility: hidden;
+    opacity: 0;
+    //z-index: 2;
+    overflow: hidden;
+}
+
+@mixin show {
+    visibility: visible;
+    opacity: 1;
+    @include easeOut;
+}
+
 //LINE SETTINGS---------------------------------------------------------
 @mixin line {
     width: 80%;
     margin: auto;
     z-index: 3;
     align-content: center;
+}
+
+@mixin semiline {
+    width: 30%;
+    height: 3px;
+    z-index: 3;
+    align-content: left;
+}
+
+@mixin tab {
+    width: 100%;
+    height: 3vh;
+    z-index: 3;
+    background-color: $teal;
 }
 
 //TEXT SETTINGS---------------------------------------------------------
@@ -186,6 +219,19 @@ $background-opacity: 0.8;
     }
     100% {
         transform: rotate(10deg);
+    }
+}
+
+@keyframes spiral {
+    0% {
+        transform: rotate(0deg);
+        // visibility: visible;
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 

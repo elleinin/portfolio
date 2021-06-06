@@ -62,6 +62,11 @@ a {
     // }
 }
 
+.desc {
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
 //////////////////////////////////////////////FIX THIS
 .abt-icons {
     .fab {
@@ -156,6 +161,12 @@ main {
 #about {
     width: 100%;
     .wrapper {
+        .eks {
+            position: fixed;
+            //left: -10px;
+            top: 5vh;
+            z-index: 3;
+        }
         &-main,
         &-im {
             @include dualCard;
@@ -164,7 +175,7 @@ main {
             visibility: hidden;
             opacity: 0;
             transition: 1.5s ease-in-out;
-            min-height: 430px;
+            min-height: 410px;
             &.show {
                 visibility: visible;
                 opacity: 1;
@@ -174,7 +185,7 @@ main {
                 }
             }
             h1 {
-                line-height: 38px;
+                line-height: 2.125rem;
             }
         }
         &-im {
@@ -187,13 +198,7 @@ main {
             //padding: 30px;
             .im-icons {
                 size: 30px;
-                margin-left: 30px;
-            }
-            .eks {
-                position: fixed;
-                //left: -10px;
-                top: 5vh;
-                z-index: 3;
+                margin: auto;
             }
             .gamepad {
                 display: flex;
@@ -226,6 +231,14 @@ main {
                     }
                 }
             }
+            .gamescreen {
+                height: 66%;
+                max-height: 50vh;
+                width: 100%;
+                background-color: $blue;
+                border-radius: 20px;
+                //overflow: hidden;
+            }
             .im {
                 &-desc {
                     grid-area: desc;
@@ -234,17 +247,21 @@ main {
                     // contain: strict;
                     &-icons {
                         //display: inline;
-                        background-color: $pink-color;
-                        padding-left: 12%; // FIX CENTER ALLIGNMENT--------------------------
-                        height: 66%;
+                        //background-color: $blue;
+                        padding-left: 11%; // FIX CENTER ALLIGNMENT--------------------------
+                        height: 100%;
                         width: 100%; //width: 100%; // overflow-wrap: ;
-                        border-radius: 20px;
+                        // border-radius: 20px;
                         display: flex;
                         flex-direction: row;
                         flex-wrap: wrap;
                         //align-content: stretch;
                         align-items: center;
                         justify-content: space-evenly;
+                        visibility: hidden;
+                        opacity: 0;
+                        z-index: 1;
+                        @include easeOut;
                         //margin-bottom: 10px;
                         // overflow-x: scroll;
                         // overflow-y: hidden;
@@ -255,15 +272,52 @@ main {
                             //padding: 10px 0px 10px 10px;
                             flex: 33%;
                         }
+                        &.show {
+                            @include show;
+                        }
+                    }
+                    &-web {
+                        @include led;
+                        .semiline {
+                            @include semiline;
+                            background-color: $teal;
+                        }
+                        p {
+                            padding-right: 10px;
+                        }
+                        @include easeOut;
+                        &.show {
+                            @include show;
+                            overflow-y: scroll;
+                            //overflow-x: hidden;
+                        }
+                    }
+                    &-gd {
+                        @include led;
+                        .semiline {
+                            @include semiline;
+                            background-color: $teal;
+                        }
+                        p {
+                            padding-right: 10px;
+                        }
+                        @include easeOut;
+                        &.show {
+                            @include show;
+                            overflow-y: scroll;
+                            //overflow-x: hidden;
+                        }
                     }
                 }
                 &-info {
                     grid-area: info;
                     width: 100%;
-                    &-head,
-                    &-subhead {
-                        text-align: right;
+                    &-head {
+                        margin-bottom: 5px;
                     }
+                    // &-subhead {
+                    //     text-align: right;
+                    // }
                     &-subhead {
                         font-weight: 400;
                     }
@@ -338,24 +392,27 @@ main {
                     background: url('../img/asset_3.png');
                     background-size: 80%;
                     background-repeat: no-repeat;
-                    background-position-x: 4.5vw;
-                    background-position-y: calc(50% + .8vh);
+                    background-position: center;
+                    // background-position-x: 4.5vw;
+                    // background-position-y: calc(50% + .8vh);
                 }
                 .gd-card {
                     grid-area: gd;
                     background: url('../img/asset_1.png');
                     background-size: 200%;
                     background-repeat: no-repeat;
-                    background-position-x: 50%;
-                    background-position-y: calc(50% - .5vh);
+                    background-position: center;
+                    // background-position-x: 50%;
+                    // background-position-y: calc(50% - .5vh);
                 }
                 .sa-card {
                     grid-area: il;
                     background: url('../img/asset_2.png');
-                    background-size: 58%;
+                    background-size: 70%;
                     background-repeat: no-repeat;
-                    background-position-x: 50%;
-                    background-position-y: calc(50% + 1vh);
+                    background-position: center;
+                    // background-position-x: 50%;
+                    // background-position-y: calc(50% + 1vh);
                 }
                 .im-card,
                 .gd-card,
@@ -381,10 +438,50 @@ main {
         @include tv;
         left: 66vw;
         top: 60vh;
-        background-image: url(../img/asset_3.png); //fix asset and then rotate on hover
-        background-repeat: no-repeat;
-        background-size: 70%;
-        background-position: center;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        //align-content: center;
+        //justify-content: center;
+        // background-image: url(../img/asset_3.png); //fix asset and then rotate on hover
+        // background-repeat: no-repeat;
+        // background-size: 70%;
+        // background-position: center;
+        .tab {
+            @include tab;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            p {
+                color: $blue;
+                font-size: 1rem;
+                font-weight: 700;
+                //margin: auto;
+                margin-right: 8px;
+                // margin-bottom: 
+                align-self: flex-end;
+            }
+            &:hover {
+                border: $pink-color 1px solid;
+                p {
+                    color: $pink-color;
+                }
+                @include easeOut;
+            }
+        }
+        img {
+            position: absolute;
+            height: 103%;
+            align-self: center;
+            z-index: 1;
+            &:hover {
+                animation-name: spiral;
+                animation-duration: 5s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+        }
     }
 }
 
