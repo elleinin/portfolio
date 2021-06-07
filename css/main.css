@@ -62,16 +62,21 @@
       transition-delay: 0s;
       visibility: hidden; }
 
-.card-nav .nav-item {
-  visibility: hidden;
-  opacity: 0; }
-  .card-nav .nav-item.show {
-    visibility: visible;
-    transition-duration: 2s;
-    transition-delay: 1.5s;
-    opacity: 1; }
-  .card-nav .nav-item .nav-link.current {
-    color: #ec7787; }
+.card-nav {
+  visibility: hidden; }
+  .card-nav.show {
+    visibility: visible; }
+  .card-nav .nav-item {
+    opacity: 0;
+    transition: all 1s ease-out; }
+    .card-nav .nav-item.show {
+      visibility: visible;
+      transition-duration: 2s;
+      transition: all 1s ease-out;
+      transition-delay: 1.5s;
+      opacity: 1; }
+    .card-nav .nav-item .nav-link.current {
+      color: #ec7787; }
 
 @keyframes cardIn {
   0% {
@@ -95,7 +100,7 @@
 
 .menu-btn {
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   right: 35px;
   top: 35px;
   cursor: pointer;
@@ -128,7 +133,8 @@
   top: 0;
   width: 100%;
   opacity: 0.9;
-  visibility: hidden; }
+  visibility: hidden;
+  z-index: 4; }
   .menu.show {
     visibility: visible; }
   .menu-branding, .menu-nav {
@@ -193,6 +199,125 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
+@media screen and (max-width: 500px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2.5rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 8%; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
+  #about .about-card {
+    overflow: hidden; }
+    #about .about-card .button {
+      visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
+  #about .cred {
+    font-size: 1rem; }
+  #about .im-card,
+  #about .gd-card,
+  #about .sa-card {
+    visibility: hidden; }
+  #about .about-card {
+    max-width: 70%;
+    position: fixed;
+    overflow-y: scroll;
+    background-color: #152032;
+    z-index: 2; }
+    #about .about-card img {
+      visibility: hidden; }
+    #about .about-card .bio {
+      position: absolute;
+      padding: 8px; }
+    #about .about-card .buttons {
+      margin-top: 20vh; }
+    #about .about-card .disclaimer {
+      visibility: visible; }
+    #about .about-card:hover {
+      visibility: hidden; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 70vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 18px; }
+  .menu-branding {
+    height: 30vh;
+    transform: translate3d(100%, 0, 0); }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 15%; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
+  #about .about-card {
+    overflow: hidden; }
+    #about .about-card .button {
+      visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
+  #about .cred {
+    font-size: .75rem; }
+  #about .gamepad {
+    width: 330px; }
+  #about .a {
+    height: 110px; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 70vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 18px; }
+  .menu-branding {
+    height: 30vh;
+    transform: translate3d(100%, 0, 0); }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
 * {
   box-sizing: border-box; }
 
@@ -220,7 +345,7 @@ h3 {
   h3.card-subtitle {
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 7vh; }
+    margin-top: 6.5vh; }
 
 p {
   font-size: 11px; }
@@ -284,13 +409,24 @@ main {
         color: #305fbe;
         transition: all 1s ease-out; }
   main .card-nav {
-    width: 100%;
+    width: 80vw;
+    height: 50vh;
+    min-height: 250px;
+    margin: 0 auto;
+    position: fixed;
+    left: 10vw;
+    top: 25vh;
+    padding: 4vh 2vw 4vh 2vw;
+    border-radius: 10px;
     font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
     font-size: 1.5rem;
     text-align: center;
     list-style: none;
-    position: fixed;
-    margin-top: 38vh; }
+    transition: all 1s ease-out; }
     main .card-nav .nav-link {
       display: inline-block;
       font-size: 20px;
@@ -341,30 +477,57 @@ main {
       size: 30px;
       margin: auto; }
     #about .wrapper-im .gamepad {
-      display: flex;
-      flex-direction: row; }
-      #about .wrapper-im .gamepad-direc {
-        font-weight: 700;
-        color: #305fbe;
-        font-size: 30vh;
-        margin-top: 7vh; }
+      display: grid;
+      grid-template-areas: 'direc direc b a';
+      grid-template-columns: repeat(4, 1fr); }
+      #about .wrapper-im .gamepad .directional {
+        grid-area: direc; }
       #about .wrapper-im .gamepad-btn {
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
         background-color: #305fbe; }
-        #about .wrapper-im .gamepad-btn.a:hover, #about .wrapper-im .gamepad-btn.b:hover {
+        #about .wrapper-im .gamepad-btn:hover {
           border: #42ddf5 1px solid;
           transition: all 1s ease-out; }
+        #about .wrapper-im .gamepad-btn.a, #about .wrapper-im .gamepad-btn.b {
+          display: flex;
+          height: 38px;
+          width: 38px;
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center; }
+        #about .wrapper-im .gamepad-btn.left, #about .wrapper-im .gamepad-btn.right, #about .wrapper-im .gamepad-btn.up, #about .wrapper-im .gamepad-btn.down {
+          position: absolute; }
+        #about .wrapper-im .gamepad-btn.up {
+          transform: translate(55px, 20px);
+          height: 45px;
+          width: 30px;
+          border-radius: 10% 10% 50% 50%; }
+        #about .wrapper-im .gamepad-btn.down {
+          height: 45px;
+          width: 30px;
+          transform: translate(55px, 80px);
+          border-radius: 50% 50% 10% 10%; }
+        #about .wrapper-im .gamepad-btn.left {
+          height: 30px;
+          width: 45px;
+          transform: translate(10px, 60px);
+          border-radius: 10% 50% 50% 10%; }
+        #about .wrapper-im .gamepad-btn.right {
+          height: 30px;
+          width: 45px;
+          transform: translate(85px, 60px);
+          border-radius: 50% 10% 10% 50%; }
         #about .wrapper-im .gamepad-btn.a {
-          margin-left: 9vw;
-          margin-top: 14vh; }
+          grid-area: a;
+          margin-left: 20%;
+          margin-top: 38%; }
         #about .wrapper-im .gamepad-btn.b {
-          margin-left: 1vw;
-          margin-top: 7vh; }
+          grid-area: b;
+          margin-left: 50%;
+          margin-top: 80%; }
     #about .wrapper-im .gamescreen {
       height: 66%;
-      max-height: 50vh;
+      min-height: 200px;
+      max-height: 40vh;
       width: 100%;
       background-color: #305fbe;
       border-radius: 20px; }
@@ -373,35 +536,75 @@ main {
       display: flex;
       flex-direction: column; }
       #about .wrapper-im .im-desc-icons {
-        padding-left: 11%;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 1;
-        transition: all 1s ease-out; }
-        #about .wrapper-im .im-desc-icons i {
-          flex: 33%; }
-        #about .wrapper-im .im-desc-icons.show {
-          visibility: visible;
-          opacity: 1;
-          transition: all 1s ease-out; }
-      #about .wrapper-im .im-desc-web {
         position: sticky;
         height: 90%;
         width: 90%;
+        min-height: 200px;
+        max-height: 40vh;
+        background-color: #305fbe;
         margin: 15px 15px;
-        padding: 5px;
-        bottom: 40vh;
+        bottom: 42vh;
         visibility: hidden;
         opacity: 0;
         overflow: hidden;
         transition: all 1s ease-out; }
+        #about .wrapper-im .im-desc-icons .semiline {
+          width: 30%;
+          height: 3px;
+          z-index: 3;
+          align-content: left;
+          background-color: #42ddf5; }
+        #about .wrapper-im .im-desc-icons .tools {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          align-content: center; }
+          #about .wrapper-im .im-desc-icons .tools i {
+            margin-top: 30px; }
+        #about .wrapper-im .im-desc-icons.show {
+          visibility: visible;
+          opacity: 1;
+          overflow-y: scroll; }
+      #about .wrapper-im .im-desc-start {
+        position: sticky;
+        height: 90%;
+        width: 90%;
+        min-height: 200px;
+        max-height: 40vh;
+        background-color: #305fbe;
+        margin: 15px 15px;
+        bottom: 42vh;
+        visibility: hidden;
+        opacity: 0;
+        overflow: hidden;
+        z-index: 2; }
+        #about .wrapper-im .im-desc-start .semiline {
+          width: 30%;
+          height: 3px;
+          z-index: 3;
+          align-content: left;
+          background-color: #42ddf5; }
+        #about .wrapper-im .im-desc-start p {
+          padding-right: 10px; }
+        #about .wrapper-im .im-desc-start.show {
+          visibility: visible;
+          opacity: 1;
+          overflow-y: scroll; }
+      #about .wrapper-im .im-desc-web {
+        position: sticky;
+        height: 90%;
+        width: 90%;
+        min-height: 200px;
+        max-height: 40vh;
+        background-color: #305fbe;
+        margin: 15px 15px;
+        bottom: 42vh;
+        visibility: hidden;
+        opacity: 0;
+        overflow: hidden;
+        z-index: 2; }
         #about .wrapper-im .im-desc-web .semiline {
           width: 30%;
           height: 3px;
@@ -413,19 +616,20 @@ main {
         #about .wrapper-im .im-desc-web.show {
           visibility: visible;
           opacity: 1;
-          transition: all 1s ease-out;
           overflow-y: scroll; }
       #about .wrapper-im .im-desc-gd {
         position: sticky;
         height: 90%;
         width: 90%;
+        min-height: 200px;
+        max-height: 40vh;
+        background-color: #305fbe;
         margin: 15px 15px;
-        padding: 5px;
-        bottom: 40vh;
+        bottom: 42vh;
         visibility: hidden;
         opacity: 0;
         overflow: hidden;
-        transition: all 1s ease-out; }
+        z-index: 2; }
         #about .wrapper-im .im-desc-gd .semiline {
           width: 30%;
           height: 3px;
@@ -437,7 +641,6 @@ main {
         #about .wrapper-im .im-desc-gd.show {
           visibility: visible;
           opacity: 1;
-          transition: all 1s ease-out;
           overflow-y: scroll; }
     #about .wrapper-im .im-info {
       grid-area: info;
@@ -456,18 +659,40 @@ main {
       font-size: 1.2rem; }
     #about .wrapper-main.show {
       gap: 3vw; }
+    #about .wrapper-main .button {
+      height: 30px;
+      width: 80%;
+      border-radius: 10px;
+      background-color: #152032;
+      font-size: .5rem;
+      font-weight: 700;
+      color: #ec7787;
+      margin: 5px 0px;
+      padding: 8px;
+      border: 1px solid #ec7787;
+      visibility: hidden; }
+      #about .wrapper-main .button a {
+        text-decoration: none; }
+      #about .wrapper-main .button:hover {
+        color: #305fbe;
+        border: 1px solid #305fbe;
+        transition: all 1s ease-out; }
+    #about .wrapper-main .disclaimer {
+      visibility: hidden; }
     #about .wrapper-main .about-card {
       background-color: rgba(13, 21, 32, 0.8);
       padding: 3vh 3vw 3vh 3vw;
       grid-area: about;
       width: 100%;
       height: 100%;
+      min-height: 430px;
+      max-height: 70vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       border-radius: 10px; }
       #about .wrapper-main .about-card .bio-image {
-        margin: 15px 0px 10px 0px; }
+        margin: 15px 0px 10px 0px;
+        align-self: center; }
       #about .wrapper-main .about-card p {
         margin-bottom: 5px;
         margin-top: 5px; }
@@ -558,7 +783,7 @@ main {
     width: 30vw;
     background-color: #152032;
     border-radius: 10px;
-    z-index: 4;
+    z-index: 2;
     visibility: hidden;
     opacity: 0;
     transition: all 1s ease-out;
@@ -569,6 +794,7 @@ main {
     overflow: hidden; }
     #about .im-tv.show {
       visibility: visible;
+      z-index: 2;
       opacity: 1;
       transition: all 1s ease-out; }
     #about .im-tv .tab {
@@ -640,13 +866,55 @@ main {
   #redirect .playground .bork {
     transition: 1s; }
 
-@media screen and (max-width: 768px) {
-  main {
-    align-items: center;
-    text-align: center; }
-    main .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem; }
+@media screen and (max-width: 500px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2.5rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 8%; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
+  #about .about-card {
+    overflow: hidden; }
+    #about .about-card .button {
+      visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
+  #about .cred {
+    font-size: 1rem; }
+  #about .im-card,
+  #about .gd-card,
+  #about .sa-card {
+    visibility: hidden; }
+  #about .about-card {
+    max-width: 70%;
+    position: fixed;
+    overflow-y: scroll;
+    background-color: #152032;
+    z-index: 2; }
+    #about .about-card img {
+      visibility: hidden; }
+    #about .about-card .bio {
+      position: absolute;
+      padding: 8px; }
+    #about .about-card .buttons {
+      margin-top: 20vh; }
+    #about .about-card .disclaimer {
+      visibility: visible; }
+    #about .about-card:hover {
+      visibility: hidden; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -666,6 +934,53 @@ main {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; } }
 
-@media screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; } }
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 15%; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
+  #about .about-card {
+    overflow: hidden; }
+    #about .about-card .button {
+      visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
+  #about .cred {
+    font-size: .75rem; }
+  #about .gamepad {
+    width: 330px; }
+  #about .a {
+    height: 110px; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 70vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 18px; }
+  .menu-branding {
+    height: 30vh;
+    transform: translate3d(100%, 0, 0); }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }

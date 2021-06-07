@@ -16,6 +16,7 @@ const nameHeader = document.querySelector('.card-title');
 const specHeader = document.querySelector('.card-subtitle');
 const textHeader = document.querySelector('.card-text');
 const lineHeader = document.querySelector('.card-line');
+const flipCard = document.querySelector('.card-nav');
 //querySelectorAll selects all and puts it into a Node (like an array)
 const icons = document.querySelectorAll('.card-icons');
 const navItems = document.querySelectorAll('.nav-item');
@@ -25,39 +26,42 @@ const navItems = document.querySelectorAll('.nav-item');
 //MENU
 // let showMenu = false; //let
 //BUSINESSCARD
-let flipCard = false;
+let flip = false;
 //SET INITIAL STATES--------------------------------------------------
 
 //SET EVENT LISTENERS-------------------------------------------------
 businessCard.addEventListener('click', toggleNavi);
+flipCard.addEventListener('click', toggleNavi);
 // menuBtn.addEventListener('click', toggleMenu);
 //SET EVENT LISTENERS-------------------------------------------------
 
 //BUSINESS CARD NAVI--------------------------------------------------
 function toggleNavi() {
-    if (!flipCard) {
+    if (!flip) {
         businessCard.classList.add('flip'); //businessCard.style.transform = 'rotateY(180deg)';
         //businessCard.style.animation = 'rotateY(180deg)';
         nameHeader.classList.add('hidden');
         specHeader.classList.add('hidden');
         textHeader.classList.add('hidden');
         lineHeader.classList.add('hidden');
+        flipCard.classList.add('show');
         icons.forEach(item => item.classList.add('hidden'));
         navItems.forEach(item => item.classList.add('show'));
 
         //set card state
-        flipCard = true;
+        flip = true;
     } else {
         businessCard.classList.remove('flip');
         nameHeader.classList.remove('hidden');
         specHeader.classList.remove('hidden');
         textHeader.classList.remove('hidden');
         lineHeader.classList.remove('hidden');
+        flipCard.classList.remove('show');
         icons.forEach(item => item.classList.remove('hidden'))
         navItems.forEach(item => item.classList.remove('show'));
 
         //set card state
-        flipCard = false;
+        flip = false;
     }
 }
 
