@@ -21,11 +21,18 @@
         .card-subtitle {
             font-size: 1rem;
             font-weight: 300;
-            margin-top: 5vh;
+            margin-top: 8%;
         }
         h3,
         p {
             line-height: 1rem;
+        }
+    }
+    #about {
+        .about-card {
+            .button {
+                visibility: visible;
+            }
         }
     }
     ul.menu-nav,

@@ -2,6 +2,7 @@
 @import 'card';
 @import 'specs';
 @import 'menu';
+@import 'mobile';
 * {
     box-sizing: border-box;
 }
@@ -31,7 +32,7 @@ h3 {
         font-size: 1.5rem;
         font-weight: 400;
         //max-width: 200px;
-        margin-top: 7vh;
+        margin-top: 6.5vh;
         //text-align: center;
         //margin-left: 4px;
     }
@@ -343,6 +344,10 @@ main {
             &.show {
                 gap: 3vw;
             }
+            .button {
+                @include button;
+                visibility: hidden;
+            }
             .about-card {
                 background-color: rgba(darken($dark-blue, 5), $background-opacity);
                 padding: 3vh 3vw 3vh 3vw;
@@ -352,10 +357,11 @@ main {
                 height: 100%;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                //align-items: center;
                 border-radius: 10px;
                 .bio-image {
                     margin: 15px 0px 10px 0px;
+                    align-self: center;
                 }
                 & p {
                     //line-height: 16px;

@@ -198,6 +198,43 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
+@media screen and (max-width: 768px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2.5rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 8%; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
+  #about .about-card .button {
+    visibility: visible; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 70vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 18px; }
+  .menu-branding {
+    height: 30vh;
+    transform: translate3d(100%, 0, 0); }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
 * {
   box-sizing: border-box; }
 
@@ -225,7 +262,7 @@ h3 {
   h3.card-subtitle {
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 7vh; }
+    margin-top: 6.5vh; }
 
 p {
   font-size: 11px; }
@@ -473,6 +510,22 @@ main {
       font-size: 1.2rem; }
     #about .wrapper-main.show {
       gap: 3vw; }
+    #about .wrapper-main .button {
+      height: 30px;
+      width: 80%;
+      border-radius: 10px;
+      background-color: #152032;
+      font-size: .5rem;
+      font-weight: 700;
+      color: #ec7787;
+      margin: 5px 0px;
+      padding: 8px;
+      border: 1px solid #ec7787;
+      visibility: hidden; }
+      #about .wrapper-main .button:hover {
+        color: #305fbe;
+        border: 1px solid #305fbe;
+        transition: all 1s ease-out; }
     #about .wrapper-main .about-card {
       background-color: rgba(13, 21, 32, 0.8);
       padding: 3vh 3vw 3vh 3vw;
@@ -481,10 +534,10 @@ main {
       height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
       border-radius: 10px; }
       #about .wrapper-main .about-card .bio-image {
-        margin: 15px 0px 10px 0px; }
+        margin: 15px 0px 10px 0px;
+        align-self: center; }
       #about .wrapper-main .about-card p {
         margin-bottom: 5px;
         margin-top: 5px; }
@@ -669,10 +722,12 @@ main {
   #home .card-subtitle {
     font-size: 1rem;
     font-weight: 300;
-    margin-top: 5vh; }
+    margin-top: 8%; }
   #home h3,
   #home p {
     line-height: 1rem; }
+  #about .about-card .button {
+    visibility: visible; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
