@@ -127,12 +127,13 @@ $background-opacity: 0.8;
     width: 30vw;
     background-color: $dark-blue;
     border-radius: 10px;
-    z-index: 4;
+    z-index: 2;
     visibility: hidden;
     opacity: 0;
     @include easeOut();
     &.show {
         visibility: visible;
+        z-index: 2;
         opacity: 1;
         @include easeOut();
     }
@@ -165,6 +166,9 @@ $background-opacity: 0.8;
     margin: 5px 0px;
     padding: 8px;
     border: 1px solid $pink-color;
+    & a {
+        text-decoration: none;
+    }
     &:hover {
         color: $blue;
         border: 1px solid $blue;
@@ -273,13 +277,13 @@ $background-opacity: 0.8;
 }
 
 @mixin mediaMd {
-    @media screen and (max-width: 768px) {
+    @media screen and (min-width: 501px) and (max-width: 768px) {
         @content;
     }
 }
 
 @mixin mediaLg {
-    @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @media screen and (min-width: 770px) and (max-width: 1170px) {
         @content;
     }
 }

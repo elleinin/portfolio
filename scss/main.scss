@@ -206,34 +206,77 @@ main {
                 margin: auto;
             }
             .gamepad {
-                display: flex;
-                flex-direction: row;
-                &-direc {
-                    font-weight: 700;
-                    color: $blue;
-                    font-size: 30vh;
-                    margin-top: 7vh;
+                // display: flex;
+                // flex-direction: row;
+                display: grid;
+                grid-template-areas: 'direc direc b a';
+                grid-template-columns: repeat(4, 1fr);
+                .directional {
+                    grid-area: direc;
                 }
                 &-btn {
-                    height: 30px;
-                    width: 30px;
-                    border-radius: 50%;
                     background-color: $blue;
+                    &:hover {
+                        border: $teal 1px solid;
+                        @include easeOut;
+                    }
                     &.a,
                     &.b {
-                        &:hover {
-                            border: $teal 1px solid;
-                            @include easeOut;
-                        }
+                        display: flex;
+                        height: 38px;
+                        width: 38px;
+                        border-radius: 50%;
+                        align-items: center;
+                        justify-content: center;
+                        // position: absolute;
+                    }
+                    &.left,
+                    &.right,
+                    &.up,
+                    &.down {
+                        position: absolute;
+                    }
+                    &.up {
+                        transform: translate(55px, 20px);
+                        height: 45px;
+                        width: 30px;
+                        border-radius: 10% 10% 50% 50%;
+                    }
+                    &.down {
+                        height: 45px;
+                        width: 30px;
+                        transform: translate(55px, 80px);
+                        border-radius: 50% 50% 10% 10%;
+                    }
+                    &.left {
+                        height: 30px;
+                        width: 45px;
+                        transform: translate(10px, 60px);
+                        border-radius: 10% 50% 50% 10%;
+                    }
+                    &.right {
+                        height: 30px;
+                        width: 45px;
+                        transform: translate(85px, 60px);
+                        border-radius: 50% 10% 10% 50%;
                     }
                     &.a {
-                        margin-left: 15vw;
-                        margin-top: 14vh;
+                        grid-area: a;
+                        margin-left: 20%;
+                        margin-top: 38%;
                     }
                     &.b {
-                        margin-left: 1vw;
-                        margin-top: 7vh;
+                        grid-area: b;
+                        margin-left: 50%;
+                        margin-top: 80%;
                     }
+                    // &.a,
+                    // &.b {
+                    //     &:hover {
+                    //         border: $teal 1px solid;
+                    //         @include easeOut;
+                    //     }
+                    // }
                 }
             }
             .gamescreen {
@@ -252,34 +295,44 @@ main {
                     flex-direction: column;
                     // contain: strict;
                     &-icons {
-                        //display: inline;
-                        //background-color: $blue;
-                        padding-left: 11%; // FIX CENTER ALLIGNMENT--------------------------
-                        height: 100%;
-                        width: 100%; //width: 100%; // overflow-wrap: ;
-                        // border-radius: 20px;
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                        //align-content: stretch;
-                        align-items: center;
-                        justify-content: space-evenly;
-                        visibility: hidden;
-                        opacity: 0;
-                        z-index: 1;
+                        @include led;
                         @include easeOut;
-                        //margin-bottom: 10px;
-                        // overflow-x: scroll;
-                        // overflow-y: hidden;
-                        // //flex-wrap: nowrap;
-                        // white-space: nowrap;
-                        & i {
-                            //display: inline-block;
-                            //padding: 10px 0px 10px 10px;
-                            flex: 33%;
+                        .semiline {
+                            @include semiline;
+                            background-color: $teal;
+                        }
+                        .tools {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: space-between;
+                            align-content: center;
+                            i {
+                                margin-top: 30px;
+                            }
                         }
                         &.show {
                             @include show;
+                            overflow-y: scroll;
+                            //overflow-x: hidden;
+                        }
+                    }
+                    &-start {
+                        @include led;
+                        z-index: 2;
+                        .semiline {
+                            @include semiline;
+                            background-color: $teal;
+                        }
+                        p {
+                            padding-right: 10px;
+                        }
+                        //@include easeOut;
+                        &.show {
+                            @include show;
+                            overflow-y: scroll;
+                            //overflow-x: hidden;
                         }
                     }
                     &-web {
@@ -301,7 +354,7 @@ main {
                     }
                     &-gd {
                         @include led;
-                        z-index: 3;
+                        z-index: 2;
                         .semiline {
                             @include semiline;
                             background-color: $teal;

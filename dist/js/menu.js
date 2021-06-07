@@ -7,11 +7,13 @@ const menuBranding = document.querySelector('.menu-branding');
 //querySelectorAll selects all and puts it into a Node (like an array)
 const navItems = document.querySelectorAll('.nav-item');
 //const = constant
+const a = document.querySelector('.a')
 
 //Set initial state of menu
 let showMenu = false; //let
 
 menuBtn.addEventListener('click', toggleMenu);
+a.addEventListener('click', toggleMenu);
 
 function toggleMenu() {
     if (!showMenu) {

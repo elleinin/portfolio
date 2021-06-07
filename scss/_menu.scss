@@ -1,7 +1,7 @@
 //menu button
 .menu-btn {
     position: absolute;
-    z-index: 3;
+    z-index: 5;
     right: 35px;
     top: 35px;
     cursor: pointer;
@@ -51,6 +51,7 @@
     width: 100%;
     opacity: 0.9;
     visibility: hidden;
+    z-index: 4;
     &.show {
         visibility: visible;
     }

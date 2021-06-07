@@ -100,7 +100,7 @@
 
 .menu-btn {
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   right: 35px;
   top: 35px;
   cursor: pointer;
@@ -133,7 +133,8 @@
   top: 0;
   width: 100%;
   opacity: 0.9;
-  visibility: hidden; }
+  visibility: hidden;
+  z-index: 4; }
   .menu.show {
     visibility: visible; }
   .menu-branding, .menu-nav {
@@ -266,7 +267,7 @@
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 501px) and (max-width: 768px) {
   #home .card,
   #home .card-nav {
     max-height: 200px; }
@@ -294,6 +295,10 @@
     visibility: hidden; }
   #about .cred {
     font-size: .75rem; }
+  #about .gamepad {
+    width: 330px; }
+  #about .a {
+    height: 110px; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -472,27 +477,53 @@ main {
       size: 30px;
       margin: auto; }
     #about .wrapper-im .gamepad {
-      display: flex;
-      flex-direction: row; }
-      #about .wrapper-im .gamepad-direc {
-        font-weight: 700;
-        color: #305fbe;
-        font-size: 30vh;
-        margin-top: 7vh; }
+      display: grid;
+      grid-template-areas: 'direc direc b a';
+      grid-template-columns: repeat(4, 1fr); }
+      #about .wrapper-im .gamepad .directional {
+        grid-area: direc; }
       #about .wrapper-im .gamepad-btn {
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
         background-color: #305fbe; }
-        #about .wrapper-im .gamepad-btn.a:hover, #about .wrapper-im .gamepad-btn.b:hover {
+        #about .wrapper-im .gamepad-btn:hover {
           border: #42ddf5 1px solid;
           transition: all 1s ease-out; }
+        #about .wrapper-im .gamepad-btn.a, #about .wrapper-im .gamepad-btn.b {
+          display: flex;
+          height: 38px;
+          width: 38px;
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center; }
+        #about .wrapper-im .gamepad-btn.left, #about .wrapper-im .gamepad-btn.right, #about .wrapper-im .gamepad-btn.up, #about .wrapper-im .gamepad-btn.down {
+          position: absolute; }
+        #about .wrapper-im .gamepad-btn.up {
+          transform: translate(55px, 20px);
+          height: 45px;
+          width: 30px;
+          border-radius: 10% 10% 50% 50%; }
+        #about .wrapper-im .gamepad-btn.down {
+          height: 45px;
+          width: 30px;
+          transform: translate(55px, 80px);
+          border-radius: 50% 50% 10% 10%; }
+        #about .wrapper-im .gamepad-btn.left {
+          height: 30px;
+          width: 45px;
+          transform: translate(10px, 60px);
+          border-radius: 10% 50% 50% 10%; }
+        #about .wrapper-im .gamepad-btn.right {
+          height: 30px;
+          width: 45px;
+          transform: translate(85px, 60px);
+          border-radius: 50% 10% 10% 50%; }
         #about .wrapper-im .gamepad-btn.a {
-          margin-left: 15vw;
-          margin-top: 14vh; }
+          grid-area: a;
+          margin-left: 20%;
+          margin-top: 38%; }
         #about .wrapper-im .gamepad-btn.b {
-          margin-left: 1vw;
-          margin-top: 7vh; }
+          grid-area: b;
+          margin-left: 50%;
+          margin-top: 80%; }
     #about .wrapper-im .gamescreen {
       height: 66%;
       min-height: 200px;
@@ -505,23 +536,62 @@ main {
       display: flex;
       flex-direction: column; }
       #about .wrapper-im .im-desc-icons {
-        padding-left: 11%;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
+        position: sticky;
+        height: 90%;
+        width: 90%;
+        min-height: 200px;
+        max-height: 40vh;
+        background-color: #305fbe;
+        margin: 15px 15px;
+        bottom: 42vh;
         visibility: hidden;
         opacity: 0;
-        z-index: 1;
+        overflow: hidden;
         transition: all 1s ease-out; }
-        #about .wrapper-im .im-desc-icons i {
-          flex: 33%; }
+        #about .wrapper-im .im-desc-icons .semiline {
+          width: 30%;
+          height: 3px;
+          z-index: 3;
+          align-content: left;
+          background-color: #42ddf5; }
+        #about .wrapper-im .im-desc-icons .tools {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          align-content: center; }
+          #about .wrapper-im .im-desc-icons .tools i {
+            margin-top: 30px; }
         #about .wrapper-im .im-desc-icons.show {
           visibility: visible;
-          opacity: 1; }
+          opacity: 1;
+          overflow-y: scroll; }
+      #about .wrapper-im .im-desc-start {
+        position: sticky;
+        height: 90%;
+        width: 90%;
+        min-height: 200px;
+        max-height: 40vh;
+        background-color: #305fbe;
+        margin: 15px 15px;
+        bottom: 42vh;
+        visibility: hidden;
+        opacity: 0;
+        overflow: hidden;
+        z-index: 2; }
+        #about .wrapper-im .im-desc-start .semiline {
+          width: 30%;
+          height: 3px;
+          z-index: 3;
+          align-content: left;
+          background-color: #42ddf5; }
+        #about .wrapper-im .im-desc-start p {
+          padding-right: 10px; }
+        #about .wrapper-im .im-desc-start.show {
+          visibility: visible;
+          opacity: 1;
+          overflow-y: scroll; }
       #about .wrapper-im .im-desc-web {
         position: sticky;
         height: 90%;
@@ -559,7 +629,7 @@ main {
         visibility: hidden;
         opacity: 0;
         overflow: hidden;
-        z-index: 3; }
+        z-index: 2; }
         #about .wrapper-im .im-desc-gd .semiline {
           width: 30%;
           height: 3px;
@@ -601,6 +671,8 @@ main {
       padding: 8px;
       border: 1px solid #ec7787;
       visibility: hidden; }
+      #about .wrapper-main .button a {
+        text-decoration: none; }
       #about .wrapper-main .button:hover {
         color: #305fbe;
         border: 1px solid #305fbe;
@@ -711,7 +783,7 @@ main {
     width: 30vw;
     background-color: #152032;
     border-radius: 10px;
-    z-index: 4;
+    z-index: 2;
     visibility: hidden;
     opacity: 0;
     transition: all 1s ease-out;
@@ -722,6 +794,7 @@ main {
     overflow: hidden; }
     #about .im-tv.show {
       visibility: visible;
+      z-index: 2;
       opacity: 1;
       transition: all 1s ease-out; }
     #about .im-tv .tab {
@@ -861,7 +934,7 @@ main {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 501px) and (max-width: 768px) {
   #home .card,
   #home .card-nav {
     max-height: 200px; }
@@ -889,6 +962,10 @@ main {
     visibility: hidden; }
   #about .cred {
     font-size: .75rem; }
+  #about .gamepad {
+    width: 330px; }
+  #about .a {
+    height: 110px; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
