@@ -357,14 +357,15 @@ main {
           border: #42ddf5 1px solid;
           transition: all 1s ease-out; }
         #about .wrapper-im .gamepad-btn.a {
-          margin-left: 9vw;
+          margin-left: 15vw;
           margin-top: 14vh; }
         #about .wrapper-im .gamepad-btn.b {
           margin-left: 1vw;
           margin-top: 7vh; }
     #about .wrapper-im .gamescreen {
       height: 66%;
-      max-height: 50vh;
+      min-height: 200px;
+      max-height: 40vh;
       width: 100%;
       background-color: #305fbe;
       border-radius: 20px; }
@@ -641,12 +642,6 @@ main {
     transition: 1s; }
 
 @media screen and (max-width: 768px) {
-  main {
-    align-items: center;
-    text-align: center; }
-    main .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -665,7 +660,3 @@ main {
   .about-info {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; } }
-
-@media screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; } }

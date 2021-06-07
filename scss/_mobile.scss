@@ -6,14 +6,6 @@
 
 //tablets
 @include mediaMd {
-    main {
-        align-items: center;
-        text-align: center;
-        .lg-heading {
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-    }
     ul.menu-nav,
     div.menu-branding {
         float: none;
@@ -39,8 +31,4 @@
 }
 
 //smartphones
-@include mediaSm {
-    main#home h1 {
-        margin-top: 10vh;
-    }
-}
+@include mediaSm {}

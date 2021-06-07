@@ -222,7 +222,7 @@ main {
                         }
                     }
                     &.a {
-                        margin-left: 9vw;
+                        margin-left: 15vw;
                         margin-top: 14vh;
                     }
                     &.b {
@@ -233,7 +233,8 @@ main {
             }
             .gamescreen {
                 height: 66%;
-                max-height: 50vh;
+                min-height: 200px;
+                max-height: 40vh;
                 width: 100%;
                 background-color: $blue;
                 border-radius: 20px;
