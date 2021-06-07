@@ -34,6 +34,16 @@
                 visibility: visible;
             }
         }
+        .im-info {
+            &-head {
+                font-size: 3rem;
+                position: fixed;
+                transform: translate(-58vw, -10vh);
+            }
+            .desc {
+                visibility: hidden;
+            }
+        }
     }
     ul.menu-nav,
     div.menu-branding {

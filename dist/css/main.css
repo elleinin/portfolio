@@ -216,6 +216,12 @@
     line-height: 1rem; }
   #about .about-card .button {
     visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -728,6 +734,12 @@ main {
     line-height: 1rem; }
   #about .about-card .button {
     visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
   ul.menu-nav,
   div.menu-branding {
     float: none;
