@@ -30,6 +30,7 @@
     }
     #about {
         .about-card {
+            overflow: hidden;
             .button {
                 visibility: visible;
             }
@@ -43,6 +44,9 @@
             .desc {
                 visibility: hidden;
             }
+        }
+        .cred {
+            font-size: .75rem;
         }
     }
     ul.menu-nav,
