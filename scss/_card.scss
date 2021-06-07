@@ -32,6 +32,9 @@
 
 .card-nav {
     visibility: hidden;
+    &.show {
+        visibility: visible;
+    }
     .nav-item {
         //animation-name: card-in;
         opacity: 0;

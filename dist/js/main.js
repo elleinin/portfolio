@@ -16,7 +16,7 @@ const nameHeader = document.querySelector('.card-title');
 const specHeader = document.querySelector('.card-subtitle');
 const textHeader = document.querySelector('.card-text');
 const lineHeader = document.querySelector('.card-line');
-// const flipCard = document.querySelector('.card-nav');
+const flipCard = document.querySelector('.card-nav');
 //querySelectorAll selects all and puts it into a Node (like an array)
 const icons = document.querySelectorAll('.card-icons');
 const navItems = document.querySelectorAll('.nav-item');
@@ -31,6 +31,7 @@ let flip = false;
 
 //SET EVENT LISTENERS-------------------------------------------------
 businessCard.addEventListener('click', toggleNavi);
+flipCard.addEventListener('click', toggleNavi);
 // menuBtn.addEventListener('click', toggleMenu);
 //SET EVENT LISTENERS-------------------------------------------------
 
@@ -43,6 +44,7 @@ function toggleNavi() {
         specHeader.classList.add('hidden');
         textHeader.classList.add('hidden');
         lineHeader.classList.add('hidden');
+        flipCard.classList.add('show');
         icons.forEach(item => item.classList.add('hidden'));
         navItems.forEach(item => item.classList.add('show'));
 
@@ -54,6 +56,7 @@ function toggleNavi() {
         specHeader.classList.remove('hidden');
         textHeader.classList.remove('hidden');
         lineHeader.classList.remove('hidden');
+        flipCard.classList.remove('show');
         icons.forEach(item => item.classList.remove('hidden'))
         navItems.forEach(item => item.classList.remove('show'));
 
