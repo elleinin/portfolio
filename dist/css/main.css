@@ -64,6 +64,8 @@
 
 .card-nav {
   visibility: hidden; }
+  .card-nav.show {
+    visibility: visible; }
   .card-nav .nav-item {
     opacity: 0;
     transition: all 1s ease-out; }
@@ -666,7 +668,8 @@ main {
     height: 2px; }
   #home .card-subtitle {
     font-size: 1rem;
-    font-weight: 300; }
+    font-weight: 300;
+    margin-top: 5vh; }
   #home h3,
   #home p {
     line-height: 1rem; }
