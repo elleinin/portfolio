@@ -225,6 +225,74 @@
   #about .im-info .desc {
     visibility: hidden; }
   #about .cred {
+    font-size: 1rem; }
+  #about .im-card,
+  #about .gd-card,
+  #about .sa-card {
+    visibility: hidden; }
+  #about .about-card {
+    max-width: 70%;
+    position: fixed;
+    overflow-y: scroll;
+    background-color: #152032;
+    z-index: 2; }
+    #about .about-card img {
+      visibility: hidden; }
+    #about .about-card .bio {
+      position: absolute;
+      padding: 8px; }
+    #about .about-card .buttons {
+      margin-top: 20vh; }
+    #about .about-card .disclaimer {
+      visibility: visible; }
+    #about .about-card:hover {
+      visibility: hidden; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 70vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 18px; }
+  .menu-branding {
+    height: 30vh;
+    transform: translate3d(100%, 0, 0); }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 500px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 15%; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
+  #about .about-card {
+    overflow: hidden; }
+    #about .about-card .button {
+      visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
+  #about .cred {
     font-size: .75rem; }
   ul.menu-nav,
   div.menu-branding {
@@ -478,7 +546,6 @@ main {
         #about .wrapper-im .im-desc-web.show {
           visibility: visible;
           opacity: 1;
-          transition-duration: 0;
           overflow-y: scroll; }
       #about .wrapper-im .im-desc-gd {
         position: sticky;
@@ -504,7 +571,6 @@ main {
         #about .wrapper-im .im-desc-gd.show {
           visibility: visible;
           opacity: 1;
-          transition-duration: 0;
           overflow-y: scroll; }
     #about .wrapper-im .im-info {
       grid-area: info;
@@ -539,6 +605,8 @@ main {
         color: #305fbe;
         border: 1px solid #305fbe;
         transition: all 1s ease-out; }
+    #about .wrapper-main .disclaimer {
+      visibility: hidden; }
     #about .wrapper-main .about-card {
       background-color: rgba(13, 21, 32, 0.8);
       padding: 3vh 3vw 3vh 3vw;
@@ -738,6 +806,74 @@ main {
     font-size: 1rem;
     font-weight: 300;
     margin-top: 8%; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
+  #about .about-card {
+    overflow: hidden; }
+    #about .about-card .button {
+      visibility: visible; }
+  #about .im-info-head {
+    font-size: 3rem;
+    position: fixed;
+    transform: translate(-58vw, -10vh); }
+  #about .im-info .desc {
+    visibility: hidden; }
+  #about .cred {
+    font-size: 1rem; }
+  #about .im-card,
+  #about .gd-card,
+  #about .sa-card {
+    visibility: hidden; }
+  #about .about-card {
+    max-width: 70%;
+    position: fixed;
+    overflow-y: scroll;
+    background-color: #152032;
+    z-index: 2; }
+    #about .about-card img {
+      visibility: hidden; }
+    #about .about-card .bio {
+      position: absolute;
+      padding: 8px; }
+    #about .about-card .buttons {
+      margin-top: 20vh; }
+    #about .about-card .disclaimer {
+      visibility: visible; }
+    #about .about-card:hover {
+      visibility: hidden; }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.menu-nav.show,
+    div.menu-branding.show {
+      transform: translate3d(0, 0, 0); }
+  .menu-nav {
+    height: 70vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 18px; }
+  .menu-branding {
+    height: 30vh;
+    transform: translate3d(100%, 0, 0); }
+  .about-info {
+    grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
+    grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 500px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 15%; }
   #home h3,
   #home p {
     line-height: 1rem; }
