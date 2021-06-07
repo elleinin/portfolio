@@ -6,6 +6,27 @@
 
 //tablets
 @include mediaMd {
+    #home {
+        .card,
+        .card-nav {
+            max-height: 200px;
+        }
+        .card-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        .card-line {
+            height: 2px;
+        }
+        .card-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        h3,
+        p {
+            line-height: 1rem;
+        }
+    }
     ul.menu-nav,
     div.menu-branding {
         float: none;

@@ -62,16 +62,19 @@
       transition-delay: 0s;
       visibility: hidden; }
 
-.card-nav .nav-item {
-  visibility: hidden;
-  opacity: 0; }
-  .card-nav .nav-item.show {
-    visibility: visible;
-    transition-duration: 2s;
-    transition-delay: 1.5s;
-    opacity: 1; }
-  .card-nav .nav-item .nav-link.current {
-    color: #ec7787; }
+.card-nav {
+  visibility: hidden; }
+  .card-nav .nav-item {
+    opacity: 0;
+    transition: all 1s ease-out; }
+    .card-nav .nav-item.show {
+      visibility: visible;
+      transition-duration: 2s;
+      transition: all 1s ease-out;
+      transition-delay: 1.5s;
+      opacity: 1; }
+    .card-nav .nav-item .nav-link.current {
+      color: #ec7787; }
 
 @keyframes cardIn {
   0% {
@@ -284,13 +287,24 @@ main {
         color: #305fbe;
         transition: all 1s ease-out; }
   main .card-nav {
-    width: 100%;
+    width: 80vw;
+    height: 50vh;
+    min-height: 250px;
+    margin: 0 auto;
+    position: fixed;
+    left: 10vw;
+    top: 25vh;
+    padding: 4vh 2vw 4vh 2vw;
+    border-radius: 10px;
     font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
     font-size: 1.5rem;
     text-align: center;
     list-style: none;
-    position: fixed;
-    margin-top: 38vh; }
+    transition: all 1s ease-out; }
     main .card-nav .nav-link {
       display: inline-block;
       font-size: 20px;
@@ -642,6 +656,20 @@ main {
     transition: 1s; }
 
 @media screen and (max-width: 768px) {
+  #home .card,
+  #home .card-nav {
+    max-height: 200px; }
+  #home .card-title {
+    font-size: 2.5rem;
+    font-weight: 300; }
+  #home .card-line {
+    height: 2px; }
+  #home .card-subtitle {
+    font-size: 1rem;
+    font-weight: 300; }
+  #home h3,
+  #home p {
+    line-height: 1rem; }
   ul.menu-nav,
   div.menu-branding {
     float: none;

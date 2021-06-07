@@ -31,16 +31,17 @@
 }
 
 .card-nav {
+    visibility: hidden;
     .nav-item {
-        visibility: hidden;
         //animation-name: card-in;
         opacity: 0;
+        @include easeOut;
         &.show {
             visibility: visible;
             //opacity: 0;
             //animation-name: cardIn;
             transition-duration: 2s;
-            //@include easeOut;
+            @include easeOut;
             transition-delay: 1.5s;
             opacity: 1;
         }
