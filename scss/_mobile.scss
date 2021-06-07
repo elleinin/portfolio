@@ -5,7 +5,7 @@
 @include mediaLg {}
 
 //tablets
-@include mediaMd {
+@include mediaSm {
     #home {
         .card,
         .card-nav {
@@ -102,7 +102,7 @@
 }
 
 //smartphones
-@include mediaSm {
+@include mediaMd {
     #home {
         .card,
         .card-nav {

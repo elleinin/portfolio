@@ -198,7 +198,7 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   #home .card,
   #home .card-nav {
     max-height: 200px; }
@@ -266,7 +266,7 @@
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; } }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   #home .card,
   #home .card-nav {
     max-height: 200px; }
@@ -793,7 +793,7 @@ main {
   #redirect .playground .bork {
     transition: 1s; }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   #home .card,
   #home .card-nav {
     max-height: 200px; }
@@ -861,7 +861,7 @@ main {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; } }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   #home .card,
   #home .card-nav {
     max-height: 200px; }
