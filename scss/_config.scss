@@ -22,7 +22,7 @@ $background-opacity: 0.8;
 }
 
 *::-webkit-scrollbar-track {
-    background: $blue;
+    background: $dark-blue;
 }
 
 * {
@@ -153,6 +153,17 @@ $background-opacity: 0.8;
     opacity: 0;
     //z-index: 2;
     overflow: hidden;
+    .pinklight {
+        font-size: 1rem;
+        line-height: 1rem;
+        padding-top: 10px;
+    }
+    .uline {
+        text-decoration: underline;
+    }
+    p {
+        margin: 5px 0px;
+    }
 }
 
 @mixin button {
