@@ -896,7 +896,60 @@ main {
     top: calc(100% - 25vh - 100px);
     z-index: 2; }
   #redirect .playground .bork {
-    transition: 1s; }
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease-out; }
+    #redirect .playground .bork.show {
+      visibility: visible;
+      opacity: 1;
+      animation-name: playBall;
+      animation-duration: 2s; }
+  #redirect .playground .pet {
+    position: fixed;
+    left: calc(100% - 10vw - 110px);
+    top: calc(100% - 25vh - 110px);
+    color: #ec7787;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease-out; }
+    #redirect .playground .pet.show {
+      visibility: visible;
+      animation-name: pats;
+      animation-duration: 2s; }
+  #redirect .playground .hoop {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    border-radius: 50%;
+    border: white 3px solid;
+    left: calc(11vw);
+    top: calc(60vh);
+    visibility: hidden; }
+
+@keyframes pats {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes playBall {
+  0% {
+    tranform: rotate(-5deg);
+    opacity: 0;
+    color: red; }
+  25% {
+    transform: rotate(5deg);
+    opacity: 1; }
+  50% {
+    transform: rotate(-5deg); }
+  75% {
+    transform: rotate(5deg); }
+  100% {
+    transform: rotate(0deg);
+    color: white; } }
 
 @media screen and (max-width: 500px) {
   #home .card,
