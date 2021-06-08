@@ -6,7 +6,7 @@
   background-color: #ec7787; }
 
 *::-webkit-scrollbar-track {
-  background: #305fbe; }
+  background: #152032; }
 
 * {
   scrollbar-width: 3px;
@@ -279,7 +279,7 @@
   #home .card-subtitle {
     font-size: 1rem;
     font-weight: 300;
-    margin-top: 15%; }
+    margin-top: 12%; }
   #home h3,
   #home p {
     line-height: 1rem; }
@@ -548,6 +548,14 @@ main {
         opacity: 0;
         overflow: hidden;
         transition: all 1s ease-out; }
+        #about .wrapper-im .im-desc-icons .pinklight {
+          font-size: 1rem;
+          line-height: 1rem;
+          padding-top: 10px; }
+        #about .wrapper-im .im-desc-icons .uline {
+          text-decoration: underline; }
+        #about .wrapper-im .im-desc-icons p {
+          margin: 5px 0px; }
         #about .wrapper-im .im-desc-icons .semiline {
           width: 30%;
           height: 3px;
@@ -562,7 +570,7 @@ main {
           justify-content: space-between;
           align-content: center; }
           #about .wrapper-im .im-desc-icons .tools i {
-            margin-top: 30px; }
+            margin: 30px 3px 0px 3px; }
         #about .wrapper-im .im-desc-icons.show {
           visibility: visible;
           opacity: 1;
@@ -580,6 +588,14 @@ main {
         opacity: 0;
         overflow: hidden;
         z-index: 2; }
+        #about .wrapper-im .im-desc-start .pinklight {
+          font-size: 1rem;
+          line-height: 1rem;
+          padding-top: 10px; }
+        #about .wrapper-im .im-desc-start .uline {
+          text-decoration: underline; }
+        #about .wrapper-im .im-desc-start p {
+          margin: 5px 0px; }
         #about .wrapper-im .im-desc-start .semiline {
           width: 30%;
           height: 3px;
@@ -605,6 +621,14 @@ main {
         opacity: 0;
         overflow: hidden;
         z-index: 2; }
+        #about .wrapper-im .im-desc-web .pinklight {
+          font-size: 1rem;
+          line-height: 1rem;
+          padding-top: 10px; }
+        #about .wrapper-im .im-desc-web .uline {
+          text-decoration: underline; }
+        #about .wrapper-im .im-desc-web p {
+          margin: 5px 0px; }
         #about .wrapper-im .im-desc-web .semiline {
           width: 30%;
           height: 3px;
@@ -630,6 +654,14 @@ main {
         opacity: 0;
         overflow: hidden;
         z-index: 2; }
+        #about .wrapper-im .im-desc-gd .pinklight {
+          font-size: 1rem;
+          line-height: 1rem;
+          padding-top: 10px; }
+        #about .wrapper-im .im-desc-gd .uline {
+          text-decoration: underline; }
+        #about .wrapper-im .im-desc-gd p {
+          margin: 5px 0px; }
         #about .wrapper-im .im-desc-gd .semiline {
           width: 30%;
           height: 3px;
@@ -946,7 +978,7 @@ main {
   #home .card-subtitle {
     font-size: 1rem;
     font-weight: 300;
-    margin-top: 15%; }
+    margin-top: 12%; }
   #home h3,
   #home p {
     line-height: 1rem; }
