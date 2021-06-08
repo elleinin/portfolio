@@ -1,34 +1,32 @@
+//ASSIGN ELEMENTS
 const playground = document.querySelector('.playground');
 const ball = document.querySelector('.beachball');
 const dog = document.querySelector('.doggo');
-//const businessCard = document.querySelector('.card');
+const bork = document.querySelector('.bork');
+const pet = document.querySelector('.pet');
+//this code is so ugly please clean it----------------
 
+let keep = false;
+let note = false;
+
+
+//EVENT LISTENR TO PLAY WITH BALL
 ball.addEventListener('click', playBall);
+dog.addEventListener('mouseenter', headPats);
+dog.addEventListener('click', headPats);
+dog.addEventListener('mouseleave', headStops);
 
+//MOVES BALL UNLESS NEAR DOGGO
 function playBall(e) {
     //ASSIGN COORDINATES
-    //let box = playground.getBoundingClientRect();
     let circ = ball.getBoundingClientRect();
     let paw = dog.getBoundingClientRect();
-    //console.log('BALL COORDS: ' + circ.top + ', ' + circ.left);
     let x;
     let y;
-    let keep = false;
-    var bork = document.querySelector('.bork');
-    //let move = '(' + e.offsetX + 'px, ' + e.offsetY + 'px)';
-    //let ptop = box.top + "px";
-    //let pleft = box.left + "px";
-    //let pbot = box.bottom + "px";
-    //let pright = box.bottom + "px";
-
-
-
-    //document.querySelector('.beachball').style.transform = 'translate' + move;
 
     //CALCULATE POSITION
     let coorx = circ.left;
     let coory = circ.top;
-    //console.log('BALL COORDS WITHIN BOX: ' + coorx + ', ' + coory)
     keep = keepBall(coorx, coory, paw.left, paw.top);
     //CALCULATE POSITION
 
@@ -44,40 +42,29 @@ function playBall(e) {
         y = (50 - e.offsetY) * 1.5;
     }
 
-    //let move = '(' + x + 'px, ' + y + 'px)';
-
-    //ball.style.transform = 'translate' + move;
-    //circ = ball.getBoundingClientRect();
-    //console.log(circ.top + ', ' + circ.left);
-    //console.log(e.offsetX + ', ' + e.offsetY);
-    //console.log(move);
-
     //CHANGE POSITION
     let movex = coorx + x;
     let movey = coory + y;
 
-    console.log(keep);
-
-    if (keep == true) {
-        bork.innerHTML = '<p>Doggo would like to keep the ball. Thank you! :) </p>';
+    if (keep && !note) {
+        bork.classList.add('show');
+        note = true;
         //bork.style.bjork;
+    } else if (keep && note) {
+        bork.classList.remove('show');
+        note = false;
     } else {
         ball.style.left = movex + 'px ';
         ball.style.top = movey + 'px';
     }
+}
 
+function headPats() {
+    pet.classList.add('show');
+}
 
-    //CHANGE POSITION
-
-    //CALCULATE POSITION
-    //coorx = circ.left - box.left;
-    //coory = circ.top - box.top;
-    //console.log('NEW BALL COORDS WITHIN BOX:' + coorx + ', ' + coory)
-    //CALCULATE POSITION
-
-    //DOG WOULD LIKE TO KEEP THE BALL
-
-
+function headStops() {
+    pet.classList.remove('show');
 }
 
 function keepBall(bx, by, dx, dy) {
