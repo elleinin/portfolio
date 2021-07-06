@@ -295,25 +295,27 @@ $background-opacity: 0.8;
 
 //media query mixins
 @mixin mediaSm {
-    @media screen and (max-width: 500px) {
+    //mobile
+    @media screen and (max-width: 750px) {
         @content;
     }
 }
 
 @mixin mediaMd {
-    @media screen and (min-width: 501px) and (max-width: 768px) {
+    //tablets, half-screens
+    @media screen and (min-width: 751px) and (max-width: 1000px) and (min-height: 1024px) {
         @content;
     }
 }
 
 @mixin mediaLg {
-    @media screen and (min-width: 770px) and (max-width: 1170px) {
+    @media screen and (min-width: 800px) and (max-width: 1536px) and (max-height: 1080px) {
         @content;
     }
 }
 
 @mixin mediaXL {
-    @media screen and (min-width: 1171px) {
+    @media screen and (min-width: 1537px) {
         @content;
     }
 }
