@@ -9,9 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/725978cb47.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css">
+
     <!--STYLESHEETS-->
     <link rel="stylesheet" href="css/main.css">
-    <title>Portfolio Tester</title>
+    <title>About</title>
 </head>
 
 <body id="im-bg">
@@ -33,7 +35,7 @@
                         Home
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item current">
                     <a href="about.html" class="nav-link">
                         About Me
                     </a>
@@ -55,17 +57,139 @@
 
     </header>
 
-    <main id="interactive">
-        <!-- BUSINESS CARD -->
-        <div class="oh-my">
-            <h1>INTERACTIVE MEDIA</h1>
+    <main id="im">
+        <div class="wrapper">
+            <div class="directional">
+                <div class="gamepad-btn">
+                    <div class="gamepad-btn left"></div>
+                </div>
+                <div class="gamepad-btn">
+                    <div class="gamepad-btn up"></div>
+                    <div class="gamepad-btn down"></div>
+                </div>
+                <div class="gamepad-btn">
+                    <div class="gamepad-btn right"></div>
+                </div>
+            </div>
+            <div class="gamescreen">
+                <div class="gamescreen-start">
+                    <img src="img/asset_3.png" alt="Galaxy Spiral">
+                    <h3>Click to start</h3>
+                </div>
+                <div class="gamescreen-info show">
+                    <div class="gamescreen-info-im show">
+                        <h2>INTERACTIVE MEDIA</h2>
+                        <div class="semiline"></div>
+                        <p>Interactive Media concerns all forms of interactivity within virtual environments. It tackles Human-Computer Interaction at its core, from the research process to the development of interactive technologies themselves.</p>
+                        <p class="pinklight">Play around with the console buttons or w/a/s/d to see more!</p>
+                    </div>
+                    <div class="gamescreen-info-web">
+                        <h2>WEB PROGRAMMING</h2>
+                        <div class="semiline"></div>
+                        <div class="selection">
+                            <p class="wp frontend current">FRONTEND</p>
+                            <div></div>
+                            <p class="wp uiux">UI/UX</p>
+                            <div></div>
+                            <p class="wp api">API</p>
+                            <div></div>
+                            <p class="wp datavis">DATA VISUALIZATION</p>
+                        </div>
+                        <div class="container">
+                            <div class="wp-frontend show">
+                                As a course requirement for MIS 121 and 131 (Systems Analysis and Design), my group created an website for a flowershop. Here, I used CSS with bootstrap to create the interface for the shop, while our backend developer used python with django to handle
+                                the shop's inventory and user systems.
+                            </div>
+                            <div class="wp-uiux">
+                                BS MIS' two major projects involved creating software solutions for partner companies. I was my groups' point person for UI/UX design for both projects. For MIS131 Final, I designed the UI for our online shop using AdobeXD, and for our thesis, I used
+                                Figma and Balsamiq alongside our frontend developer to design the wireframes for our ERP App Solution.
+                            </div>
+                            <div class="wp-api">
+                                My first encounter with REST APIs was in my Web Programming class where we used JavaScript to fetch dummy text from JSONPlaceholder to simulate a blog website. I was able to use this knowledge during my internship at Proudcloud I worked with the IoT Team.
+                            </div>
+                            <div class="wp-datavis">
+                                During my internship at Proudcloud, I worked with the Internet of Things team to complete their weather diagnosis system. Here, I learned how to use various technologies with python, including matplotlib.
+                            </div>
+                        </div>
+                        <!-- <h3>>> UI Research and Design</h3>
+                        <h3>>> API</h3>
+                        <h3>>> Data Visualization</h3> -->
+                        <p class="pinklight">Play around with the console buttons or w/a/s/d to see more!</p>
+                    </div>
+                    <div class="gamescreen-info-gd">
+                        <h2>GAME DESIGN</h2>
+                        <div class="semiline"></div>
+                        <p class="temp">I undertook four Game Development and Design courses to complete my specialization. These introduced me to the behind the scenes of Video Game Production, after which I pitched and presented game ideas and wrote a game design document.
+                            As a group final project, we also created a simple asteroid shooter game using C++ and SFML.</p>
+                        <p class="pinklight">Play around with the console buttons or w/a/s/d to see more!</p>
+                    </div>
+                    <div class="gamescreen-info-dg">
+                        <h2>Huh?</h2>
+                        <div class="semiline"></div>
+                        <p class="pinklight">Click A or press Enter to continue...</p>
+                    </div>
+                    <div class="gameselection">
+                        <div class="prev web">
+                            <img src="img/im-assets-01.png" alt="">
+                        </div>
+                        <div class="prev game">
+                            <img src="img/im-assets-02.png" alt="">
+                        </div>
+                        <div class="prev dog">
+                            <img src="img/asset_doggo.png" alt="">
+                        </div>
+                    </div>
+                    <div class="toolselection">
+                        <div class="tool bootstrap">
+                            <i class="devicon-bootstrap-plain-wordmark" style="font-size:20px;"></i>
+                        </div>
+                        <div class="tool cplus">
+                            <i class="devicon-cplusplus-line-wordmark" style="font-size:20px;"></i>
+                        </div>
+                        <div class="tool css">
+                            <i class="devicon-css3-plain" style="font-size:20px;"></i>
+                        </div>
+                        <div class="tool flask">
+                            <i class="devicon-flask-original-wordmark" style="font-size:30px;"></i>
+                        </div>
+                        <div class="tool git">
+                            <i class="devicon-git-plain-wordmark" style="font-size:30px;"></i>
+                        </div>
+                        <div class="tool java">
+                            <i class="devicon-javascript-plain" style="font-size:20px;"></i>
+                        </div>
+                        <div class="tool py">
+                            <i class="devicon-python-plain-wordmark" style="font-size:20px;"></i>
+                        </div>
+                        <div class="tool sass">
+                            <i class="devicon-sass-original" style="font-size:20px;"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <div class="gamescreen-web">
+                    <div class="container">
+                        <h1 class="webprog">WEB PROGRAMMING</h1>
+                        <h1 class="sysana">SYSTEMS ANALYSIS</h1>
+                        <h1 class="intern">INTERNSHIP</h1>
+                    </div>
+                    <div class="webprog-text">
+                        <h3 class="pinklight">CS179.2</h3>
+                        <p>One of the courses I undertook for my Interactive Media Specialization. Here, we were taught the basics of CSS and Javascript, and created a Blog-type prototype that used Javascript and AJAX to deliver dummy JSON text from JSONPlaceholder
+                            and format it into blog posts.</p>
+                    </div>
+                </div> -->
+
+            </div>
+            <div class="functional">
+                <div class="gamepad-btn b">B</div>
+                <div class="gamepad-btn a">A</div>
+
+            </div>
         </div>
-        <!-- BUSINESS CARD -->
-
-
     </main>
     <script src="js/menu.js"></script>
-
+    <script src="js/spec.js"></script>
 </body>
 
 </html>

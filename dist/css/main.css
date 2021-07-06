@@ -16,7 +16,7 @@
   background-image: linear-gradient(to bottom right, #152032, #305fbe, #ec7787); }
 
 #im-bg {
-  background-color: #152032; }
+  background-image: linear-gradient(to bottom right, #152032, #305fbe, #ec7787); }
 
 @keyframes bjork {
   0% {
@@ -34,6 +34,14 @@
   100% {
     transform: rotate(360deg); } }
 
+@keyframes toDbPink {
+  0% {
+    background-image: linear-gradient(to bottom right, #152032, #305fbe, #ec7787); }
+  50% {
+    background-image: linear-gradient(to bottom right, #152032, #305fbe, #305fbe, #ec7787); }
+  100% {
+    background-image: linear-gradient(to bottom right, #305fbe, #ec7787); } }
+
 .card {
   width: 80vw;
   height: 50vh;
@@ -50,6 +58,29 @@
   transition: 2s ease-out; }
   .card:hover {
     border: 3px solid #305fbe; }
+  .card-title {
+    margin-top: 2.5vh; }
+  .card-subtitle {
+    font-weight: 400;
+    margin-top: 7vh; }
+  .card-text {
+    font-weight: 400; }
+  .card-line {
+    width: 80%;
+    margin: auto;
+    z-index: 3;
+    align-content: center;
+    height: 3px;
+    background: #ec7787; }
+  .card-icons {
+    margin-top: 1rem;
+    margin-bottom: 2rem; }
+    .card-icons a {
+      padding: 0rem 0.5rem 0.5rem 0.5rem;
+      color: #ec7787; }
+      .card-icons a:hover {
+        color: #305fbe;
+        transition: all 1s ease-out; }
   .card.flip {
     transform: rotateY(180deg); }
   .card-title, .card-subtitle, .card-icons, .card-line, .card-text {
@@ -59,24 +90,57 @@
     .card-title.hidden, .card-subtitle.hidden, .card-icons.hidden, .card-line.hidden, .card-text.hidden {
       opacity: 0;
       transition: all 1s ease-out;
-      transition-delay: 0s;
-      visibility: hidden; }
+      visibility: hidden;
+      display: none; }
 
 .card-nav {
-  visibility: hidden; }
+  width: 80vw;
+  height: 50vh;
+  min-height: 250px;
+  margin: 0 auto;
+  position: fixed;
+  left: 10vw;
+  top: 25vh;
+  padding: 4vh 2vw 4vh 2vw;
+  border-radius: 10px;
+  font-weight: 700;
+  display: flex;
+  font-size: 1.5rem;
+  text-align: center;
+  list-style: none;
+  opacity: 0;
+  transition: all 1s ease-out;
+  visibility: hidden;
+  display: none; }
   .card-nav.show {
-    visibility: visible; }
-  .card-nav .nav-item {
-    opacity: 0;
-    transition: all 1s ease-out; }
-    .card-nav .nav-item.show {
-      visibility: visible;
-      transition-duration: 2s;
-      transition: all 1s ease-out;
-      transition-delay: 1.5s;
-      opacity: 1; }
-    .card-nav .nav-item .nav-link.current {
-      color: #ec7787; }
+    display: inline;
+    visibility: visible;
+    animation-name: cardIn;
+    animation-delay: 1.5s;
+    animation-duration: 3s;
+    transition: ease-in-out;
+    animation-fill-mode: forwards; }
+    .card-nav.show:hover {
+      border: 3px solid #305fbe;
+      transition: all 1s ease-out; }
+  .card-nav .nav-items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center; }
+    .card-nav .nav-items .nav-link {
+      padding: 1vh;
+      font-size: 20px;
+      padding: 1re, 0;
+      font-weight: 300;
+      color: white;
+      text-decoration: none; }
+      .card-nav .nav-items .nav-link:hover {
+        color: #ec7787; }
+      .card-nav .nav-items .nav-link.current {
+        color: #ec7787; }
 
 @keyframes cardIn {
   0% {
@@ -228,7 +292,7 @@
   #about .cred {
     font-size: 1rem; }
   #about .im-card,
-  #about .gd-card,
+  #about .ma-card,
   #about .sa-card {
     visibility: hidden; }
   #about .about-card {
@@ -318,6 +382,399 @@
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; } }
 
+#about {
+  width: 100%; }
+  #about .wrapper {
+    width: 70vw;
+    height: 70vh;
+    min-height: 380px;
+    margin: 0 auto;
+    position: fixed;
+    left: 15vw;
+    top: 15vh;
+    transition: all 1s ease-out;
+    display: grid;
+    min-height: 410px;
+    grid-template-areas: 'about spec';
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw; }
+    #about .wrapper.out {
+      gap: 0vw; }
+    #about .wrapper a {
+      color: inherit; }
+    #about .wrapper .button {
+      height: 30px;
+      width: 80%;
+      border-radius: 10px;
+      background-color: #152032;
+      font-size: .5rem;
+      font-weight: 700;
+      color: #ec7787;
+      margin: 5px 0px;
+      padding: 8px;
+      border: 1px solid #ec7787;
+      visibility: hidden; }
+      #about .wrapper .button a {
+        text-decoration: none; }
+      #about .wrapper .button:hover {
+        color: #305fbe;
+        border: 1px solid #305fbe;
+        transition: all 1s ease-out; }
+    #about .wrapper .disclaimer {
+      visibility: hidden; }
+    #about .wrapper .about-card {
+      background-color: rgba(13, 21, 32, 0.8);
+      padding: 3vh 3vw 3vh 3vw;
+      grid-area: about;
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      max-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px; }
+      #about .wrapper .about-card .bio-image {
+        margin: 15px 0px 10px 0px;
+        align-self: center;
+        height: 88px;
+        width: 88px;
+        border-radius: 50%;
+        border: #42ddf5 1px solid; }
+      #about .wrapper .about-card p {
+        margin-bottom: 5px;
+        margin-top: 5px; }
+      #about .wrapper .about-card.desc {
+        margin-bottom: 10px; }
+    #about .wrapper .specializations {
+      grid-area: spec;
+      display: grid;
+      grid-template-areas: 'im' 'gd' 'il';
+      grid-template-rows: repeat(3, 1fr);
+      width: 100%;
+      height: 100%;
+      gap: 3vh;
+      text-align: center;
+      transition: 1.5s ease-in-out; }
+      #about .wrapper .specializations.out {
+        gap: 0vh; }
+      #about .wrapper .specializations .im-card {
+        grid-area: im;
+        background: url("../img/asset_3.png");
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center; }
+      #about .wrapper .specializations .ma-card {
+        grid-area: gd;
+        background: url("../img/asset_1.png");
+        background-size: 200%;
+        background-repeat: no-repeat;
+        background-position: center; }
+      #about .wrapper .specializations .sa-card {
+        grid-area: il;
+        background: url("../img/asset_2.png");
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center; }
+      #about .wrapper .specializations .im-card,
+      #about .wrapper .specializations .ma-card,
+      #about .wrapper .specializations .sa-card {
+        background-color: rgba(13, 21, 32, 0.8);
+        text-align: center;
+        border-radius: 10px; }
+        #about .wrapper .specializations .im-card-text,
+        #about .wrapper .specializations .ma-card-text,
+        #about .wrapper .specializations .sa-card-text {
+          width: 100%;
+          padding: 0px 10px 0px 10px;
+          border-radius: 10px;
+          opacity: 0; }
+          #about .wrapper .specializations .im-card-text h3,
+          #about .wrapper .specializations .ma-card-text h3,
+          #about .wrapper .specializations .sa-card-text h3 {
+            font-weight: 700;
+            font-size: 1rem; }
+        #about .wrapper .specializations .im-card .spec-card,
+        #about .wrapper .specializations .ma-card .spec-card,
+        #about .wrapper .specializations .sa-card .spec-card {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(13, 21, 32, 0.8);
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          justify-content: center;
+          border-radius: 10px;
+          opacity: 0; }
+          #about .wrapper .specializations .im-card .spec-card:hover,
+          #about .wrapper .specializations .ma-card .spec-card:hover,
+          #about .wrapper .specializations .sa-card .spec-card:hover {
+            opacity: 1;
+            border: 3px solid #42ddf5;
+            transition: all 1s ease-out; }
+            #about .wrapper .specializations .im-card .spec-card:hover .im-card-text,
+            #about .wrapper .specializations .im-card .spec-card:hover .ma-card-text,
+            #about .wrapper .specializations .im-card .spec-card:hover .sa-card-text,
+            #about .wrapper .specializations .ma-card .spec-card:hover .im-card-text,
+            #about .wrapper .specializations .ma-card .spec-card:hover .ma-card-text,
+            #about .wrapper .specializations .ma-card .spec-card:hover .sa-card-text,
+            #about .wrapper .specializations .sa-card .spec-card:hover .im-card-text,
+            #about .wrapper .specializations .sa-card .spec-card:hover .ma-card-text,
+            #about .wrapper .specializations .sa-card .spec-card:hover .sa-card-text {
+              opacity: 1; }
+
+#im .wrapper {
+  width: 70vw;
+  height: 70vh;
+  min-height: 380px;
+  margin: 0 auto;
+  position: fixed;
+  left: 15vw;
+  top: 15vh;
+  animation-name: gameIn;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  min-height: 410px;
+  background-color: rgba(43, 85, 170, 0.8);
+  border-radius: 5px;
+  display: flex;
+  contain: strict; }
+  #im .wrapper .directional,
+  #im .wrapper .functional {
+    height: 100%;
+    width: 17%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+  #im .wrapper .gamescreen {
+    align-self: center;
+    height: 80%;
+    width: 66%;
+    background-color: rgba(13, 21, 32, 0.8);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #im .wrapper .gamescreen-start {
+      opacity: 0;
+      transition: all 1s ease-out;
+      visibility: hidden;
+      display: none; }
+      #im .wrapper .gamescreen-start img {
+        height: 60vh; }
+        #im .wrapper .gamescreen-start img:hover {
+          animation-name: spiral;
+          animation-duration: 5s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear; }
+      #im .wrapper .gamescreen-start h3 {
+        text-align: center;
+        align-self: center;
+        transform: translateY(-8vh);
+        z-index: 3; }
+      #im .wrapper .gamescreen-start.show {
+        display: inline;
+        visibility: visible;
+        opacity: 1; }
+    #im .wrapper .gamescreen-info {
+      padding: 20px;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: all 1s ease-out;
+      visibility: hidden;
+      display: none; }
+      #im .wrapper .gamescreen-info.show {
+        display: inline;
+        visibility: visible;
+        opacity: 1; }
+      #im .wrapper .gamescreen-info-im, #im .wrapper .gamescreen-info-web, #im .wrapper .gamescreen-info-gd, #im .wrapper .gamescreen-info-dg {
+        width: 100%;
+        height: 50%;
+        opacity: 0;
+        transition: all 1s ease-out;
+        visibility: hidden;
+        display: none; }
+        #im .wrapper .gamescreen-info-im.show, #im .wrapper .gamescreen-info-web.show, #im .wrapper .gamescreen-info-gd.show, #im .wrapper .gamescreen-info-dg.show {
+          display: inline;
+          visibility: visible;
+          opacity: 1; }
+      #im .wrapper .gamescreen-info-web .container {
+        height: 25%;
+        width: 100%;
+        overflow-y: scroll;
+        margin-top: -5px;
+        padding-top: -10px;
+        line-height: 16px; }
+      #im .wrapper .gamescreen-info-web .wp-frontend,
+      #im .wrapper .gamescreen-info-web .wp-uiux,
+      #im .wrapper .gamescreen-info-web .wp-api,
+      #im .wrapper .gamescreen-info-web .wp-datavis {
+        margin: 0;
+        font-size: .75rem;
+        opacity: 0;
+        transition: all 1s ease-out;
+        visibility: hidden;
+        display: none;
+        transition: all 1s ease-out; }
+        #im .wrapper .gamescreen-info-web .wp-frontend.show,
+        #im .wrapper .gamescreen-info-web .wp-uiux.show,
+        #im .wrapper .gamescreen-info-web .wp-api.show,
+        #im .wrapper .gamescreen-info-web .wp-datavis.show {
+          display: inline;
+          visibility: visible;
+          opacity: 1;
+          transition: all 1s ease-out; }
+      #im .wrapper .gamescreen-info-web .selection {
+        margin-right: 4vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        color: #42ddf5;
+        line-height: 0; }
+        #im .wrapper .gamescreen-info-web .selection .wp {
+          padding: 10px; }
+          #im .wrapper .gamescreen-info-web .selection .wp:hover, #im .wrapper .gamescreen-info-web .selection .wp.cursor {
+            color: #ec7787;
+            transition: all 1s ease-out; }
+          #im .wrapper .gamescreen-info-web .selection .wp.current {
+            border: #ec7787 1px solid; }
+        #im .wrapper .gamescreen-info-web .selection div {
+          height: 1px;
+          width: 3vw;
+          background-color: #42ddf5; }
+      #im .wrapper .gamescreen-info-gd .temp {
+        max-height: 25%;
+        overflow-y: scroll; }
+      #im .wrapper .gamescreen-info .semiline {
+        height: 3px;
+        width: 12vw;
+        background-color: #42ddf5; }
+      #im .wrapper .gamescreen-info .pinklight {
+        line-height: 0;
+        margin-bottom: 18px; }
+      #im .wrapper .gamescreen-info .gameselection {
+        width: 100%;
+        height: 35%;
+        display: flex;
+        flex-direction: row; }
+        #im .wrapper .gamescreen-info .gameselection .prev {
+          height: 88px;
+          width: 88px;
+          margin: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: all 1s ease-out; }
+          #im .wrapper .gamescreen-info .gameselection .prev:hover, #im .wrapper .gamescreen-info .gameselection .prev.cursor {
+            background-color: #ec7787;
+            transition: all 1s ease-out; }
+          #im .wrapper .gamescreen-info .gameselection .prev.current {
+            border: #42ddf5 2px solid;
+            transition: all 1s ease-out; }
+          #im .wrapper .gamescreen-info .gameselection .prev img {
+            height: 80px; }
+          #im .wrapper .gamescreen-info .gameselection .prev.more {
+            border-radius: 50%; }
+      #im .wrapper .gamescreen-info .toolselection {
+        width: 100%;
+        height: 15%;
+        flex-direction: row;
+        contain: strict;
+        overflow: hidden;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0;
+        display: none; }
+        #im .wrapper .gamescreen-info .toolselection.show {
+          display: inline;
+          visibility: visible;
+          opacity: 1; }
+        #im .wrapper .gamescreen-info .toolselection .tool {
+          display: flex;
+          flex-direction: column;
+          text-align: center; }
+          #im .wrapper .gamescreen-info .toolselection .tool:hover, #im .wrapper .gamescreen-info .toolselection .tool.current {
+            color: #42ddf5;
+            transition: all 1s ease-out; }
+    #im .wrapper .gamescreen-web {
+      opacity: 0;
+      transition: all 1s ease-out;
+      visibility: hidden;
+      display: none;
+      height: 100%;
+      width: 100%;
+      padding: 20px; }
+      #im .wrapper .gamescreen-web .pinklight {
+        line-height: 0; }
+      #im .wrapper .gamescreen-web.show {
+        display: inline;
+        visibility: visible;
+        opacity: 1; }
+        #im .wrapper .gamescreen-web.show h1 {
+          font-weight: 400; }
+      #im .wrapper .gamescreen-web .container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1; }
+  #im .wrapper .gamepad-btn.a:hover, #im .wrapper .gamepad-btn.b:hover,
+  #im .wrapper .gamepad-btn .up:hover,
+  #im .wrapper .gamepad-btn .left:hover,
+  #im .wrapper .gamepad-btn .down:hover,
+  #im .wrapper .gamepad-btn .right:hover {
+    border: #42ddf5 2px solid;
+    transition: ease-in-out 2s; }
+  #im .wrapper .gamepad-btn.a, #im .wrapper .gamepad-btn.b {
+    background-color: #ec7787;
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center; }
+  #im .wrapper .gamepad-btn .left {
+    background-color: #ec7787;
+    height: 30px;
+    width: 45px;
+    transform: translateX(2px);
+    border-radius: 10% 50% 50% 10%; }
+  #im .wrapper .gamepad-btn .right {
+    background-color: #ec7787;
+    height: 30px;
+    width: 45px;
+    transform: translateX(-2px);
+    border-radius: 50% 10% 10% 50%; }
+  #im .wrapper .gamepad-btn .up {
+    background-color: #ec7787;
+    height: 45px;
+    width: 30px;
+    transform: translateY(-5px);
+    border-radius: 10% 10% 50% 50%; }
+  #im .wrapper .gamepad-btn .down {
+    background-color: #ec7787;
+    height: 45px;
+    width: 30px;
+    transform: translateY(5px);
+    border-radius: 50% 50% 10% 10%; }
+  #im .wrapper .gamepad-btn.b {
+    transform: translateY(-30px); }
+  #im .wrapper .gamepad-btn.a {
+    transform: translateY(30px); }
+
+@keyframes gameIn {
+  0% {
+    background-color: rgba(13, 21, 32, 0.8); }
+  10% {
+    background-color: #152032; }
+  100% {
+    background-color: rgba(43, 85, 170, 0.8); } }
+
 * {
   box-sizing: border-box; }
 
@@ -336,19 +793,19 @@ h1,
 h2,
 h3 {
   margin: 0; }
-  h1.card-title,
-  h2.card-title,
-  h3.card-title {
-    font-size: 3rem; }
-  h1.card-subtitle,
-  h2.card-subtitle,
-  h3.card-subtitle {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-top: 6.5vh; }
+
+h1 {
+  font-size: 2rem; }
+
+h2 {
+  font-size: 1.5rem; }
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400; }
 
 p {
-  font-size: 11px; }
+  font-size: .75rem; }
   p.pinklight {
     padding-top: 10px;
     color: #ec7787; }
@@ -369,12 +826,6 @@ a {
     color: #42ddf5;
     transition: all 1s ease-out; }
 
-.card-icons .fab {
-  color: #ec7787; }
-  .card-icons .fab:hover {
-    color: #305fbe;
-    transition: all 1s ease-out; }
-
 header {
   position: fixed;
   z-index: 2;
@@ -386,13 +837,6 @@ header {
 main {
   min-height: 100vh;
   overflow: hidden; }
-  main .card-line {
-    width: 80%;
-    margin: auto;
-    z-index: 3;
-    align-content: center;
-    height: 3px;
-    background: #ec7787; }
   main .abt-line {
     width: 80%;
     margin: auto;
@@ -400,465 +844,8 @@ main {
     align-content: center;
     height: 2px;
     background: #42ddf5; }
-  main .card-icons {
-    margin-top: 1rem;
-    margin-bottom: 2rem; }
-    main .card-icons a {
-      padding: 0rem 0.5rem 0.5rem 0.5rem; }
-      main .card-icons a:hover {
-        color: #305fbe;
-        transition: all 1s ease-out; }
-  main .card-nav {
-    width: 80vw;
-    height: 50vh;
-    min-height: 250px;
-    margin: 0 auto;
-    position: fixed;
-    left: 10vw;
-    top: 25vh;
-    padding: 4vh 2vw 4vh 2vw;
-    border-radius: 10px;
-    font-weight: 700;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    text-align: center;
-    list-style: none;
-    transition: all 1s ease-out; }
-    main .card-nav .nav-link {
-      display: inline-block;
-      font-size: 20px;
-      padding: 1re, 0;
-      font-weight: 300;
-      color: white;
-      text-decoration: none;
-      transition: all 1s ease-out; }
-      main .card-nav .nav-link:hover {
-        color: #ec7787; }
   main#home, main#about {
     overflow: hidden; }
-
-#about {
-  width: 100%; }
-  #about .wrapper .eks {
-    position: fixed;
-    top: 5vh;
-    z-index: 3; }
-  #about .wrapper-main, #about .wrapper-im {
-    width: 70vw;
-    height: 70vh;
-    min-height: 380px;
-    margin: 0 auto;
-    position: fixed;
-    left: 15vw;
-    top: 15vh;
-    display: grid;
-    visibility: hidden;
-    opacity: 0;
-    transition: 1.5s ease-in-out;
-    min-height: 410px; }
-    #about .wrapper-main.show, #about .wrapper-im.show {
-      visibility: visible;
-      opacity: 1; }
-      #about .wrapper-main.show .specializations, #about .wrapper-im.show .specializations {
-        gap: 3vh; }
-    #about .wrapper-main h1, #about .wrapper-im h1 {
-      line-height: 2.125rem; }
-  #about .wrapper-im {
-    background-color: rgba(13, 21, 32, 0.8);
-    border-radius: 10px;
-    grid-template-areas: 'desc info';
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5vw;
-    padding: 6vh 3vw 4vh 3vw; }
-    #about .wrapper-im .im-icons {
-      size: 30px;
-      margin: auto; }
-    #about .wrapper-im .gamepad {
-      display: grid;
-      grid-template-areas: 'direc direc b a';
-      grid-template-columns: repeat(4, 1fr); }
-      #about .wrapper-im .gamepad .directional {
-        grid-area: direc; }
-      #about .wrapper-im .gamepad-btn {
-        background-color: #305fbe; }
-        #about .wrapper-im .gamepad-btn:hover {
-          border: #42ddf5 1px solid;
-          transition: all 1s ease-out; }
-        #about .wrapper-im .gamepad-btn.a, #about .wrapper-im .gamepad-btn.b {
-          display: flex;
-          height: 38px;
-          width: 38px;
-          border-radius: 50%;
-          align-items: center;
-          justify-content: center; }
-        #about .wrapper-im .gamepad-btn.left, #about .wrapper-im .gamepad-btn.right, #about .wrapper-im .gamepad-btn.up, #about .wrapper-im .gamepad-btn.down {
-          position: absolute; }
-        #about .wrapper-im .gamepad-btn.up {
-          transform: translate(55px, 20px);
-          height: 45px;
-          width: 30px;
-          border-radius: 10% 10% 50% 50%; }
-        #about .wrapper-im .gamepad-btn.down {
-          height: 45px;
-          width: 30px;
-          transform: translate(55px, 80px);
-          border-radius: 50% 50% 10% 10%; }
-        #about .wrapper-im .gamepad-btn.left {
-          height: 30px;
-          width: 45px;
-          transform: translate(10px, 60px);
-          border-radius: 10% 50% 50% 10%; }
-        #about .wrapper-im .gamepad-btn.right {
-          height: 30px;
-          width: 45px;
-          transform: translate(85px, 60px);
-          border-radius: 50% 10% 10% 50%; }
-        #about .wrapper-im .gamepad-btn.a {
-          grid-area: a;
-          margin-left: 20%;
-          margin-top: 38%; }
-        #about .wrapper-im .gamepad-btn.b {
-          grid-area: b;
-          margin-left: 50%;
-          margin-top: 80%; }
-    #about .wrapper-im .gamescreen {
-      height: 66%;
-      min-height: 200px;
-      max-height: 40vh;
-      width: 100%;
-      background-color: #305fbe;
-      border-radius: 20px; }
-    #about .wrapper-im .im-desc {
-      grid-area: desc;
-      display: flex;
-      flex-direction: column; }
-      #about .wrapper-im .im-desc-icons {
-        position: sticky;
-        height: 90%;
-        width: 90%;
-        min-height: 200px;
-        max-height: 40vh;
-        background-color: #305fbe;
-        margin: 15px 15px;
-        bottom: 42vh;
-        visibility: hidden;
-        opacity: 0;
-        overflow: hidden;
-        transition: all 1s ease-out; }
-        #about .wrapper-im .im-desc-icons .pinklight {
-          font-size: 1rem;
-          line-height: 1rem;
-          padding-top: 10px; }
-        #about .wrapper-im .im-desc-icons .uline {
-          text-decoration: underline; }
-        #about .wrapper-im .im-desc-icons p {
-          margin: 5px 0px; }
-        #about .wrapper-im .im-desc-icons .semiline {
-          width: 30%;
-          height: 3px;
-          z-index: 3;
-          align-content: left;
-          background-color: #42ddf5; }
-        #about .wrapper-im .im-desc-icons .tools {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-          align-content: center; }
-          #about .wrapper-im .im-desc-icons .tools i {
-            margin: 30px 3px 0px 3px; }
-        #about .wrapper-im .im-desc-icons.show {
-          visibility: visible;
-          opacity: 1;
-          overflow-y: scroll; }
-      #about .wrapper-im .im-desc-start {
-        position: sticky;
-        height: 90%;
-        width: 90%;
-        min-height: 200px;
-        max-height: 40vh;
-        background-color: #305fbe;
-        margin: 15px 15px;
-        bottom: 42vh;
-        visibility: hidden;
-        opacity: 0;
-        overflow: hidden;
-        z-index: 2; }
-        #about .wrapper-im .im-desc-start .pinklight {
-          font-size: 1rem;
-          line-height: 1rem;
-          padding-top: 10px; }
-        #about .wrapper-im .im-desc-start .uline {
-          text-decoration: underline; }
-        #about .wrapper-im .im-desc-start p {
-          margin: 5px 0px; }
-        #about .wrapper-im .im-desc-start .semiline {
-          width: 30%;
-          height: 3px;
-          z-index: 3;
-          align-content: left;
-          background-color: #42ddf5; }
-        #about .wrapper-im .im-desc-start p {
-          padding-right: 10px; }
-        #about .wrapper-im .im-desc-start.show {
-          visibility: visible;
-          opacity: 1;
-          overflow-y: scroll; }
-      #about .wrapper-im .im-desc-web {
-        position: sticky;
-        height: 90%;
-        width: 90%;
-        min-height: 200px;
-        max-height: 40vh;
-        background-color: #305fbe;
-        margin: 15px 15px;
-        bottom: 42vh;
-        visibility: hidden;
-        opacity: 0;
-        overflow: hidden;
-        z-index: 2; }
-        #about .wrapper-im .im-desc-web .pinklight {
-          font-size: 1rem;
-          line-height: 1rem;
-          padding-top: 10px; }
-        #about .wrapper-im .im-desc-web .uline {
-          text-decoration: underline; }
-        #about .wrapper-im .im-desc-web p {
-          margin: 5px 0px; }
-        #about .wrapper-im .im-desc-web .semiline {
-          width: 30%;
-          height: 3px;
-          z-index: 3;
-          align-content: left;
-          background-color: #42ddf5; }
-        #about .wrapper-im .im-desc-web p {
-          padding-right: 10px; }
-        #about .wrapper-im .im-desc-web.show {
-          visibility: visible;
-          opacity: 1;
-          overflow-y: scroll; }
-      #about .wrapper-im .im-desc-gd {
-        position: sticky;
-        height: 90%;
-        width: 90%;
-        min-height: 200px;
-        max-height: 40vh;
-        background-color: #305fbe;
-        margin: 15px 15px;
-        bottom: 42vh;
-        visibility: hidden;
-        opacity: 0;
-        overflow: hidden;
-        z-index: 2; }
-        #about .wrapper-im .im-desc-gd .pinklight {
-          font-size: 1rem;
-          line-height: 1rem;
-          padding-top: 10px; }
-        #about .wrapper-im .im-desc-gd .uline {
-          text-decoration: underline; }
-        #about .wrapper-im .im-desc-gd p {
-          margin: 5px 0px; }
-        #about .wrapper-im .im-desc-gd .semiline {
-          width: 30%;
-          height: 3px;
-          z-index: 3;
-          align-content: left;
-          background-color: #42ddf5; }
-        #about .wrapper-im .im-desc-gd p {
-          padding-right: 10px; }
-        #about .wrapper-im .im-desc-gd.show {
-          visibility: visible;
-          opacity: 1;
-          overflow-y: scroll; }
-    #about .wrapper-im .im-info {
-      grid-area: info;
-      width: 100%; }
-      #about .wrapper-im .im-info-head {
-        margin-bottom: 5px; }
-      #about .wrapper-im .im-info-subhead {
-        font-weight: 400; }
-      #about .wrapper-im .im-info p {
-        text-align: justify; }
-  #about .wrapper-main {
-    grid-template-areas: 'about spec';
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0vw; }
-    #about .wrapper-main h3 {
-      font-size: 1.2rem; }
-    #about .wrapper-main.show {
-      gap: 3vw; }
-    #about .wrapper-main .button {
-      height: 30px;
-      width: 80%;
-      border-radius: 10px;
-      background-color: #152032;
-      font-size: .5rem;
-      font-weight: 700;
-      color: #ec7787;
-      margin: 5px 0px;
-      padding: 8px;
-      border: 1px solid #ec7787;
-      visibility: hidden; }
-      #about .wrapper-main .button a {
-        text-decoration: none; }
-      #about .wrapper-main .button:hover {
-        color: #305fbe;
-        border: 1px solid #305fbe;
-        transition: all 1s ease-out; }
-    #about .wrapper-main .disclaimer {
-      visibility: hidden; }
-    #about .wrapper-main .about-card {
-      background-color: rgba(13, 21, 32, 0.8);
-      padding: 3vh 3vw 3vh 3vw;
-      grid-area: about;
-      width: 100%;
-      height: 100%;
-      min-height: 430px;
-      max-height: 70vh;
-      display: flex;
-      flex-direction: column;
-      border-radius: 10px; }
-      #about .wrapper-main .about-card .bio-image {
-        margin: 15px 0px 10px 0px;
-        align-self: center; }
-      #about .wrapper-main .about-card p {
-        margin-bottom: 5px;
-        margin-top: 5px; }
-      #about .wrapper-main .about-card.desc {
-        margin-bottom: 10px; }
-    #about .wrapper-main .specializations {
-      grid-area: spec;
-      display: grid;
-      grid-template-areas: 'im' 'gd' 'il';
-      grid-template-rows: repeat(3, 1fr);
-      width: 100%;
-      height: 100%;
-      gap: 0vh;
-      text-align: center;
-      transition: 1.5s ease-in-out; }
-      #about .wrapper-main .specializations .im-card {
-        grid-area: im;
-        background: url("../img/asset_3.png");
-        background-size: 80%;
-        background-repeat: no-repeat;
-        background-position: center; }
-      #about .wrapper-main .specializations .gd-card {
-        grid-area: gd;
-        background: url("../img/asset_1.png");
-        background-size: 200%;
-        background-repeat: no-repeat;
-        background-position: center; }
-      #about .wrapper-main .specializations .sa-card {
-        grid-area: il;
-        background: url("../img/asset_2.png");
-        background-size: 70%;
-        background-repeat: no-repeat;
-        background-position: center; }
-      #about .wrapper-main .specializations .im-card,
-      #about .wrapper-main .specializations .gd-card,
-      #about .wrapper-main .specializations .sa-card {
-        background-color: rgba(13, 21, 32, 0.8);
-        text-align: center;
-        border-radius: 10px; }
-        #about .wrapper-main .specializations .im-card-text,
-        #about .wrapper-main .specializations .gd-card-text,
-        #about .wrapper-main .specializations .sa-card-text {
-          width: 100%;
-          padding: 0px 10px 0px 10px;
-          border-radius: 10px;
-          opacity: 0; }
-          #about .wrapper-main .specializations .im-card-text h3,
-          #about .wrapper-main .specializations .gd-card-text h3,
-          #about .wrapper-main .specializations .sa-card-text h3 {
-            font-weight: 700;
-            font-size: 1rem; }
-        #about .wrapper-main .specializations .im-card .spec-card,
-        #about .wrapper-main .specializations .gd-card .spec-card,
-        #about .wrapper-main .specializations .sa-card .spec-card {
-          width: 100%;
-          height: 100%;
-          background-color: rgba(13, 21, 32, 0.8);
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-          justify-content: center;
-          border-radius: 10px;
-          opacity: 0; }
-          #about .wrapper-main .specializations .im-card .spec-card:hover,
-          #about .wrapper-main .specializations .gd-card .spec-card:hover,
-          #about .wrapper-main .specializations .sa-card .spec-card:hover {
-            opacity: 1;
-            border: 3px solid #42ddf5;
-            transition: all 1s ease-out; }
-            #about .wrapper-main .specializations .im-card .spec-card:hover .im-card-text,
-            #about .wrapper-main .specializations .im-card .spec-card:hover .gd-card-text,
-            #about .wrapper-main .specializations .im-card .spec-card:hover .sa-card-text,
-            #about .wrapper-main .specializations .gd-card .spec-card:hover .im-card-text,
-            #about .wrapper-main .specializations .gd-card .spec-card:hover .gd-card-text,
-            #about .wrapper-main .specializations .gd-card .spec-card:hover .sa-card-text,
-            #about .wrapper-main .specializations .sa-card .spec-card:hover .im-card-text,
-            #about .wrapper-main .specializations .sa-card .spec-card:hover .gd-card-text,
-            #about .wrapper-main .specializations .sa-card .spec-card:hover .sa-card-text {
-              opacity: 1; }
-    #about .wrapper-main .bio-image {
-      height: 88px;
-      width: 88px;
-      border-radius: 50%;
-      border: #42ddf5 1px solid; }
-  #about .im-tv {
-    position: sticky;
-    height: 33vh;
-    width: 30vw;
-    background-color: #152032;
-    border-radius: 10px;
-    z-index: 2;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 1s ease-out;
-    left: 66vw;
-    top: 60vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; }
-    #about .im-tv.show {
-      visibility: visible;
-      z-index: 2;
-      opacity: 1;
-      transition: all 1s ease-out; }
-    #about .im-tv .tab {
-      width: 100%;
-      height: 3vh;
-      z-index: 3;
-      background-color: #42ddf5;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center; }
-      #about .im-tv .tab p {
-        color: #305fbe;
-        font-size: 1rem;
-        font-weight: 700;
-        margin-right: 8px;
-        align-self: flex-end; }
-      #about .im-tv .tab:hover {
-        border: #ec7787 1px solid;
-        transition: all 1s ease-out; }
-        #about .im-tv .tab:hover p {
-          color: #ec7787; }
-    #about .im-tv img {
-      position: absolute;
-      height: 103%;
-      align-self: center;
-      z-index: 1; }
-      #about .im-tv img:hover {
-        animation-name: spiral;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear; }
 
 #redirect .playground {
   width: 80vw;
@@ -980,7 +967,7 @@ main {
   #about .cred {
     font-size: 1rem; }
   #about .im-card,
-  #about .gd-card,
+  #about .ma-card,
   #about .sa-card {
     visibility: hidden; }
   #about .about-card {

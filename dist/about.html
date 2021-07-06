@@ -58,13 +58,8 @@
     </header>
 
     <main id="about">
-        <div class="im-tv">
-            <div class="tab">
-                <p class="eks">X</p>
-            </div>
-            <img src="img/asset_3.png" alt="Galaxy Spiral">
-        </div>
-        <div class="wrapper-main show">
+        <!-- MAIN ABOUT -->
+        <div class="wrapper out">
             <div class="about-card">
                 <img src="img/profile_pic.png" alt="" class="bio-image">
                 <!-- <div class="bio-image"></div> -->
@@ -89,12 +84,7 @@
                             <i class="fab fa-instagram fa-1x"></i>
                         </a>
                     </div>
-                    <!-- <p class="pinklight">PROFICIENCIES</p>
-                    <p>|| Frontend Development || User Experience || Graphic Design ||</p>
-                    <p class="pinklight">INTERESTS</p>
-                    <p>|| Game Design || Illustration || Web Development ||</p>
-                    <p class="pinklight">OTHERS</p>
-                    <p>|| Project Management || Backend Development || Media Production ||</p> -->
+
                 </div>
                 <br>
                 <div class="buttons">
@@ -108,11 +98,10 @@
                 </div>
                 <p class="disclaimer">Note: this page is better viewed on bigger screens.</p>
             </div>
-            <div class="specializations">
-                <div class="im-card">
-                    <div class="spec-card">
-                        <!-- <div class="specard"></div> -->
+            <div class="specializations out">
 
+                <div class="im-card">
+                    <div class="spec-card" onclick='imRedirect();'>
                         <div class="im-card-text">
                             <h3>INTERACTIVE MEDIA</h3>
                             <div class="abt-line"></div>
@@ -120,15 +109,14 @@
                             <p class="pinklight" style="margin-top: -3vh; margin-bottom: 0px;">~ See More ~</p>
                         </div>
                     </div>
-                    <!-- <h2>INTERACTIVE MEDIA</h2> -->
 
                 </div>
-                <div class="gd-card">
+                <div class="ma-card">
                     <div class="spec-card">
-                        <div class="gd-card-text">
-                            <h3>GRAPHIC DESIGN</h3>
+                        <div class="ma-card-text">
+                            <h3>Multimedia Arts</h3>
                             <div class="abt-line"></div>
-                            <p>With a background in Illustration, Marketing, User Interface and User Experience, and Web Design.</p>
+                            <p>With a background in Illustration, Marketing, Media Production, User Interface and User Experience, and Web Design.</p>
                             <p class="pinklight" style="margin-top: -3vh; margin-bottom: 0px;">~ See More ~</p>
                         </div>
                     </div>
@@ -145,100 +133,24 @@
                 </div>
             </div>
         </div>
-
-        <div class="wrapper-im">
-
-
-            <div class="im-desc">
-                <div class="gamescreen">
-                    <div class="im-desc-start show">
-                        <h3>What is it?</h3>
-                        <div class="semiline"></div>
-                        <p>Interactive Media concerns all forms of interactivity within virtual environments, whether that be User Experience on websites, software solutions, or game mechanics on consoles. It tackles Human-Computer Interaction at its core,
-                            from the research process to the development of interactive technologies themselves.</p>
-                        <h3>My Experience</h3>
-                        <div class="semiline"></div>
-                        <p class="cred">Most of my experience involves User Interface and User Experience design for web applications, though I have some experience with Game Design and Development as well. I aim to continue working on projects, whether for work or for
-                            passion, to build upon my interaction design experience for game development in the long-run.</p>
-                        <p class="pinklight">Play around with the console buttons to find out more!</p>
-                    </div>
-                    <div class="im-desc-icons show">
-                        <h3>Tools Known</h3>
-                        <div class="semiline"></div>
-                        <div class="tools">
-                            <!-- Icons used here are from devicon.dev -->
-                            <i class="devicon-bootstrap-plain-wordmark" style="font-size:58px;"></i>
-                            <i class="devicon-cplusplus-line-wordmark" style="font-size:58px;"></i>
-                            <i class="devicon-css3-plain" style="font-size:58px;"></i>
-                            <i class="devicon-flask-original-wordmark" style="font-size:58px;"></i>
-                            <i class="devicon-git-plain-wordmark" style="font-size:58px;"></i>
-                            <i class="devicon-javascript-plain" style="font-size:58px;"></i>
-                            <i class="devicon-nodejs-plain" style="font-size:58px;"></i>
-                            <i class="devicon-python-plain-wordmark" style="font-size:58px;"></i>
-                            <i class="devicon-sass-original" style="font-size:58px;"></i>
-                        </div>
-                    </div>
-                    <div class="im-desc-web">
-                        <h3>Web Development</h3>
-                        <div class="semiline"></div>
-                        <p class="cred">
-                            Here are some Web Application projects I worked on throughout my time in college.
-                            <p class="pinklight">CS179.2 WEB PROGRAMMING</p>
-                            <p class="uline">FINAL OUTPUT: Mock Blog Website</p>
-                            <p>Created a Blog-type website that used JavaScript and AJAX to deliver dummy JSON text from JSONPlaceholder and format it into blog posts.</p>
-                            <p class="pinklight">MIS121 & MIS131 SYSTEM ANALYSIS AND DESIGN</p>
-                            <p class="uline">FINAL OUTPUT: Online Shop </p>
-                            <p class="uline">ROLE: UI/UX, QA, Systems Analyst</p>
-                            <p>Year-long group project. Partnered with a small business to deliver a software and database solution. Final output was an online shop that recorded and tracked user profiles and purchase requests. The group used Python with
-                                Django to create the app.</p>
-                            <p class="pinklight">INTERNSHIP AT PROUDCLOUD</p>
-                            <p class="uline">OUTPUT: Adtech - Advertisement REST API</p>
-                            <p>Program which relayed advertisement content from a database onto a screen. Worked on code for the REST API server handling the project.</p>
-                        </p>
-                    </div>
-                    <div class="im-desc-gd">
-                        <h3>Game Development</h3>
-                        <div class="semiline"></div>
-                        <p class="cred">Though my official course is Management Information Systems, I have taken a few Game Development and Object Oriented Programming classes both for my course and my specialization.
-                            <p class="pinklight">CS21 Introduction to Programming</p>
-                            <p class="uline">FINAL OUTPUT: Mock "Tinder" Application</p>
-                            <p>Used C# to create a program resembling Tinder. The program handled user registration, logins, and profiles, and simulated "matching" with an array of registered profiles according to preference.</p>
-                            <p class="pinklight">CS179.6 & 179.15A Game Design Classes</p>
-                            <p class="uline">FINAL OUTPUT: Game Pitch Document, Game Pitch Defense</p>
-                            <p>Theoretical classes that explored the many facets of game design and development, and discussed the processes behind developing and releasing games.</p>
-                            <p class="pinklight">CS179.14 PC and Console Game Development</p>
-                            <p class="uline">FINAL OUTPUT: Asteroid-shooter game</p>
-                            <p>Group project involving the use of C++ and SFML to develop a simple game</p>
-                        </p>
-                    </div>
-                </div>
-                <div class="gamepad">
-                    <div class="directional">
-                        <div class="gamepad-btn up"></div>
-                        <div class="gamepad-btn left"></div>
-                        <div class="gamepad-btn down"></div>
-                        <div class="gamepad-btn right"></div>
-                    </div>
-                    <div class="gamepad-btn a">A</div>
-                    <div class="gamepad-btn b">B</div>
-                </div>
-
-                <!-- <h1>INTERACTIVE <br> MEDIA</h1>
-                <div class="desc">Proficiency with interactive design, including: Web Development, Object Oriented Programming, and Game Development.</div> -->
-            </div>
-            <div class="im-info">
-                <h1 class="im-info-head">INTERACTIVE MEDIA</h1>
-                <!-- <h3 class="im-info-subhead">MIS XXX || MIS XXX</h3> -->
-                <div class="desc">From the study of Human-Computer Interaction, to the development of interactive technologies themselves. My current personal strength is UI/UX for web, but I aim to continue building my Game Development experience.
-
-                </div>
-                <!-- <p class="im-info-hl pinklight">Systems Analysis and Design</p>
-                <p class="im-info-text">Developed the UI for a Flower Shop website in partnership with a small business.</p> -->
-            </div>
-        </div>
     </main>
-    <script src="js/spec.js"></script>
     <script src="js/menu.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('.wrapper').classList.remove('out');
+            document.querySelector('.specializations').classList.remove('out');
+        });
+
+        function imRedirect() {
+            var delay = 1000;
+            document.querySelector('.wrapper').classList.add('out');
+            document.querySelector('.specializations').classList.add('out');
+
+            setTimeout(function() {
+                window.location = "interactive_media.html";
+            }, delay);
+        }
+    </script>
 </body>
 
 </html>

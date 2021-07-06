@@ -37,14 +37,10 @@ $background-opacity: 0.8;
 }
 
 #im-bg {
-    // background: url(../img/asset_3.png);
-    // position: fixed;
-    // background-size: 90vh;
-    // background-repeat: no-repeat;
-    // background-position-x: 53%;
-    // background-position-y: -5%;
-    background-color: $dark-blue;
-    //height: 100%;
+    // animation-name: toDbPink;
+    // animation-duration: 3s;
+    // animation-fill-mode: forwards;
+    background-image: linear-gradient(to bottom right, $dark-blue, $blue, $pink-color);
 }
 
 // #d-blue {
@@ -112,7 +108,7 @@ $background-opacity: 0.8;
         opacity: 1;
         border: 3px solid $teal; /////////////////////////////////////////FIX TEXT VISIBILITY
         .im-card-text,
-        .gd-card-text,
+        .ma-card-text,
         .sa-card-text {
             opacity: 1;
         }
@@ -193,6 +189,13 @@ $background-opacity: 0.8;
     // @include easeOut;
 }
 
+@mixin shown {
+    display: inline;
+    visibility: visible;
+    opacity: 1;
+    //@include easeOut;
+}
+
 //LINE SETTINGS---------------------------------------------------------
 @mixin line {
     width: 80%;
@@ -210,38 +213,35 @@ $background-opacity: 0.8;
 
 @mixin tab {
     width: 100%;
-    height: 3vh;
+    display: flex;
     z-index: 3;
     background-color: $teal;
 }
 
 //TEXT SETTINGS---------------------------------------------------------
 @mixin specText {
-    //height: 100%;
     width: 100%;
-    //text-align: center;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
-    ////
-    //align-content: center; 
-    //padding-top: 8.5vh; IF CENTERED
-    //padding-bottom: 0; IF CENTERED
     padding: 0px 10px 0px 10px;
-    ////
-    //background-color: rgba(darken($dark-blue, 5), $background-opacity);
     border-radius: 10px;
     opacity: 0;
-    // &:hover {
-    //     opacity: 1;
-    //     //border: 3px solid $teal;
-    //     @include easeOut;
-    // }
     h3 {
         font-weight: 700;
         font-size: 1rem;
     }
+}
+
+//ANIMATION SETTINGS---------------------------------------------------
+@mixin hide {
+    opacity: 0;
+    @include easeOut;
+    visibility: hidden;
+}
+
+@mixin hidden {
+    opacity: 0;
+    @include easeOut;
+    visibility: hidden;
+    display: none;
 }
 
 @keyframes bjork {
@@ -267,6 +267,19 @@ $background-opacity: 0.8;
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes toDbPink {
+    0% {
+        background-image: linear-gradient(to bottom right, $dark-blue, $blue, $pink-color);
+        // visibility: visible;
+    }
+    50% {
+        background-image: linear-gradient(to bottom right, $dark-blue, $blue, $blue, $pink-color);
+    }
+    100% {
+        background-image: linear-gradient(to bottom right, $blue, $pink-color);
     }
 }
 

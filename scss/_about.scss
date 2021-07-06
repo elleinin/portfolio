@@ -1,0 +1,413 @@
+#about {
+    width: 100%;
+    .wrapper {
+        @include dualCard;
+        @include easeOut;
+        display: grid;
+        min-height: 410px;
+        grid-template-areas: 'about spec';
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3vw;
+        &.out {
+            gap: 0vw;
+            //@include easeOut;
+        }
+        a {
+            color: inherit;
+        }
+        //mobile
+        .button {
+            @include button;
+            visibility: hidden;
+        }
+        .disclaimer {
+            visibility: hidden;
+        } //mobile
+        .about-card {
+            background-color: rgba(darken($dark-blue, 5), $background-opacity);
+            padding: 3vh 3vw 3vh 3vw;
+            //background-color: $dark-blue;
+            grid-area: about;
+            width: 100%;
+            height: 100%;
+            min-height: 430px;
+            max-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            //align-items: center;
+            border-radius: 10px;
+            .bio-image {
+                margin: 15px 0px 10px 0px;
+                align-self: center;
+                height: 88px;
+                width: 88px;
+                border-radius: 50%;
+                border: $teal 1px solid;
+            }
+            p {
+                //line-height: 16px;
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+            &.desc {
+                margin-bottom: 10px;
+            }
+        }
+        .specializations {
+            grid-area: spec;
+            display: grid;
+            grid-template-areas: 'im' 'gd' 'il';
+            grid-template-rows: repeat(3, 1fr);
+            width: 100%;
+            height: 100%;
+            gap: 3vh;
+            text-align: center;
+            transition: 1.5s ease-in-out;
+            &.out {
+                gap: 0vh;
+                //@include easeOut;
+            }
+            .im-card {
+                grid-area: im;
+                background: url('../img/asset_3.png');
+                background-size: 80%;
+                background-repeat: no-repeat;
+                background-position: center;
+                // background-position-x: 4.5vw;
+                // background-position-y: calc(50% + .8vh);
+            }
+            .ma-card {
+                grid-area: gd;
+                background: url('../img/asset_1.png');
+                background-size: 200%;
+                background-repeat: no-repeat;
+                background-position: center;
+                // background-position-x: 50%;
+                // background-position-y: calc(50% - .5vh);
+            }
+            .sa-card {
+                grid-area: il;
+                background: url('../img/asset_2.png');
+                background-size: 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+                // background-position-x: 50%;
+                // background-position-y: calc(50% + 1vh);
+            }
+            .im-card,
+            .ma-card,
+            .sa-card {
+                @include specCard;
+                &-text {
+                    @include specText;
+                }
+                .spec-card {
+                    @include specOverlay;
+                }
+            }
+        }
+    }
+}
+
+//------------------------------
+//------INTERACTIVE MEDIA-------
+//------------------------------
+#im {
+    .wrapper {
+        @include dualCard;
+        animation-name: gameIn;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        min-height: 410px;
+        background-color: rgba(darken($blue, 5), $background-opacity);
+        border-radius: 5px;
+        display: flex;
+        contain: strict;
+        .directional,
+        .functional {
+            height: 100%;
+            width: 17%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .gamescreen {
+            align-self: center;
+            height: 80%;
+            width: 66%;
+            background-color: rgba(darken($dark-blue, 5), $background-opacity);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            &-start {
+                @include hidden;
+                img {
+                    height: 60vh;
+                    &:hover {
+                        animation-name: spiral;
+                        animation-duration: 5s;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: linear;
+                    }
+                }
+                h3 {
+                    text-align: center;
+                    align-self: center;
+                    transform: translateY(-8vh);
+                    //position: ab;
+                    z-index: 3;
+                }
+                &.show {
+                    @include shown;
+                }
+            }
+            &-info {
+                padding: 20px;
+                height: 100%;
+                width: 100%;
+                @include hidden;
+                &.show {
+                    @include shown;
+                }
+                &-im,
+                &-web,
+                &-gd,
+                &-dg {
+                    width: 100%;
+                    height: 50%;
+                    @include hidden;
+                    &.show {
+                        @include shown;
+                    }
+                }
+                &-web {
+                    .container {
+                        height: 25%;
+                        width: 100%;
+                        overflow-y: scroll;
+                        margin-top: -5px;
+                        padding-top: -10px;
+                        line-height: 16px;
+                    }
+                    .wp-frontend,
+                    .wp-uiux,
+                    .wp-api,
+                    .wp-datavis {
+                        margin: 0;
+                        font-size: .75rem;
+                        @include hidden;
+                        @include easeOut;
+                        &.show {
+                            @include shown;
+                            @include easeOut;
+                        }
+                    }
+                    .selection {
+                        margin-right: 4vw;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        color: $teal;
+                        line-height: 0;
+                        .wp {
+                            padding: 10px;
+                            &:hover,
+                            &.cursor {
+                                color: $pink-color;
+                                @include easeOut;
+                            }
+                            &.current {
+                                border: $pink-color 1px solid;
+                            }
+                        }
+                        div {
+                            height: 1px;
+                            width: 3vw;
+                            background-color: $teal;
+                        }
+                    }
+                }
+                &-gd {
+                    .temp {
+                        //TEMPORARY CONTAINER; CLEAN LATER
+                        max-height: 25%;
+                        overflow-y: scroll;
+                    }
+                }
+                .semiline {
+                    height: 3px;
+                    width: 12vw;
+                    background-color: $teal;
+                }
+                .pinklight {
+                    line-height: 0;
+                    margin-bottom: 18px;
+                }
+                .gameselection {
+                    width: 100%;
+                    height: 35%;
+                    display: flex;
+                    flex-direction: row;
+                    .prev {
+                        //background-color: rgba(darken($pink-color, 5), $background-opacity);
+                        height: 88px;
+                        width: 88px;
+                        margin: 10px;
+                        //padding: 30px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        @include easeOut;
+                        &:hover,
+                        &.cursor {
+                            background-color: $pink-color;
+                            @include easeOut;
+                        }
+                        &.current {
+                            border: $teal 2px solid;
+                            @include easeOut;
+                        }
+                        img {
+                            height: 80px;
+                        }
+                        &.more {
+                            border-radius: 50%;
+                        }
+                    }
+                }
+                .toolselection {
+                    width: 100%;
+                    height: 15%;
+                    //display: flex;
+                    flex-direction: row;
+                    contain: strict;
+                    overflow: hidden;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    margin: 0;
+                    display: none;
+                    &.show {
+                        @include shown;
+                    }
+                    .tool {
+                        display: flex;
+                        flex-direction: column;
+                        text-align: center;
+                        // p {
+                        //     @include hidden;
+                        //     line-height: 0;
+                        //     font-size: 9px;
+                        // }
+                        &:hover,
+                        &.current {
+                            color: $teal;
+                            @include easeOut;
+                            // p {
+                            //     @include shown;
+                            // }
+                        }
+                    }
+                }
+            }
+            &-web {
+                @include hidden;
+                height: 100%;
+                width: 100%;
+                padding: 20px;
+                .pinklight {
+                    line-height: 0;
+                }
+                &.show {
+                    @include shown;
+                    h1 {
+                        font-weight: 400;
+                    }
+                }
+                .container {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    z-index: 1;
+                }
+            }
+        }
+        .gamepad-btn {
+            &.a,
+            &.b,
+            .up,
+            .left,
+            .down,
+            .right {
+                &:hover {
+                    border: $teal 2px solid;
+                    transition: ease-in-out 2s;
+                }
+            }
+            &.a,
+            &.b {
+                background-color: $pink-color;
+                display: flex;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                // position: absolute;
+            }
+            .left {
+                background-color: $pink-color;
+                height: 30px;
+                width: 45px;
+                transform: translateX(2px);
+                border-radius: 10% 50% 50% 10%;
+            }
+            .right {
+                background-color: $pink-color;
+                height: 30px;
+                width: 45px;
+                transform: translateX(-2px);
+                border-radius: 50% 10% 10% 50%;
+            }
+            .up {
+                background-color: $pink-color;
+                height: 45px;
+                width: 30px;
+                transform: translateY(-5px);
+                border-radius: 10% 10% 50% 50%;
+            }
+            .down {
+                background-color: $pink-color;
+                height: 45px;
+                width: 30px;
+                transform: translateY(5px);
+                border-radius: 50% 50% 10% 10%;
+            }
+            &.b {
+                transform: translateY(-30px);
+            }
+            &.a {
+                transform: translateY(30px);
+            }
+        }
+    }
+}
+
+@keyframes gameIn {
+    0% {
+        background-color: rgba(darken($dark-blue, 5), $background-opacity);
+        // visibility: visible;
+    }
+    10% {
+        background-color: $dark-blue;
+    }
+    100% {
+        background-color: rgba(darken($blue, 5), $background-opacity);
+    }
+}

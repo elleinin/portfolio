@@ -1,4 +1,6 @@
-//business card and flip
+//DEBUG
+//21.06.30 - Card hover not working
+//HOME PAGE INFO CARD
 .card {
     @include centerCard;
     background-color: $dark-blue;
@@ -8,6 +10,33 @@
     transition: 2s ease-out;
     &:hover {
         border: 3px solid $blue;
+    }
+    &-title {
+        margin-top: 2.5vh;
+    }
+    &-subtitle {
+        font-weight: 400;
+        margin-top: 7vh;
+    }
+    &-text {
+        font-weight: 400;
+    }
+    &-line {
+        @include line;
+        height: 3px;
+        background: $pink-color;
+    }
+    &-icons {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        a {
+            padding: 0rem 0.5rem 0.5rem 0.5rem;
+            &:hover {
+                color: $blue;
+                @include easeOut;
+            }
+            color: $pink-color;
+        }
     }
     &.flip {
         transform: rotateY(180deg);
@@ -21,34 +50,50 @@
         @include easeOut;
         transition-delay: 1s;
         &.hidden {
-            opacity: 0;
-            //transform: translateX(800px);
-            @include easeOut;
-            transition-delay: 0s;
-            visibility: hidden;
+            @include hidden;
         }
     }
 }
 
+//HOME PAGE NAV
 .card-nav {
-    visibility: hidden;
+    @include centerCard;
+    font-weight: 700;
+    display: flex;
+    font-size: 1.5rem;
+    text-align: center;
+    list-style: none;
+    @include hidden;
     &.show {
+        display: inline;
         visibility: visible;
-    }
-    .nav-item {
-        //animation-name: card-in;
-        opacity: 0;
-        @include easeOut;
-        &.show {
-            visibility: visible;
-            //opacity: 0;
-            //animation-name: cardIn;
-            transition-duration: 2s;
+        animation-name: cardIn;
+        animation-delay: 1.5s;
+        animation-duration: 3s;
+        transition: ease-in-out;
+        animation-fill-mode: forwards;
+        &:hover {
+            border: 3px solid $blue;
             @include easeOut;
-            transition-delay: 1.5s;
-            opacity: 1;
         }
+    }
+    .nav-items {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
         .nav-link {
+            padding: 1vh;
+            font-size: 20px;
+            padding: 1re, 0;
+            font-weight: 300;
+            color: white;
+            text-decoration: none;
+            &:hover {
+                color: $pink-color;
+            }
             &.current {
                 color: $pink-color;
             }

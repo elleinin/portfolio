@@ -1,8 +1,13 @@
+//IMPROVEMENTS THAT CAN BE MADE
+//Clean code
+//Uniform transitions under config
+//Prettify Navbar
 @import 'config';
 @import 'card';
 @import 'specs';
 @import 'menu';
 @import 'mobile';
+@import 'about';
 * {
     box-sizing: border-box;
 }
@@ -18,28 +23,28 @@ body {
     line-height: 1.5;
 }
 
-//headings
+//FONT AND TEXT SETTINGS------------------------------
 h1,
 h2,
 h3 {
     margin: 0;
-    &.card-title {
-        font-size: 3rem;
-        //text-align: center;
-        //font-weight: 400;
-    }
-    &.card-subtitle {
-        font-size: 1.5rem;
-        font-weight: 400;
-        //max-width: 200px;
-        margin-top: 6.5vh;
-        //text-align: center;
-        //margin-left: 4px;
-    }
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
 p {
-    font-size: 11px;
+    font-size: .75rem;
     &.pinklight {
         padding-top: 10px;
         //padding-bottom: 10px;
@@ -52,15 +57,6 @@ a {
     &.spec-direc {
         color: white;
     }
-    //color: white;
-    // .card-icons {
-    //     color: $pink-color;
-    // }
-    // .abt-icons {
-    //     .fab {
-    //         color: white;
-    //     }
-    // }
 }
 
 .desc {
@@ -80,16 +76,6 @@ a {
     }
 }
 
-.card-icons {
-    .fab {
-        &:hover {
-            color: $blue;
-            @include easeOut;
-        }
-        color: $pink-color;
-    }
-}
-
 header {
     position: fixed;
     z-index: 2; //bigger number = more front
@@ -106,53 +92,10 @@ main {
     overflow: hidden; //no scrollbars
     //display: flex;
     //align-items: center;
-    .card-line {
-        @include line;
-        height: 3px;
-        background: $pink-color;
-    }
     .abt-line {
         @include line;
         height: 2px;
         background: $teal;
-    }
-    .card-icons {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        a {
-            padding: 0rem 0.5rem 0.5rem 0.5rem;
-            &:hover {
-                color: $blue;
-                @include easeOut();
-            }
-        }
-    }
-    .card-nav {
-        @include centerCard;
-        font-weight: 700;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        text-align: center;
-        list-style: none;
-        @include easeOut;
-        //margin: 0 auto;
-        // position: fixed;
-        //margin: 10vh 33vw 10vh 33vw;
-        .nav-link {
-            display: inline-block;
-            font-size: 20px;
-            padding: 1re, 0;
-            font-weight: 300;
-            color: white;
-            text-decoration: none;
-            @include easeOut;
-            &:hover {
-                color: $pink-color;
-            }
-        }
     }
     &#home,
     &#about {
@@ -163,399 +106,565 @@ main {
 //------------------------------------------------------------
 // A B O U T // 
 //------------------------------------------------------------
-#about {
-    width: 100%;
-    .wrapper {
-        .eks {
-            position: fixed;
-            //left: -10px;
-            top: 5vh;
-            z-index: 3;
-        }
-        &-main,
-        &-im {
-            @include dualCard;
-            //overflow: hidden;
-            display: grid;
-            visibility: hidden;
-            opacity: 0;
-            transition: 1.5s ease-in-out;
-            min-height: 410px;
-            &.show {
-                visibility: visible;
-                opacity: 1;
-                //gap: 3vw;
-                .specializations {
-                    gap: 3vh;
-                }
-            }
-            h1 {
-                line-height: 2.125rem;
-            }
-        }
-        &-im {
-            background-color: rgba(darken($dark-blue, 5), $background-opacity);
-            border-radius: 10px;
-            grid-template-areas: 'desc info';
-            grid-template-columns: repeat(2, 1fr);
-            gap: 5vw;
-            padding: 6vh 3vw 4vh 3vw;
-            //padding: 30px;
-            .im-icons {
-                size: 30px;
-                margin: auto;
-            }
-            .gamepad {
-                // display: flex;
-                // flex-direction: row;
-                display: grid;
-                grid-template-areas: 'direc direc b a';
-                grid-template-columns: repeat(4, 1fr);
-                .directional {
-                    grid-area: direc;
-                }
-                &-btn {
-                    background-color: $blue;
-                    &:hover {
-                        border: $teal 1px solid;
-                        @include easeOut;
-                    }
-                    &.a,
-                    &.b {
-                        display: flex;
-                        height: 38px;
-                        width: 38px;
-                        border-radius: 50%;
-                        align-items: center;
-                        justify-content: center;
-                        // position: absolute;
-                    }
-                    &.left,
-                    &.right,
-                    &.up,
-                    &.down {
-                        position: absolute;
-                    }
-                    &.up {
-                        transform: translate(55px, 20px);
-                        height: 45px;
-                        width: 30px;
-                        border-radius: 10% 10% 50% 50%;
-                    }
-                    &.down {
-                        height: 45px;
-                        width: 30px;
-                        transform: translate(55px, 80px);
-                        border-radius: 50% 50% 10% 10%;
-                    }
-                    &.left {
-                        height: 30px;
-                        width: 45px;
-                        transform: translate(10px, 60px);
-                        border-radius: 10% 50% 50% 10%;
-                    }
-                    &.right {
-                        height: 30px;
-                        width: 45px;
-                        transform: translate(85px, 60px);
-                        border-radius: 50% 10% 10% 50%;
-                    }
-                    &.a {
-                        grid-area: a;
-                        margin-left: 20%;
-                        margin-top: 38%;
-                    }
-                    &.b {
-                        grid-area: b;
-                        margin-left: 50%;
-                        margin-top: 80%;
-                    }
-                    // &.a,
-                    // &.b {
-                    //     &:hover {
-                    //         border: $teal 1px solid;
-                    //         @include easeOut;
-                    //     }
-                    // }
-                }
-            }
-            .gamescreen {
-                height: 66%;
-                min-height: 200px;
-                max-height: 40vh;
-                width: 100%;
-                background-color: $blue;
-                border-radius: 20px;
-                //overflow: hidden;
-            }
-            .im {
-                &-desc {
-                    grid-area: desc;
-                    display: flex;
-                    flex-direction: column;
-                    // contain: strict;
-                    &-icons {
-                        @include led;
-                        @include easeOut;
-                        .semiline {
-                            @include semiline;
-                            background-color: $teal;
-                        }
-                        .tools {
-                            display: flex;
-                            flex-direction: row;
-                            flex-wrap: wrap;
-                            align-items: center;
-                            justify-content: space-between;
-                            align-content: center;
-                            i {
-                                margin: 30px 3px 0px 3px;
-                            }
-                        }
-                        &.show {
-                            @include show;
-                            overflow-y: scroll;
-                            //overflow-x: hidden;
-                        }
-                    }
-                    &-start {
-                        @include led;
-                        z-index: 2;
-                        .semiline {
-                            @include semiline;
-                            background-color: $teal;
-                        }
-                        p {
-                            padding-right: 10px;
-                        }
-                        //@include easeOut;
-                        &.show {
-                            @include show;
-                            overflow-y: scroll;
-                            //overflow-x: hidden;
-                        }
-                    }
-                    &-web {
-                        @include led;
-                        z-index: 2;
-                        .semiline {
-                            @include semiline;
-                            background-color: $teal;
-                        }
-                        p {
-                            padding-right: 10px;
-                        }
-                        //@include easeOut;
-                        &.show {
-                            @include show;
-                            overflow-y: scroll;
-                            //overflow-x: hidden;
-                        }
-                    }
-                    &-gd {
-                        @include led;
-                        z-index: 2;
-                        .semiline {
-                            @include semiline;
-                            background-color: $teal;
-                        }
-                        p {
-                            padding-right: 10px;
-                        }
-                        //@include easeOut;
-                        &.show {
-                            @include show;
-                            overflow-y: scroll;
-                            //overflow-x: hidden;
-                        }
-                    }
-                }
-                &-info {
-                    grid-area: info;
-                    width: 100%;
-                    &-head {
-                        margin-bottom: 5px;
-                    }
-                    // &-subhead {
-                    //     text-align: right;
-                    // }
-                    &-subhead {
-                        font-weight: 400;
-                    }
-                    p {
-                        text-align: justify;
-                    }
-                }
-            }
-        }
-        &-main {
-            grid-template-areas: 'about spec';
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0vw;
-            h3 {
-                font-size: 1.2rem;
-            }
-            //overflow: hidden;
-            &.show {
-                gap: 3vw;
-            }
-            .button {
-                @include button;
-                visibility: hidden;
-            }
-            .disclaimer {
-                visibility: hidden;
-            }
-            .about-card {
-                background-color: rgba(darken($dark-blue, 5), $background-opacity);
-                padding: 3vh 3vw 3vh 3vw;
-                //background-color: $dark-blue;
-                grid-area: about;
-                width: 100%;
-                height: 100%;
-                min-height: 430px;
-                max-height: 70vh;
-                display: flex;
-                flex-direction: column;
-                //align-items: center;
-                border-radius: 10px;
-                .bio-image {
-                    margin: 15px 0px 10px 0px;
-                    align-self: center;
-                }
-                & p {
-                    //line-height: 16px;
-                    margin-bottom: 5px;
-                    margin-top: 5px;
-                }
-                &.desc {
-                    margin-bottom: 10px;
-                }
-            }
-            .specializations {
-                grid-area: spec;
-                display: grid;
-                grid-template-areas: 'im' 'gd' 'il';
-                grid-template-rows: repeat(3, 1fr);
-                width: 100%;
-                height: 100%;
-                gap: 0vh;
-                text-align: center;
-                transition: 1.5s ease-in-out;
-                // border-radius: 8%;
-                // & h2,
-                // .im-card-text {
-                //     height: 100%;
-                //     width: 100%;
-                //     //padding-top: 8.5vh; IF CENTERED
-                //     //padding-bottom: 0; IF CENTERED
-                //     padding-top: 20px;
-                //     background-color: rgba(darken($dark-blue, 5), $background-opacity);
-                //     border-radius: 30px;
-                //     opacity: 0;
-                //     &:hover {
-                //         opacity: 1;
-                //         @include easeOut;
-                //     }
-                // }
-                .im-card {
-                    grid-area: im;
-                    background: url('../img/asset_3.png');
-                    background-size: 80%;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    // background-position-x: 4.5vw;
-                    // background-position-y: calc(50% + .8vh);
-                }
-                .gd-card {
-                    grid-area: gd;
-                    background: url('../img/asset_1.png');
-                    background-size: 200%;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    // background-position-x: 50%;
-                    // background-position-y: calc(50% - .5vh);
-                }
-                .sa-card {
-                    grid-area: il;
-                    background: url('../img/asset_2.png');
-                    background-size: 70%;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    // background-position-x: 50%;
-                    // background-position-y: calc(50% + 1vh);
-                }
-                .im-card,
-                .gd-card,
-                .sa-card {
-                    @include specCard;
-                    &-text {
-                        @include specText;
-                    }
-                    .spec-card {
-                        @include specOverlay;
-                    }
-                }
-            }
-            .bio-image {
-                height: 88px;
-                width: 88px;
-                border-radius: 50%;
-                border: $teal 1px solid;
-            }
-        }
-    }
-    .im-tv {
-        @include tv;
-        left: 66vw;
-        top: 60vh;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        //align-content: center;
-        //justify-content: center;
-        // background-image: url(../img/asset_3.png); //fix asset and then rotate on hover
-        // background-repeat: no-repeat;
-        // background-size: 70%;
-        // background-position: center;
-        .tab {
-            @include tab;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            p {
-                color: $blue;
-                font-size: 1rem;
-                font-weight: 700;
-                //margin: auto;
-                margin-right: 8px;
-                // margin-bottom: 
-                align-self: flex-end;
-            }
-            &:hover {
-                border: $pink-color 1px solid;
-                p {
-                    color: $pink-color;
-                }
-                @include easeOut;
-            }
-        }
-        img {
-            position: absolute;
-            height: 103%;
-            align-self: center;
-            z-index: 1;
-            &:hover {
-                animation-name: spiral;
-                animation-duration: 5s;
-                animation-iteration-count: infinite;
-                animation-timing-function: linear;
-            }
-        }
-    }
-}
-
+// #about {
+//     width: 100%;
+//     .wrapper {
+//         .eks {
+//             position: fixed;
+//             //left: -10px;
+//             top: 5vh;
+//             z-index: 3;
+//         }
+//         &-main,
+//         &-im {
+//             @include dualCard;
+//             //overflow: hidden;
+//             display: grid;
+//             visibility: hidden;
+//             opacity: 0;
+//             transition: 1.5s ease-in-out;
+//             min-height: 410px;
+//             &.show {
+//                 visibility: visible;
+//                 opacity: 1;
+//                 //gap: 3vw;
+//                 .specializations {
+//                     gap: 3vh;
+//                 }
+//             }
+//         }
+//         &-ma {
+//             @include dualCard;
+//             //overflow: hidden;
+//             visibility: hidden;
+//             opacity: 0;
+//             transition: 1.5s ease-in-out;
+//             min-height: 410px;
+//             &.show {
+//                 visibility: visible;
+//                 opacity: 1;
+//                 //gap: 3vw;
+//                 .specializations {
+//                     gap: 3vh;
+//                 }
+//             }
+//             background-color: $dark-blue;
+//             border-radius: 10px;
+//             contain: strict;
+//             .window {
+//                 @include tab;
+//                 justify-content: space-between;
+//                 height: 30px;
+//                 .tab {
+//                     padding-left: 20px;
+//                     flex-grow: 1;
+//                     border: $dark-blue solid 0.5px;
+//                     &.current {
+//                         background-color: $blue;
+//                     }
+//                     &:hover {
+//                         background-color: $pink-color;
+//                         @include easeOut;
+//                     }
+//                 }
+//             }
+//             .ma-gd,
+//             .ma-ux,
+//             .ma-pd {
+//                 display: none;
+//                 opacity: 0;
+//                 &.show {
+//                     display: inline;
+//                     opacity: 1;
+//                     @include easeOut;
+//                 }
+//             }
+//             .ma-gd {
+//                 .container {
+//                     width: 100%;
+//                     height: 100%;
+//                     position: fixed;
+//                     display: flex;
+//                     flex-direction: column;
+//                     align-items: center;
+//                     justify-content: center;
+//                     img {
+//                         height: 70%;
+//                         margin-left: -70%;
+//                         margin-top: -5%;
+//                     }
+//                     h3,
+//                     p {
+//                         line-height: 20px;
+//                         margin: 0;
+//                     }
+//                 }
+//             }
+//         }
+//         &-im {
+//             background-color: rgba(darken($blue, 5), $background-opacity);
+//             border-radius: 5px;
+//             display: flex;
+//             contain: strict;
+//             .directional,
+//             .functional {
+//                 height: 100%;
+//                 width: 17%;
+//                 display: flex;
+//                 flex-direction: row;
+//                 align-items: center;
+//                 justify-content: center;
+//             }
+//             .gamescreen {
+//                 align-self: center;
+//                 height: 80%;
+//                 width: 66%;
+//                 background-color: rgba(darken($dark-blue, 5), $background-opacity);
+//                 border-radius: 5px;
+//                 display: flex;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 justify-content: center;
+//                 &-start {
+//                     @include hidden;
+//                     img {
+//                         height: 60vh;
+//                         &:hover {
+//                             animation-name: spiral;
+//                             animation-duration: 5s;
+//                             animation-iteration-count: infinite;
+//                             animation-timing-function: linear;
+//                         }
+//                     }
+//                     h3 {
+//                         text-align: center;
+//                         align-self: center;
+//                         transform: translateY(-8vh);
+//                         //position: ab;
+//                         z-index: 3;
+//                     }
+//                     &.show {
+//                         @include shown;
+//                     }
+//                 }
+//                 &-info {
+//                     padding: 20px;
+//                     @include hidden;
+//                     &.show {
+//                         @include shown;
+//                     }
+//                 }
+//             }
+//             .gamepad-btn {
+//                 &.a,
+//                 &.b {
+//                     background-color: $pink-color;
+//                     display: flex;
+//                     height: 50px;
+//                     width: 50px;
+//                     border-radius: 50%;
+//                     align-items: center;
+//                     justify-content: center;
+//                     // position: absolute;
+//                 }
+//                 .left {
+//                     background-color: $pink-color;
+//                     height: 30px;
+//                     width: 45px;
+//                     transform: translateX(2px);
+//                     border-radius: 10% 50% 50% 10%;
+//                 }
+//                 .right {
+//                     background-color: $pink-color;
+//                     height: 30px;
+//                     width: 45px;
+//                     transform: translateX(-2px);
+//                     border-radius: 50% 10% 10% 50%;
+//                 }
+//                 .up {
+//                     background-color: $pink-color;
+//                     height: 45px;
+//                     width: 30px;
+//                     transform: translateY(-5px);
+//                     border-radius: 10% 10% 50% 50%;
+//                 }
+//                 .down {
+//                     background-color: $pink-color;
+//                     height: 45px;
+//                     width: 30px;
+//                     transform: translateY(5px);
+//                     border-radius: 50% 50% 10% 10%;
+//                 }
+//                 &.b {
+//                     transform: translateY(-30px);
+//                 }
+//                 &.a {
+//                     transform: translateY(30px);
+//                 }
+//             }
+//         }
+//         // &-im {
+//         //     background-color: rgba(darken($dark-blue, 5), $background-opacity);
+//         //     border-radius: 10px;
+//         //     grid-template-areas: 'desc info';
+//         //     grid-template-columns: repeat(2, 1fr);
+//         //     gap: 5vw;
+//         //     padding: 6vh 3vw 4vh 3vw;
+//         //     //padding: 30px;
+//         //     .im-icons {
+//         //         size: 30px;
+//         //         margin: auto;
+//         //     }
+//         //     .gamepad {
+//         //         // display: flex;
+//         //         // flex-direction: row;
+//         //         display: grid;
+//         //         grid-template-areas: 'direc direc b a';
+//         //         grid-template-columns: repeat(4, 1fr);
+//         //         .directional {
+//         //             grid-area: direc;
+//         //         }
+//         //         &-btn {
+//         //             background-color: $blue;
+//         //             &:hover {
+//         //                 border: $teal 1px solid;
+//         //                 @include easeOut;
+//         //             }
+//         //             &.a,
+//         //             &.b {
+//         //                 display: flex;
+//         //                 height: 38px;
+//         //                 width: 38px;
+//         //                 border-radius: 50%;
+//         //                 align-items: center;
+//         //                 justify-content: center;
+//         //                 // position: absolute;
+//         //             }
+//         //             &.left,
+//         //             &.right,
+//         //             &.up,
+//         //             &.down {
+//         //                 position: absolute;
+//         //             }
+//         //             &.up {
+//         //                 transform: translate(55px, 20px);
+//         //                 height: 45px;
+//         //                 width: 30px;
+//         //                 border-radius: 10% 10% 50% 50%;
+//         //             }
+//         //             &.down {
+//         //                 height: 45px;
+//         //                 width: 30px;
+//         //                 transform: translate(55px, 80px);
+//         //                 border-radius: 50% 50% 10% 10%;
+//         //             }
+//         //             &.left {
+//         //                 height: 30px;
+//         //                 width: 45px;
+//         //                 transform: translate(10px, 60px);
+//         //                 border-radius: 10% 50% 50% 10%;
+//         //             }
+//         //             &.right {
+//         //                 height: 30px;
+//         //                 width: 45px;
+//         //                 transform: translate(85px, 60px);
+//         //                 border-radius: 50% 10% 10% 50%;
+//         //             }
+//         //             &.a {
+//         //                 grid-area: a;
+//         //                 margin-left: 20%;
+//         //                 margin-top: 38%;
+//         //             }
+//         //             &.b {
+//         //                 grid-area: b;
+//         //                 margin-left: 50%;
+//         //                 margin-top: 80%;
+//         //             }
+//         //             // &.a,
+//         //             // &.b {
+//         //             //     &:hover {
+//         //             //         border: $teal 1px solid;
+//         //             //         @include easeOut;
+//         //             //     }
+//         //             // }
+//         //         }
+//         //     }
+//         //     .gamescreen {
+//         //         height: 66%;
+//         //         min-height: 200px;
+//         //         max-height: 40vh;
+//         //         width: 100%;
+//         //         background-color: $blue;
+//         //         border-radius: 20px;
+//         //         //overflow: hidden;
+//         //     }
+//         //     .im {
+//         //         &-desc {
+//         //             grid-area: desc;
+//         //             display: flex;
+//         //             flex-direction: column;
+//         //             // contain: strict;
+//         //             &-icons {
+//         //                 @include led;
+//         //                 @include easeOut;
+//         //                 .semiline {
+//         //                     @include semiline;
+//         //                     background-color: $teal;
+//         //                 }
+//         //                 .tools {
+//         //                     display: flex;
+//         //                     flex-direction: row;
+//         //                     flex-wrap: wrap;
+//         //                     align-items: center;
+//         //                     justify-content: space-between;
+//         //                     align-content: center;
+//         //                     i {
+//         //                         margin: 30px 3px 0px 3px;
+//         //                     }
+//         //                 }
+//         //                 &.show {
+//         //                     @include show;
+//         //                     overflow-y: scroll;
+//         //                     //overflow-x: hidden;
+//         //                 }
+//         //             }
+//         //             &-start {
+//         //                 @include led;
+//         //                 z-index: 2;
+//         //                 .semiline {
+//         //                     @include semiline;
+//         //                     background-color: $teal;
+//         //                 }
+//         //                 p {
+//         //                     padding-right: 10px;
+//         //                 }
+//         //                 //@include easeOut;
+//         //                 &.show {
+//         //                     @include show;
+//         //                     overflow-y: scroll;
+//         //                     //overflow-x: hidden;
+//         //                 }
+//         //             }
+//         //             &-web {
+//         //                 @include led;
+//         //                 z-index: 2;
+//         //                 .semiline {
+//         //                     @include semiline;
+//         //                     background-color: $teal;
+//         //                 }
+//         //                 p {
+//         //                     padding-right: 10px;
+//         //                 }
+//         //                 //@include easeOut;
+//         //                 &.show {
+//         //                     @include show;
+//         //                     overflow-y: scroll;
+//         //                     //overflow-x: hidden;
+//         //                 }
+//         //             }
+//         //             &-gd {
+//         //                 @include led;
+//         //                 z-index: 2;
+//         //                 .semiline {
+//         //                     @include semiline;
+//         //                     background-color: $teal;
+//         //                 }
+//         //                 p {
+//         //                     padding-right: 10px;
+//         //                 }
+//         //                 //@include easeOut;
+//         //                 &.show {
+//         //                     @include show;
+//         //                     overflow-y: scroll;
+//         //                     //overflow-x: hidden;
+//         //                 }
+//         //             }
+//         //         }
+//         //         &-info {
+//         //             grid-area: info;
+//         //             width: 100%;
+//         //             &-head {
+//         //                 margin-bottom: 5px;
+//         //             }
+//         //             // &-subhead {
+//         //             //     text-align: right;
+//         //             // }
+//         //             &-subhead {
+//         //                 font-weight: 400;
+//         //             }
+//         //             p {
+//         //                 text-align: justify;
+//         //             }
+//         //         }
+//         //     }
+//         // }
+//         &-main {
+//             grid-template-areas: 'about spec';
+//             grid-template-columns: repeat(2, 1fr);
+//             gap: 0vw;
+//             h3 {
+//                 font-size: 1.2rem;
+//             }
+//             //overflow: hidden;
+//             &.show {
+//                 gap: 3vw;
+//             }
+//             .button {
+//                 @include button;
+//                 visibility: hidden;
+//             }
+//             .disclaimer {
+//                 visibility: hidden;
+//             }
+//             .about-card {
+//                 background-color: rgba(darken($dark-blue, 5), $background-opacity);
+//                 padding: 3vh 3vw 3vh 3vw;
+//                 //background-color: $dark-blue;
+//                 grid-area: about;
+//                 width: 100%;
+//                 height: 100%;
+//                 min-height: 430px;
+//                 max-height: 70vh;
+//                 display: flex;
+//                 flex-direction: column;
+//                 //align-items: center;
+//                 border-radius: 10px;
+//                 .bio-image {
+//                     margin: 15px 0px 10px 0px;
+//                     align-self: center;
+//                 }
+//                 & p {
+//                     //line-height: 16px;
+//                     margin-bottom: 5px;
+//                     margin-top: 5px;
+//                 }
+//                 &.desc {
+//                     margin-bottom: 10px;
+//                 }
+//             }
+//             .specializations {
+//                 grid-area: spec;
+//                 display: grid;
+//                 grid-template-areas: 'im' 'gd' 'il';
+//                 grid-template-rows: repeat(3, 1fr);
+//                 width: 100%;
+//                 height: 100%;
+//                 gap: 0vh;
+//                 text-align: center;
+//                 transition: 1.5s ease-in-out;
+//                 // border-radius: 8%;
+//                 // & h2,
+//                 // .im-card-text {
+//                 //     height: 100%;
+//                 //     width: 100%;
+//                 //     //padding-top: 8.5vh; IF CENTERED
+//                 //     //padding-bottom: 0; IF CENTERED
+//                 //     padding-top: 20px;
+//                 //     background-color: rgba(darken($dark-blue, 5), $background-opacity);
+//                 //     border-radius: 30px;
+//                 //     opacity: 0;
+//                 //     &:hover {
+//                 //         opacity: 1;
+//                 //         @include easeOut;
+//                 //     }
+//                 // }
+//                 .im-card {
+//                     grid-area: im;
+//                     background: url('../img/asset_3.png');
+//                     background-size: 80%;
+//                     background-repeat: no-repeat;
+//                     background-position: center;
+//                     // background-position-x: 4.5vw;
+//                     // background-position-y: calc(50% + .8vh);
+//                 }
+//                 .ma-card {
+//                     grid-area: gd;
+//                     background: url('../img/asset_1.png');
+//                     background-size: 200%;
+//                     background-repeat: no-repeat;
+//                     background-position: center;
+//                     // background-position-x: 50%;
+//                     // background-position-y: calc(50% - .5vh);
+//                 }
+//                 .sa-card {
+//                     grid-area: il;
+//                     background: url('../img/asset_2.png');
+//                     background-size: 70%;
+//                     background-repeat: no-repeat;
+//                     background-position: center;
+//                     // background-position-x: 50%;
+//                     // background-position-y: calc(50% + 1vh);
+//                 }
+//                 .im-card,
+//                 .ma-card,
+//                 .sa-card {
+//                     @include specCard;
+//                     &-text {
+//                         @include specText;
+//                     }
+//                     .spec-card {
+//                         @include specOverlay;
+//                     }
+//                 }
+//             }
+//             .bio-image {
+//                 height: 88px;
+//                 width: 88px;
+//                 border-radius: 50%;
+//                 border: $teal 1px solid;
+//             }
+//         }
+//     }
+//     // .im-tv {
+//     //     @include tv;
+//     //     left: 66vw;
+//     //     top: 60vh;
+//     //     display: flex;
+//     //     flex-direction: column;
+//     //     overflow: hidden;
+//     //     //align-content: center;
+//     //     //justify-content: center;
+//     //     // background-image: url(../img/asset_3.png); //fix asset and then rotate on hover
+//     //     // background-repeat: no-repeat;
+//     //     // background-size: 70%;
+//     //     // background-position: center;
+//     //     .window {
+//     //         @include tab;
+//     //         flex-direction: column;
+//     //         height: 3vh;
+//     //         justify-content: center;
+//     //         align-content: center;
+//     //         p {
+//     //             color: $blue;
+//     //             font-size: 1rem;
+//     //             font-weight: 700;
+//     //             //margin: auto;
+//     //             margin-right: 8px;
+//     //             // margin-bottom: 
+//     //             align-self: flex-end;
+//     //         }
+//     //         &:hover {
+//     //             border: $pink-color 1px solid;
+//     //             p {
+//     //                 color: $pink-color;
+//     //             }
+//     //             @include easeOut;
+//     //         }
+//     //     }
+//     //     img {
+//     //         position: absolute;
+//     //         height: 103%;
+//     //         align-self: center;
+//     //         z-index: 1;
+//     //         &:hover {
+//     //             animation-name: spiral;
+//     //             animation-duration: 5s;
+//     //             animation-iteration-count: infinite;
+//     //             animation-timing-function: linear;
+//     //         }
+//     //     }
+//     // }
+// }
 //------------------------------------------------------------
 // PLAYGROUND // 
 //------------------------------------------------------------
