@@ -19,7 +19,7 @@ const lineHeader = document.querySelector('.card-line');
 const flipCard = document.querySelector('.card-nav');
 //querySelectorAll selects all and puts it into a Node (like an array)
 const icons = document.querySelectorAll('.card-icons');
-const navItems = document.querySelectorAll('.nav-item');
+const navItems = document.querySelector('.card-nav');
 //BUSINESS CARD SELECTORS---------------------------------------------
 
 //SET INITIAL STATES--------------------------------------------------
@@ -46,7 +46,7 @@ function toggleNavi() {
         lineHeader.classList.add('hidden');
         flipCard.classList.add('show');
         icons.forEach(item => item.classList.add('hidden'));
-        navItems.forEach(item => item.classList.add('show'));
+        navItems.classList.add('show');
 
         //set card state
         flip = true;
@@ -58,7 +58,7 @@ function toggleNavi() {
         lineHeader.classList.remove('hidden');
         flipCard.classList.remove('show');
         icons.forEach(item => item.classList.remove('hidden'))
-        navItems.forEach(item => item.classList.remove('show'));
+        navItems.classList.remove('show');
 
         //set card state
         flip = false;
