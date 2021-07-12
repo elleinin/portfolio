@@ -311,7 +311,8 @@
     position: fixed;
     left: 10vw;
     top: 30vh;
-    border-radius: 10px; }
+    border-radius: 10px;
+    padding: 50px; }
   #home .card-title {
     font-weight: 300;
     margin-top: 2vh; }
@@ -804,23 +805,111 @@
     background-color: rgba(43, 85, 170, 0.8); } }
 
 #portfolio a {
-  color: #ec7787;
-  margin-top: 20px; }
+  color: #ec7787; }
+  #portfolio a:hover {
+    color: #42ddf5;
+    border-bottom: 1px #ec7787 solid;
+    transition: all 1s ease-out; }
 
 #portfolio h2 {
   text-align: center; }
 
 #portfolio .card {
-  overflow-y: scroll; }
+  overflow: hidden;
+  border: none; }
   #portfolio .card section {
+    padding-top: 18vh; }
+  #portfolio .card .container {
+    display: block;
+    overflow-y: scroll;
+    padding: 30px 30px;
     height: 100%;
     width: 100%; }
 
+#portfolio #top {
+  height: 100%;
+  width: 100%;
+  margin: auto; }
+  #portfolio #top .wrapper.body {
+    margin: auto;
+    width: 70%;
+    height: 50px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    position: sticky;
+    top: 0; }
+
 #portfolio #web {
   text-align: left;
-  width: 70%; }
+  width: 100%;
+  display: flex; }
   #portfolio #web p {
     margin: auto; }
+  #portfolio #web img {
+    width: 80%; }
+  #portfolio #web .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    margin: 30px; }
+    #portfolio #web .wrapper div {
+      padding-bottom: 20px; }
+
+#portfolio #mma .wrapper.head {
+  margin: 150px auto;
+  width: 80%; }
+
+#portfolio #mma .wrapper.body {
+  display: flex;
+  flex-direction: column; }
+  #portfolio #mma .wrapper.body h3 {
+    margin-top: 30px;
+    margin-bottom: 100px; }
+
+#portfolio #mma #one {
+  text-align: right; }
+  #portfolio #mma #one img {
+    width: 100%; }
+
+#portfolio #mma #two {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left; }
+  #portfolio #mma #two img {
+    width: 40%; }
+
+#portfolio #mma #three {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end; }
+  #portfolio #mma #three img {
+    width: 30%;
+    margin-left: 3.5vw; }
+
+#portfolio #mma #four img {
+  width: 80%; }
+
+#portfolio #mma #five {
+  display: flex;
+  margin-bottom: 100px; }
+  #portfolio #mma #five img {
+    width: 58%; }
+  #portfolio #mma #five h3 {
+    margin: auto auto; }
+
+#portfolio #ill .wrapper.body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  #portfolio #ill .wrapper.body img {
+    margin: 1vw 1vw;
+    height: 50vh;
+    border-radius: 5px; }
 
 * {
   box-sizing: border-box; }
@@ -1022,7 +1111,8 @@ main {
     position: fixed;
     left: 10vw;
     top: 30vh;
-    border-radius: 10px; }
+    border-radius: 10px;
+    padding: 50px; }
   #home .card-title {
     font-weight: 300;
     margin-top: 2vh; }

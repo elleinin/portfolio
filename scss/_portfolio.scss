@@ -1,23 +1,135 @@
 #portfolio {
     a {
         color: $pink-color;
-        margin-top: 20px;
+        &:hover {
+            color: $teal;
+            border-bottom: 1px $pink-color solid;
+            @include easeOut;
+        }
     }
     h2 {
         text-align: center;
     }
     .card {
-        overflow-y: scroll;
+        overflow: hidden;
+        border: none;
         section {
+            padding-top: 18vh;
+        }
+        .container {
+            display: block;
+            overflow-y: scroll;
+            padding: 30px 30px;
             height: 100%;
             width: 100%;
         }
     }
+    #top {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        .wrapper.body {
+            margin: auto;
+            width: 70%;
+            height: 50px;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: space-evenly;
+            position: sticky;
+            top: 0;
+        }
+    }
     #web {
         text-align: left;
-        width: 70%;
+        width: 100%;
+        display: flex;
         p {
             margin: auto;
+        }
+        img {
+            width: 80%;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-content: center;
+            align-items: center;
+            margin: 30px;
+            div {
+                padding-bottom: 20px;
+            }
+            // &.body {
+            //     a {
+            //         color: white;
+            //     }
+            // }
+        }
+    }
+    #mma {
+        .wrapper.head {
+            margin: 150px auto;
+            width: 80%;
+        }
+        .wrapper.body {
+            display: flex;
+            flex-direction: column;
+            h3 {
+                margin-top: 30px;
+                margin-bottom: 100px;
+            }
+        }
+        #one {
+            img {
+                width: 100%;
+            }
+            text-align: right;
+        }
+        #two {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+            img {
+                width: 40%;
+            }
+        }
+        #three {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            img {
+                width: 30%;
+                margin-left: 3.5vw;
+            }
+        }
+        #four {
+            img {
+                width: 80%;
+            }
+        }
+        #five {
+            display: flex;
+            margin-bottom: 100px;
+            img {
+                width: 58%;
+            }
+            h3 {
+                margin: auto auto;
+            }
+        }
+    }
+    #ill {
+        .wrapper.body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            img {
+                margin: 1vw 1vw;
+                height: 50vh;
+                border-radius: 5px;
+            }
         }
     }
 }
