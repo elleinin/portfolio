@@ -18,6 +18,9 @@
 #im-bg {
   background-image: linear-gradient(to bottom right, #152032, #305fbe, #ec7787); }
 
+#port-bg {
+  background-image: linear-gradient(to top right, #152032, #305fbe, #ec7787); }
+
 @keyframes bjork {
   0% {
     transform: rotate(10deg); }
@@ -42,39 +45,63 @@
   100% {
     background-image: linear-gradient(to bottom right, #305fbe, #ec7787); } }
 
+@keyframes bgOnLoad {
+  0% {
+    background-color: #152032;
+    opacity: 1; }
+  50% {
+    background-color: #152032;
+    opacity: .5; }
+  100% {
+    background-color: #152032;
+    opacity: 0; } }
+
+@keyframes bgOnExit {
+  0% {
+    background-color: #152032;
+    opacity: 0; }
+  50% {
+    background-color: #152032;
+    opacity: .5; }
+  100% {
+    background-color: #152032;
+    opacity: 1; } }
+
 .card {
-  width: 80vw;
-  height: 50vh;
-  min-height: 250px;
+  width: 70vw;
+  height: 70vh;
+  min-height: 380px;
   margin: 0 auto;
   position: fixed;
-  left: 10vw;
-  top: 25vh;
-  padding: 4vh 2vw 4vh 2vw;
-  border-radius: 10px;
+  left: 15vw;
+  top: 15vh;
   background-color: #152032;
   text-align: center;
   border-radius: 20px;
-  transition: 2s ease-out; }
+  transition: 2s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center; }
   .card:hover {
     border: 3px solid #305fbe; }
   .card-title {
-    margin-top: 2.5vh; }
+    font-size: 5vw; }
   .card-subtitle {
     font-weight: 400;
-    margin-top: 7vh; }
+    line-height: 2rem;
+    margin-top: 10px; }
   .card-text {
     font-weight: 400; }
   .card-line {
     width: 80%;
-    margin: auto;
     z-index: 3;
     align-content: center;
     height: 3px;
     background: #ec7787; }
   .card-icons {
-    margin-top: 1rem;
-    margin-bottom: 2rem; }
+    margin-top: 1rem; }
     .card-icons a {
       padding: 0rem 0.5rem 0.5rem 0.5rem;
       color: #ec7787; }
@@ -94,18 +121,16 @@
       display: none; }
 
 .card-nav {
-  width: 80vw;
-  height: 50vh;
-  min-height: 250px;
+  width: 70vw;
+  height: 70vh;
+  min-height: 380px;
   margin: 0 auto;
   position: fixed;
-  left: 10vw;
-  top: 25vh;
-  padding: 4vh 2vw 4vh 2vw;
-  border-radius: 10px;
+  left: 15vw;
+  top: 15vh;
   font-weight: 700;
   display: flex;
-  font-size: 1.5rem;
+  font-size: 4vw;
   text-align: center;
   list-style: none;
   opacity: 0;
@@ -132,7 +157,7 @@
     justify-content: center; }
     .card-nav .nav-items .nav-link {
       padding: 1vh;
-      font-size: 20px;
+      font-size: 2vw;
       padding: 1re, 0;
       font-weight: 300;
       color: white;
@@ -497,21 +522,37 @@
           border-radius: 10px;
           opacity: 0; }
           #about .wrapper .specializations .im-card .spec-card:hover,
+          #about .wrapper .specializations .im-card .spec-card .hovered,
           #about .wrapper .specializations .ma-card .spec-card:hover,
-          #about .wrapper .specializations .sa-card .spec-card:hover {
+          #about .wrapper .specializations .ma-card .spec-card .hovered,
+          #about .wrapper .specializations .sa-card .spec-card:hover,
+          #about .wrapper .specializations .sa-card .spec-card .hovered {
             opacity: 1;
             border: 3px solid #42ddf5;
             transition: all 1s ease-out; }
             #about .wrapper .specializations .im-card .spec-card:hover .im-card-text,
             #about .wrapper .specializations .im-card .spec-card:hover .ma-card-text,
             #about .wrapper .specializations .im-card .spec-card:hover .sa-card-text,
+            #about .wrapper .specializations .im-card .spec-card .hovered .im-card-text,
+            #about .wrapper .specializations .im-card .spec-card .hovered .ma-card-text,
+            #about .wrapper .specializations .im-card .spec-card .hovered .sa-card-text,
             #about .wrapper .specializations .ma-card .spec-card:hover .im-card-text,
             #about .wrapper .specializations .ma-card .spec-card:hover .ma-card-text,
             #about .wrapper .specializations .ma-card .spec-card:hover .sa-card-text,
+            #about .wrapper .specializations .ma-card .spec-card .hovered .im-card-text,
+            #about .wrapper .specializations .ma-card .spec-card .hovered .ma-card-text,
+            #about .wrapper .specializations .ma-card .spec-card .hovered .sa-card-text,
             #about .wrapper .specializations .sa-card .spec-card:hover .im-card-text,
             #about .wrapper .specializations .sa-card .spec-card:hover .ma-card-text,
-            #about .wrapper .specializations .sa-card .spec-card:hover .sa-card-text {
+            #about .wrapper .specializations .sa-card .spec-card:hover .sa-card-text,
+            #about .wrapper .specializations .sa-card .spec-card .hovered .im-card-text,
+            #about .wrapper .specializations .sa-card .spec-card .hovered .ma-card-text,
+            #about .wrapper .specializations .sa-card .spec-card .hovered .sa-card-text {
               opacity: 1; }
+        #about .wrapper .specializations .im-card .abt-line,
+        #about .wrapper .specializations .ma-card .abt-line,
+        #about .wrapper .specializations .sa-card .abt-line {
+          margin: auto; }
 
 #im .wrapper {
   width: 70vw;
@@ -762,6 +803,25 @@
   100% {
     background-color: rgba(43, 85, 170, 0.8); } }
 
+#portfolio a {
+  color: #ec7787;
+  margin-top: 20px; }
+
+#portfolio h2 {
+  text-align: center; }
+
+#portfolio .card {
+  overflow-y: scroll; }
+  #portfolio .card section {
+    height: 100%;
+    width: 100%; }
+
+#portfolio #web {
+  text-align: left;
+  width: 70%; }
+  #portfolio #web p {
+    margin: auto; }
+
 * {
   box-sizing: border-box; }
 
@@ -798,7 +858,8 @@ p {
     color: #ec7787; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  font-style: inherit; }
   a.spec-direc {
     color: white; }
 
@@ -826,13 +887,26 @@ main {
   overflow: hidden; }
   main .abt-line {
     width: 80%;
-    margin: auto;
     z-index: 3;
     align-content: center;
     height: 2px;
     background: #42ddf5; }
   main#home, main#about {
     overflow: hidden; }
+
+.backdrop {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  animation-name: bgOnLoad;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-direction: forwards; }
+  .backdrop.out {
+    animation-name: bgOnExit;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-direction: forwards; }
 
 #redirect .playground {
   width: 80vw;

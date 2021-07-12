@@ -43,6 +43,13 @@ $background-opacity: 0.8;
     background-image: linear-gradient(to bottom right, $dark-blue, $blue, $pink-color);
 }
 
+#port-bg {
+    // animation-name: toDbPink;
+    // animation-duration: 3s;
+    // animation-fill-mode: forwards;
+    background-image: linear-gradient(to top right, $dark-blue, $blue, $pink-color);
+}
+
 // #d-blue {
 //     background-color: $dark-blue;
 // }
@@ -104,7 +111,8 @@ $background-opacity: 0.8;
     justify-content: center;
     border-radius: 10px;
     opacity: 0;
-    &:hover {
+    &:hover,
+    .hovered {
         opacity: 1;
         border: 3px solid $teal; /////////////////////////////////////////FIX TEXT VISIBILITY
         .im-card-text,
@@ -199,7 +207,7 @@ $background-opacity: 0.8;
 //LINE SETTINGS---------------------------------------------------------
 @mixin line {
     width: 80%;
-    margin: auto;
+    // margin: auto;
     z-index: 3;
     align-content: center;
 }
@@ -231,6 +239,20 @@ $background-opacity: 0.8;
 }
 
 //ANIMATION SETTINGS---------------------------------------------------
+@mixin loadBg {
+    animation-name: bgOnLoad;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-direction: forwards;
+}
+
+@mixin outBg {
+    animation-name: bgOnExit;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-direction: forwards;
+}
+
 @mixin hide {
     opacity: 0;
     @include easeOut;
@@ -280,6 +302,36 @@ $background-opacity: 0.8;
     }
     100% {
         background-image: linear-gradient(to bottom right, $blue, $pink-color);
+    }
+}
+
+@keyframes bgOnLoad {
+    0% {
+        background-color: $dark-blue;
+        opacity: 1;
+    }
+    50% {
+        background-color: $dark-blue;
+        opacity: .5;
+    }
+    100% {
+        background-color: $dark-blue;
+        opacity: 0;
+    }
+}
+
+@keyframes bgOnExit {
+    0% {
+        background-color: $dark-blue;
+        opacity: 0;
+    }
+    50% {
+        background-color: $dark-blue;
+        opacity: .5;
+    }
+    100% {
+        background-color: $dark-blue;
+        opacity: 1;
     }
 }
 

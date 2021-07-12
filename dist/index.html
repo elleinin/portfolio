@@ -58,6 +58,7 @@
 
     <main id="home">
         <!-- BUSINESS CARD -->
+        <div class="backdrop"></div>
         <div class="card">
             <h1 class="card-title">
                 N I N I E L L E
@@ -89,10 +90,10 @@
                 <a href="index.html" class="nav-link current">
                     H O M E
                 </a>
-                <a href="about.html" class="nav-link">
+                <div class="nav-link" onclick='aboutRedirect();'>
                     A B O U T
-                </a>
-                <a href="redirect.html" class="nav-link">
+                </div>
+                <a href="portfolio.html" class="nav-link">
                     P O R T F O L I O
                 </a>
                 <a href="redirect.html" class="nav-link">
@@ -104,6 +105,25 @@
 
     </main>
     <script src="js/main.js"></script>
+    <script>
+        function aboutRedirect() {
+            var delay = 2000;
+            document.querySelector('.backdrop').classList.add('out');
+            console.log('redirect');
+
+            setTimeout(function() {
+                window.location = "about.html";
+            }, delay);
+        }
+        // function portfolioRedirect() {
+        //     var delay = 1000;
+        //     document.querySelector('.backdrop').classList.add('out');
+
+        //     setTimeout(function() {
+        //         window.location = "portfolio.html";
+        //     }, delay);
+        // }
+    </script>
 
 </body>
 

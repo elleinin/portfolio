@@ -104,6 +104,9 @@
                 .spec-card {
                     @include specOverlay;
                 }
+                .abt-line {
+                    margin: auto;
+                }
             }
         }
     }

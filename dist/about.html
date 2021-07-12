@@ -31,7 +31,7 @@
             <!--list-->
             <ul class="menu-nav">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">
+                    <a class="nav-link" onclick='homeRedirect();'>
                         Home
                     </a>
                 </li>
@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="redirect.html" class="nav-link">
+                    <a class="nav-link" onclick='portfolioRedirect();'>
                         Portfolio
                     </a>
                 </li>
@@ -59,6 +59,7 @@
 
     <main id="about">
         <!-- MAIN ABOUT -->
+        <div class="backdrop"></div>
         <div class="wrapper out">
             <div class="about-card">
                 <img src="img/profile_pic.png" alt="" class="bio-image">
@@ -130,16 +131,50 @@
         window.addEventListener('DOMContentLoaded', (event) => {
             document.querySelector('.wrapper').classList.remove('out');
             document.querySelector('.specializations').classList.remove('out');
+
+            //function mobTransitions();
         });
 
         function imRedirect() {
             var delay = 1000;
             document.querySelector('.wrapper').classList.add('out');
             document.querySelector('.specializations').classList.add('out');
-
+            document.querySelector('.backdrop').classList.add('out');
             setTimeout(function() {
                 window.location = "interactive_media.html";
             }, delay);
+        }
+
+        function homeRedirect() {
+            var delay = 1000;
+            document.querySelector('.wrapper').classList.add('out');
+            document.querySelector('.specializations').classList.add('out');
+            document.querySelector('.backdrop').classList.add('out');
+            setTimeout(function() {
+                window.location = "index.html";
+            }, delay);
+        }
+
+        function portfolioRedirect() {
+            var delay = 1000;
+            document.querySelector('.wrapper').classList.add('out');
+            document.querySelector('.specializations').classList.add('out');
+            document.querySelector('.backdrop').classList.add('out');
+            setTimeout(function() {
+                window.location = "portfolio.html";
+            }, delay);
+        }
+
+
+        if (document.documentElement.clientWidth < 751) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('hovered');
+                    }
+                });
+            });
+            observer.observe(document.querySelector('.spec-card'));
         }
     </script>
 </body>

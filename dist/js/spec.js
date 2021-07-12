@@ -236,7 +236,13 @@ function rotateGame(show, hide) {
 function toggleB() {
     console.log('b');
     if (icon[0]) {
-        window.location.href = 'about.html';
+        var delay = 1000;
+        document.querySelector('.backdrop').classList.add('out');
+        console.log('redirect');
+
+        setTimeout(function() {
+            window.location = "about.html";
+        }, delay);
     } else if (catalog) {
         for (let i = 0; i < 4; i++) {
             if (icon[i]) {

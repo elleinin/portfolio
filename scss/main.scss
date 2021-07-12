@@ -8,6 +8,7 @@
 @import 'menu';
 @import 'mobile';
 @import 'about';
+@import 'portfolio';
 * {
     box-sizing: border-box;
 }
@@ -54,6 +55,7 @@ p {
 
 a {
     text-decoration: none;
+    font-style: inherit;
     &.spec-direc {
         color: white;
     }
@@ -100,6 +102,16 @@ main {
     &#home,
     &#about {
         overflow: hidden;
+    }
+}
+
+.backdrop {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    @include loadBg;
+    &.out {
+        @include outBg;
     }
 }
 
