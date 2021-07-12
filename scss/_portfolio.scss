@@ -10,6 +10,32 @@
     h2 {
         text-align: center;
     }
+    .mininav {
+        margin-top: 10vh;
+        margin-left: 30vw;
+        width: 40vw;
+        position: fixed;
+        opacity: 0;
+        @include easeOut;
+        a {
+            width: 400px;
+            text-align: center;
+        }
+        &.show {
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            align-items: center;
+            animation-name: in;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+        }
+        z-index: 5;
+        a {
+            color: white;
+        }
+    }
     .card {
         overflow: hidden;
         border: none;
@@ -36,8 +62,10 @@
             align-content: center;
             align-items: center;
             justify-content: space-evenly;
-            position: sticky;
-            top: 0;
+            a {
+                width: 400px;
+                text-align: center;
+            }
         }
     }
     #web {
@@ -134,13 +162,14 @@
     }
 }
 
-// @keyframes gdbg {
-//     0% {
-//         background-position-y: 0;
-//     }
-//     // 50% {
-//     //     background-position-y: 50%;
-//     // }
-//     100% {
-//         background-position-y: 130%;
-//     }
+@keyframes in {
+    0% {
+        opacity: 0;
+    }
+    // 50% {
+    //     background-position-y: 50%;
+    // }
+    100% {
+        opacity: 1;
+    }
+}

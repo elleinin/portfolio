@@ -25,39 +25,39 @@
         </div>
 
         <nav class="menu">
-            <div class="menu-branding">
-                <div class="portrait"></div>
-            </div>
             <!--list-->
-            <ul class="menu-nav">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item current">
-                    <a href="about.html" class="nav-link">
-                        About Me
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="redirect.html" class="nav-link">
-                        Portfolio
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="redirect.html" class="nav-link">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-
+            <div class="nav-item">
+                <a class="nav-link" onclick='homeRedirect();'>
+                    HOME
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" onclick='aboutRedirect();'>
+                    ABOUT
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link current" onclick='portfolioRedirect();'>
+                    PORTFOLIO
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="redirect.html" class="nav-link">
+                    CONTACT
+                </a>
+            </div>
 
         </nav>
 
     </header>
+
     <main id="portfolio">
         <div class="backdrop"></div>
+        <div class="mininav">
+            <a href='#web' class="web">Web Development</a>
+            <a href='#mma' class="graphic">Multimedia Arts</a>
+            <a href='#ill' class="illustration">Illustration</a>
+        </div>
         <div class="card">
             <div class="container">
                 <section id="top">
@@ -150,6 +150,39 @@
         </div>
     </main>
     <script src="js/menu.js"></script>
+    <script src="js/portfolio.js">
+    </script>
+    <script>
+        function homeRedirect() {
+            var delay = 2000;
+            document.querySelector('.backdrop').classList.add('out');
+            console.log('redirect');
+
+            setTimeout(function() {
+                window.location = "index.html";
+            }, delay);
+        }
+
+        function aboutRedirect() {
+            var delay = 2000;
+            document.querySelector('.backdrop').classList.add('out');
+            console.log('redirect');
+
+            setTimeout(function() {
+                window.location = "about.html";
+            }, delay);
+        }
+
+        function portfolioRedirect() {
+            var delay = 2000;
+            document.querySelector('.backdrop').classList.add('out');
+            console.log('redirect');
+
+            setTimeout(function() {
+                window.location = "portfolio.html";
+            }, delay);
+        }
+    </script>
 </body>
 
 </html>

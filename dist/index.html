@@ -93,7 +93,7 @@
                 <div class="nav-link" onclick='aboutRedirect();'>
                     A B O U T
                 </div>
-                <a href="portfolio.html" class="nav-link">
+                <a onclick='portfolioRedirect();' class="nav-link">
                     P O R T F O L I O
                 </a>
                 <a href="redirect.html" class="nav-link">
@@ -115,14 +115,15 @@
                 window.location = "about.html";
             }, delay);
         }
-        // function portfolioRedirect() {
-        //     var delay = 1000;
-        //     document.querySelector('.backdrop').classList.add('out');
 
-        //     setTimeout(function() {
-        //         window.location = "portfolio.html";
-        //     }, delay);
-        // }
+        function portfolioRedirect() {
+            var delay = 1000;
+            document.querySelector('.backdrop').classList.add('out');
+
+            setTimeout(function() {
+                window.location = "portfolio.html";
+            }, delay);
+        }
     </script>
 
 </body>
