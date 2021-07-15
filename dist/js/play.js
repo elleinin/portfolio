@@ -4,10 +4,10 @@ const ball = document.querySelector('.beachball');
 const dog = document.querySelector('.doggo');
 const bork = document.querySelector('.bork');
 const pet = document.querySelector('.pet');
-//this code is so ugly please clean it----------------
 
 let keep = false;
 let note = false;
+let pat = false;
 
 
 //EVENT LISTENR TO PLAY WITH BALL
@@ -60,7 +60,9 @@ function playBall(e) {
 }
 
 function headPats() {
-    pet.classList.add('show');
+    if (!pat) {
+        pet.classList.add('show');
+    }
 }
 
 function headStops() {

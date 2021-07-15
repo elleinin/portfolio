@@ -782,6 +782,28 @@
 #portfolio h2 {
   text-align: center; }
 
+#portfolio .scrolltop {
+  font-size: 10px;
+  color: white;
+  position: fixed;
+  z-index: 4;
+  transform: rotate(-90deg);
+  left: 7vw;
+  top: 68vh;
+  opacity: 0;
+  display: none; }
+  #portfolio .scrolltop:hover {
+    color: #ec7787;
+    border-bottom: 0px; }
+  #portfolio .scrolltop.show {
+    display: inline;
+    visibility: visible;
+    opacity: 1;
+    animation-name: in;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards; }
+
 #portfolio .mininav {
   margin-top: 10vh;
   margin-left: 30vw;
@@ -1041,17 +1063,19 @@ main {
       animation-duration: 2s; }
   #redirect .playground .pet {
     position: fixed;
-    left: calc(100% - 10vw - 110px);
-    top: calc(100% - 25vh - 110px);
+    left: calc(100% - 10vw - 65px);
+    top: calc(100% - 25vh - 95px);
     color: #ec7787;
     z-index: 3;
     visibility: hidden;
     opacity: 0;
+    height: 16px;
     transition: all 1s ease-out; }
     #redirect .playground .pet.show {
       visibility: visible;
       animation-name: pats;
-      animation-duration: 2s; }
+      animation-duration: 5s;
+      animation-iteration-count: infinite; }
   #redirect .playground .hoop {
     width: 80px;
     height: 80px;
@@ -1066,6 +1090,11 @@ main {
   0% {
     opacity: 0; }
   25% {
+    opacity: 1; }
+  50% {
+    opacity: 1;
+    transform: translateY(-15px); }
+  75% {
     opacity: 1; }
   100% {
     opacity: 0; } }

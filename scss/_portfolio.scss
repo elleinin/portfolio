@@ -10,6 +10,28 @@
     h2 {
         text-align: center;
     }
+    .scrolltop {
+        font-size: 10px;
+        color: white;
+        position: fixed;
+        z-index: 4;
+        transform: rotate(-90deg);
+        left: 7vw;
+        top: 68vh;
+        opacity: 0;
+        display: none;
+        &:hover {
+            color: $pink-color;
+            border-bottom: 0px;
+        }
+        &.show {
+            @include shown;
+            animation-name: in;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+        }
+    }
     .mininav {
         margin-top: 10vh;
         margin-left: 30vw;

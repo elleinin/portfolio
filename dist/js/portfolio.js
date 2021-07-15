@@ -1,4 +1,5 @@
 const topnav = document.querySelector('.mininav');
+const scrolltop = document.querySelector('.scrolltop');
 const sec = document.getElementById('web');
 const mma = document.getElementById('mma');
 const ill = document.getElementById('ill');
@@ -47,9 +48,12 @@ port.addEventListener('mouseover', function() {
 
 function navi() {
     topnav.classList.add('show');
+    scrolltop.classList.add('show');
+
 }
 
 function rnavi() {
     topnav.classList.remove('show');
+    scrolltop.classList.remove('show');
     console.log('why');
 }
