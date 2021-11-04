@@ -5,6 +5,7 @@ const dog = document.querySelector('.doggo');
 const bork = document.querySelector('.bork');
 const pet = document.querySelector('.pet');
 
+
 let keep = false;
 let note = false;
 let pat = false;
