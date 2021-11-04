@@ -1052,6 +1052,14 @@ main {
     left: calc(100% - 10vw - 100px);
     top: calc(100% - 25vh - 100px);
     z-index: 2; }
+  #redirect .playground .butt {
+    height: 30px;
+    width: 100px;
+    background-color: #ec7787;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px; }
   #redirect .playground .bork {
     visibility: hidden;
     opacity: 0;
