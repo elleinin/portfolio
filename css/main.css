@@ -603,6 +603,7 @@
           opacity: 1; }
       #im .wrapper .gamescreen-info-web .container {
         width: 100%;
+        height: 50%;
         margin-top: -5px;
         padding-top: -10px;
         line-height: 16px; }
@@ -655,12 +656,13 @@
         margin-bottom: 18px; }
       #im .wrapper .gamescreen-info .gameselection {
         width: 100%;
-        height: 35%;
+        height: 30%;
         display: flex;
-        flex-direction: row; }
+        flex-direction: row;
+        bottom: 0; }
         #im .wrapper .gamescreen-info .gameselection .prev {
-          height: 88px;
-          width: 88px;
+          height: 70px;
+          width: 70px;
           margin: 10px;
           transition: all 1s ease-out; }
           #im .wrapper .gamescreen-info .gameselection .prev.web, #im .wrapper .gamescreen-info .gameselection .prev.game {
@@ -675,7 +677,7 @@
             border: #42ddf5 2px solid;
             transition: all 1s ease-out; }
           #im .wrapper .gamescreen-info .gameselection .prev img {
-            height: 80px; }
+            height: 60px; }
           #im .wrapper .gamescreen-info .gameselection .prev.more {
             border-radius: 50%; }
       #im .wrapper .gamescreen-info .toolselection {
